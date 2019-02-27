@@ -1,0 +1,116 @@
+nav{
+    height: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 40px;
+}
+nav .logo{
+    height: 60px;
+    width:234px;
+}
+
+nav .search{
+    height: 60px;
+    float: right;
+}
+
+nav .search img{
+    padding-top: 20px;
+}
+
+nav .search form{
+    float:right;
+    position: relative;
+    padding-top: 20px;
+    margin-left: 5px;
+    
+}
+
+.container .content{
+    padding-top: 78px;
+    padding-left:112px;
+    width: 590px;
+    font-family: sans-serif;
+
+}
+
+.partone, .parttwo, .partthree{
+    height: 660px;
+    padding: 0 60px;
+}
+
+.partone .content{
+    float: left;
+}
+
+.content .title{
+    font-size: 50px;
+}
+
+.content .detail{
+    font-size:30px;
+    margin-top:50px;
+}
+
+.content .buttonmore img{
+    margin-top: 72px;
+    width: 130px;
+} 
+
+.partone .bgimg{
+    float: right;
+    margin-top:120px;
+}
+
+.partone .bgimg img{
+    width: 400px;
+}
+
+.parttwo{
+    background-color: #00BFFF;
+    color:white;
+}
+
+.parttwo .iconlist, .partthree .iconlist {
+    margin: 88px auto 0 auto; 
+    height: 212px;
+}
+
+.parttwo .iconlist{
+    width: 1086px;
+}
+
+.parttwo .iconlist table{
+    width: 790px;
+    margin: 0 auto;
+}
+
+.parttwo .iconlist th{
+    margin-right: 48px;
+}
+
+.parttwo .iconlist th img{
+    margin-bottom: 5px;
+}
+
+.partthree .iconlist {
+    width: 780px;
+}
+
+.iconbook, .iconpen{
+    padding: 0 70px;
+    width: 250px;
+}
+
+.footer{
+    --background-color: black;
+    border-top: 2px dashed black;
+    height: 70px;
+}
+
+.footer p{
+    line-height: 70px;
+    text-align: center;
+    vertical-align:middle;
+}
+

@@ -4,91 +4,95 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>曾梦露的博客</title>
+    <title>Melody House</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/clearstyle.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+    <link rel="shortcut icon" href="./img/favicon.png">
+    <link rel="bookmark" href="./img/favicon.png">
     <script src="main.js"></script>
 </head>
 
 <body lang="zh-CN">
     <nav>
         <a class="logo" href="#">
-            <img src="" alt="Nav logo">
+            <img src="./img/logomonkey.png" alt="Nav logo">
         </a>
-        <div class="navbar" id="menu">
-            <ul>
-                <li class="tab">首页</li>
-                <li class="tab">博文</li>
-                <li class="tab">关于作者</li>
-                <li class="search">
+        <div class="search" id="menu">   
+                    <img src="./img/buttonsearch.png" alt="Nav buttonsearch">
                     <form target="_blank" action="/search" accept-charset="utf-8" method="get">
                         <input name="utf8" type="hidden" value="&#X2713;" />
-                        <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input" />
+                        <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="在Melody House中搜索" class="search-input" />
                         <a class="search-btn" href="javascript:void(null)">
                             <i class="icon-search"></i>
                         </a>
                     </form>
-                </li>
-            </ul>
+               
         </div>
-    </nav>>
+    </nav>
 
     <div class="container">
-        <div class="row">
-            <div class="person-pic">
-                <a class="avatar" href="#">
-                    <img src="#" />
-                </a>
-            </div>
-            <div class="title">
-                <a class="name" href="#">曾梦露</a>
-            </div>
-            <div class="person-info">
+        <div class="partone">
+            <div class="content">
                 <ul>
-                    <li>
-                        <div class="meta-block">
-                            <a href="">
-                                <p>0</p>
-                                博文
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="meta-block">
-                            <a href="">
-                                <p>0</p>
-                                收获喜欢
-                            </a>
-                        </div>
-                    </li>
+                    <li class="title">5G技术浅谈</li>
+                    <li class="detail">当今通信技术迅速发展，物联网等新兴场景快速需求增长，5G技术成为战略部署之要务。</li>
+                    <li class="buttonmore"><a href="#"><img src="./img/buttonmore.png" alt="content buttonmore"></a></li>
                 </ul>
             </div>
+            <div class="bgimg">
+                <img src="./img/basestation.png" alt="base station">
+            </div>
         </div>
-    </div>
-
-    <div id="list-container">
-        <ul>
-            <li>
+        <div class="parttwo">
                 <div class="content">
-                    <a class="titlt">Go 语言基础</a>
-                    <p class="abstract">Go是一门新型的编程语言，逐步应用于云计算平台等...</p>
+                    <ul>
+                        <li class="title">Go语言</li>
+                        <li class="detail">自谷歌提出Go语言并将其应用在云计算领域，便开启了Go的时代。</li>
+                    </ul>
                 </div>
-            </li>
-            <li>
-                <div class="content">
-                    <a class="titlt">Go 语言基础</a>
-                    <p class="abstract">Go是一门新型的编程语言，逐步应用于云计算平台等...</p>
+                <div class="iconlist">
+                    <table>
+                        <tr>
+                            <th><img src="./img/goicon1.png" alt="base station"></th>
+                            <th><img src="./img/goicon2.png" alt="base station"></th>
+                            <th><img src="./img/goicon3.png" alt="base station"></th>
+                            <th><img src="./img/goicon4.png" alt="base station"></th>
+                        </tr>
+                        <tr>
+                            <th>基础概述</th>
+                            <th>高级用法</th>
+                            <th>应用实例</th>
+                            <th>其他</th>
+                        </tr>
+                    </table>
                 </div>
-            </li>
-            <li>
-                <div class="content">
-                    <a class="titlt">Go 语言基础</a>
-                    <p class="abstract">Go是一门新型的编程语言，逐步应用于云计算平台等...</p>
-                </div>
-            </li>
-        </ul>
+            </div>
+            <div class="partthree">
+                    <div class=content>
+                        <ul>
+                            <li class="title">读书与随笔</li>
+                        </ul>
+                    </div>
+                    <div class="iconlist">
+                            <table>
+                                <tr>
+                                    <th><img class="iconbook" src="./img/iconbook.png" alt="book info"></th>
+                                    <th><img class="iconpen" src="./img/iconpen.png" alt="jottings"></th>
+                                </tr>
+                                <tr>
+                                    <th>点击获取图书信息</th>
+                                    <th>Melody House杂记</th>
+                                </tr>
+                            </table>
+                        </div>
+            </div>
     </div>
 
 </body>
 
-</html>>
+<footer class="footer">
+    <p>Copyright@Melody 2019</p>
+</footer>
+
+</html>
