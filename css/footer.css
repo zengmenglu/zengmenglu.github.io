@@ -1,0 +1,10 @@
+.footer{
+    border-top: 2px dashed black;
+    height: 70px;
+}
+
+.footer p{
+    line-height: 70px;
+    text-align: center;
+    vertical-align:middle;
+}
