@@ -1,5 +1,5 @@
 document.writeln("<div class=\'sidebar\'>");
-document.writeln("                <h4>Go语言</h4>");
+document.writeln("                <h4>Melody House</h4>");
 document.writeln("                <ul class=\'sidenav animated fadeInUp\'>");
 document.writeln("                    <li><a class=\'withripple\' href=\'../index.html\'><i class=\'icon icon-home\'></i><span class=\'sidespan\'>首页</span></a>");
 document.writeln("                    </li>");
