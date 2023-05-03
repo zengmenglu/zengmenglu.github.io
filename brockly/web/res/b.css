@@ -1,0 +1,42 @@
+#blocklyDiv, body, html {
+	background: #333;
+	height: 98%;
+}
+
+.blocklyMainBackground {
+	background: #ededed !important;
+}
+
+#preview {
+	width: 35%;
+	border: 1px solid #ededed;
+	background: #d6d6d6;
+	padding: 12px;
+}
+
+#preview textarea {
+	width: calc(100% - 24px);
+	height: 590px;
+	font-weight: bold;
+	padding: 12px;
+}
+
+
+.root-view {
+	height: calc(100% - 21px);
+}
+
+
+
+.tab.active {
+	display: flex !important;
+	flex-direction: row;
+}
+
+.tab {
+	background: #fff;
+}
+
+.package-row {
+
+}
