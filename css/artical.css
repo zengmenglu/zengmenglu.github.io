@@ -57,11 +57,12 @@
     width: 620px;
 }
 
-.artical .catlog tr{
+.artical .catlog tr {
     line-height: 1.7;
     margin: 0px;
 }
 
+.artical .catlog .title,
 .artical .catlog .title a{
     width: 80px;
     font-size: 16px;
@@ -70,10 +71,17 @@
     color: #2f2f2f;
 }
 
+.artical .catlog .time,
 .artical .catlog .time a {
     width: 10px;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
     color: #969696;
+}
+
+.artical .catlog .classify {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 2.5;
 }
