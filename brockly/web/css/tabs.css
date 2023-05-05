@@ -1,3 +1,7 @@
+#blocklyDiv, body, html {
+	background: #5792e0;
+}
+
 *, ::after, ::before{
 
 	box-sizing: border-box;
