@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-	<title>Brockly</title>
+	<title>智能合约平台</title>
 	<link rel="stylesheet" type="text/css" href="res/b.css">
 	<link rel="stylesheet" href="css/tabs.css" />
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blockly/4.20201217.0/blockly_compressed.js"></script>
@@ -13,34 +13,34 @@
 </head>
 <body>
 <p>
-	<input type="text" id="pkgName" placeholder="Package name" value=""> <button onclick="exportCode()">Download</button> <button onclick="setDefault()">New</button>
+	<input type="text" id="pkgName" placeholder="文件名称" value=""> <button onclick="exportCode()">下载智能合约</button> <button onclick="setDefault()">新建智能合约</button>
 </p>
 
 <div class="root-view container">
 	<div class="tabs">
 		<ul>
-			<li><a href="#">Editor</a></li>
-			<li><a href="#">Package Manager</a></li>
+			<li><a href="#">编辑智能合约</a></li>
+			<li><a href="#">使用帮助</a></li>
 		</ul>
 		<div class="tab-content">
 			<div class="tab">
 				<div id="blocklyDiv" class="flex-el" style="width:65%;height:initial;" ></div>
 				<div class="flex-el" id="preview" >
-					<p><b>Preview</b></p>
+					<p><b>预览</b></p>
 					<textarea id="textPreview"></textarea>
 				</div>
 			</div>
 			<div class="tab">
-				<div class="flex-el" style="width:25%;height:initial;border-right:1px #333 solid" >
+				<!--<div class="flex-el" style="width:25%;height:initial;border-right:1px #333 solid" >
 					<p><b>Existing packages</b></p>
 					<div id="packageList">
 
 					</div>
-				</div>
+				</div>-->
 				<div class="flex-el" style="padding:150px 30px;" >
 					<p><b>Add a new package</b></p>
-					<input type="text" id="packageName" placeholder="Package import path">
-					<button onclick="addPackage()">Add</button>
+					<!--<input type="text" id="packageName" placeholder="Package import path">
+					<button onclick="addPackage()">Add</button>-->
 					<br/>
 					<small>*Please note that any package saved must be on your computer, and within your $GOPATH. This may change in the future. Internal packages are not currently supported.</small>
 				</div>
@@ -50,7 +50,9 @@
 </div>
 
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-	<!--<category name="基础" colour="100">
+	<category name="基础" colour="100">
+		<block type="resident"></block>
+		<block type="vote_info"></block>
 		<block type="math_number">
 			<field name="NUM">123</field>
 		</block>
@@ -61,6 +63,18 @@
 		<block type="interface"></block>
 		<block type="field"></block>
 	</category>
+	<category name="触发计票" colour="100">
+		<block type="timer"></block>
+		<block type="call"></block>
+	</category>
+	<category name="制定合约" colour="345">
+		<block type="contract_name"></block>
+		<block type="contract_init"></block>
+		<!--<block type="get_vote_info"></block>
+		<block type="cal_vote_result"></block>
+		<block type="upload"></block>-->
+	</category>
+
 	<category name="服务器代码" colour="210">
 		<block type="require"></block>
 		<block type="server"></block>
@@ -76,21 +90,6 @@
 		<block type="handler"></block>
 		<block type="route"></block>
 		<block type="go"></block>
-	</category>-->
-
-	<category name="计票时间" colour="100">
-		<block type="timer"></block>
-		<block type="call"></block>
-	</category>>
-	<category name="基础信息" colour="210">
-		<block type="resident"></block>
-		<block type="vote_info"></block>
-	</category>
-	<category name="制定合约" colour="345">
-		<block type="contract_name"></block>
-		<!--<block type="get_vote_info"></block>
-		<block type="cal_vote_result"></block>
-		<block type="upload"></block>-->
 	</category>
 </xml>
 
