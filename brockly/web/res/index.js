@@ -395,6 +395,48 @@ Blockly.JavaScript['http_handlerFunc'] = function(block) {
   return code;
 };
 
+Blockly.Blocks['timer'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("周期性统计投票")
+        .appendField(new Blockly.FieldDropdown([["每天","daily"], ["每月","monthly"],["每季","quarterly"], ["每年","yearly"]]), "frequency");
+    this.setColour(345);
+  }
+};
+
+Blockly.JavaScript['timer'] = function(block) {
+   var method = block.getFieldValue('frequency');
+  // var statements_name = Blockly.JavaScript.statementToCode(block, 'sub');
+  // console.log(statements_name);
+  var code = `for ${method}() {
+     call(smart_contract);
+     return;
+  }
+  `;
+  return code;
+};
+
+
+Blockly.Blocks['call'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("人为触发计票")
+        .appendField(new Blockly.FieldDropdown([["业委会主任触发","committer"]]), "people");
+    this.setColour(345);
+  }
+};
+
+Blockly.JavaScript['call'] = function(block) {
+  var method = block.getFieldValue('people');
+  // var statements_name = Blockly.JavaScript.statementToCode(block, 'sub');
+  // console.log(statements_name);
+  var code = `if ${method}() {
+     call(smart_contract);
+     return;
+  }
+  `;
+  return code;
+};
 
 Blockly.Blocks['route'] = {
   init: function() {
