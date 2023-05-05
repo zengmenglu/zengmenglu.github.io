@@ -542,7 +542,7 @@ func (voteCount *VoteCount) UpgradeContract() protogo.Response {
 }
 
 func (voteCount *VoteCount) InvokeContract(method string) protogo.Response {
-	${statements_name}
+	${statements_name}\n
 }
 `;
   return code;
@@ -576,8 +576,10 @@ Blockly.Blocks['vote_info'] = {
   init: function() {
     this.appendDummyInput("")
         .appendField("创建投票信息");
-    this.setInputsInline(false);
-    this.setOutput(true, null);
+    // this.setInputsInline(false);
+    // this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(345);
     this.setHelpUrl("");
   }
@@ -596,6 +598,64 @@ Blockly.JavaScript['vote_info'] = function(block) {
   return code;
 };
 
+Blockly.Blocks['get_vote_info'] = {
+  init: function() {
+    this.appendDummyInput("")
+        .appendField("从链上获取此次投票的花名册");
+    this.appendDummyInput()
+        .appendField("投票编号：")
+        .appendField(new Blockly.FieldNumber(123), "vote_id");
+
+    // this.setInputsInline(false);
+    // this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(345);
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['get_vote_info'] = function(block) {
+  var code = `get voting information()`;
+  return code;
+};
+
+Blockly.Blocks['cal_vote_result'] = {
+  init: function() {
+    this.appendDummyInput("")
+        .appendField("从链上获取投票数据并统计");
+    this.appendValueInput("vote_rate")
+        // .appendField("设置投票通过阈值：")
+        .appendField("设置投票通过阈值:");
+    // this.setInputsInline(false);
+    // this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(210);
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['cal_vote_result'] = function(block) {
+  var code = `calculate the voting results()`;
+  return code;
+};
+
+Blockly.Blocks['upload'] = {
+  init: function() {
+    this.appendDummyInput("")
+        .appendField("生成投票结果并上链");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(100);
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['upload'] = function(block) {
+  var code = `upload()`;
+  return code;
+};
 
 Blockly.Blocks['contract_name'] = {
   init: function() {
