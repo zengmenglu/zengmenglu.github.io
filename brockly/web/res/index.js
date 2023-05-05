@@ -254,6 +254,30 @@ Blockly.JavaScript['require'] = function(block) {
 };
 
 
+
+Blockly.Blocks['accumulate'] = {
+  init: function() {
+    this.appendStatementInput("is_vote")
+        .appendField("如果");
+    this.appendDummyInput()
+        .appendField("计数器累加1");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(345);
+  }
+};
+
+Blockly.JavaScript['accumulate'] = function(block) {
+  //var people = block.getFieldValue('is_vote');
+  var statements_name = Blockly.JavaScript.statementToCode(block, "is_vote")
+  var code = `if isVote{
+    vote++
+    return
+  }
+  `;
+  return code;
+};
+
 Blockly.Blocks['server'] = {
   init: function() {
     this.appendStatementInput("children")
@@ -602,9 +626,8 @@ Blockly.Blocks['get_vote_info'] = {
   init: function() {
     this.appendDummyInput("")
         .appendField("从链上获取此次投票的花名册");
-    this.appendDummyInput()
-        .appendField("投票编号：")
-        .appendField(new Blockly.FieldNumber(123), "vote_id");
+    this.appendValueInput("vote_id")
+        .appendField("设置投票编号：");
 
     // this.setInputsInline(false);
     // this.setOutput(true, null);
