@@ -395,20 +395,22 @@ Blockly.JavaScript['http_handlerFunc'] = function(block) {
   return code;
 };
 
+//-----//
 Blockly.Blocks['timer'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("周期性统计投票")
         .appendField(new Blockly.FieldDropdown([["每天","daily"], ["每月","monthly"],["每季","quarterly"], ["每年","yearly"]]), "frequency");
-    this.setColour(345);
+    this.appendStatementInput("contract")
+        .setCheck(null)
+        .appendField("调用智能合约");
+    this.setColour(210);
   }
 };
 
 Blockly.JavaScript['timer'] = function(block) {
-   var method = block.getFieldValue('frequency');
-  // var statements_name = Blockly.JavaScript.statementToCode(block, 'sub');
-  // console.log(statements_name);
-  var code = `for ${method}() {
+  var freq = block.getFieldValue('frequency');
+  var code = `for ${freq}() {
      call(smart_contract);
      return;
   }
@@ -422,21 +424,91 @@ Blockly.Blocks['call'] = {
     this.appendDummyInput()
         .appendField("人为触发计票")
         .appendField(new Blockly.FieldDropdown([["业委会主任触发","committer"]]), "people");
+    this.appendStatementInput("contract")
+        .setCheck(null)
+        .appendField("调用智能合约");
     this.setColour(345);
   }
 };
 
 Blockly.JavaScript['call'] = function(block) {
-  var method = block.getFieldValue('people');
-  // var statements_name = Blockly.JavaScript.statementToCode(block, 'sub');
-  // console.log(statements_name);
-  var code = `if ${method}() {
+  var people = block.getFieldValue('people');
+  var code = `if ${people}() {
      call(smart_contract);
      return;
   }
   `;
   return code;
 };
+
+Blockly.Blocks['resident'] = {
+  init: function() {
+    this.appendDummyInput("")
+        .appendField("创建住户信息");
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(210);
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['resident'] = function(block) {
+  var code = `type resident struct {
+	Id        string
+	AccountId string
+	Area      float64
+	Name      string
+}`;
+  return code;
+};
+
+
+Blockly.Blocks['vote_info'] = {
+  init: function() {
+    this.appendDummyInput("")
+        .appendField("创建投票信息");
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(345);
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['vote_info'] = function(block) {
+  var code = `type VoteCount struct {
+	Roster       []string
+	ApprovalNum  uint
+	TotalNum     uint
+	ApprovalRate float64
+	ApprovalArea float64
+	TotalArea    float64
+	AreaRate     float64
+}`;
+  return code;
+};
+
+
+Blockly.Blocks['contract_name'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("选择合约名称")
+        .appendField(new Blockly.FieldDropdown([["GET","GET"], ["PUT","PUT"],["PATCH","PATCH"], ["POST","POST"],  ["DELETE","DELETE"],["OPTION","OPTION"]]), "contractName");
+  }
+};
+
+Blockly.JavaScript['contract_name'] = function(block) {
+  var code = `type VoteCount struct {
+	Roster       []string
+	ApprovalNum  uint
+	TotalNum     uint
+	ApprovalRate float64
+	ApprovalArea float64
+	TotalArea    float64
+	AreaRate     float64
+}`;
+  return code;
+};
+
 
 Blockly.Blocks['route'] = {
   init: function() {
@@ -778,7 +850,14 @@ var exportCode = () => {
   var zip = new JSZip();
   var cmd = zip.folder("cmd");
   var code = Blockly.JavaScript.workspaceToCode(workspace);
-  cmd.file("main.go", "package main\n\n" + code );
+  cmd.file("main.go", `package main
+  
+import (
+	"chainmaker.org/chainmaker/contract-sdk-go/v2/pb/protogo"
+	"chainmaker.org/chainmaker/contract-sdk-go/v2/sdk"
+)
+
+` + code );
 
   zip.generateAsync({type:"blob"})
       .then(function(content) {
@@ -793,7 +872,14 @@ function showPreview(event) {
     return;
 
   var code = Blockly.JavaScript.workspaceToCode(workspace);
-  code = "package main\n\n" + code;
+  code = `package main
+  
+import (
+	"chainmaker.org/chainmaker/contract-sdk-go/v2/pb/protogo"
+	"chainmaker.org/chainmaker/contract-sdk-go/v2/sdk"
+)
+
+` + code;
 
   document.getElementById("textPreview").value = code;
 }
