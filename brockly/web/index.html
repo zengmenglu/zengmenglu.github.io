@@ -38,6 +38,8 @@
 					</div>
 				</div>-->
 				<div class="flex-el" style="padding:50px 30px;" >
+					<p><b>设置定时器</b></p>
+					<img src="pic/3.png"></img>
 					<p><b>方式一</b></p>
 					<p>通过合约名称的形式调用合约：</p>
 					<img src="pic/1.png"></img>
@@ -76,6 +78,11 @@
 		<block type="on_shutdown"></block>-->
 		<block type="go"></block>
 	</category>
+	<category name="时钟"  colour="560">
+		<block type="time"></block>
+		<block type="timer_init"></block>
+		<block type="time_event"></block>
+	</category>
 	<category name="触发合约" colour="345">
 		<block type="timer"></block>
 		<block type="call"></block>
@@ -83,6 +90,7 @@
 	<category name="合约信息初始化" colour="210">
 		<block type="resident"></block>
 		<block type="vote_info"></block>
+		<block type="structure"></block>
 	</category>
 	<category name="制定合约" colour="345">
 		<block type="contract_init"></block>
