@@ -422,30 +422,12 @@ Blockly.JavaScript['http_handlerFunc'] = function(block) {
 //-----//
 Blockly.Blocks['timer'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("设定时间");
-
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldNumber(2023), "year")
-        .appendField("年");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("5"), "month")
-        .appendField("月");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("6"), "day")
-        .appendField("日");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("12"), "hour")
-        .appendField("时");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("00"), "minute")
-        .appendField("分");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("00"), "second")
-        .appendField("秒");
+    this.appendValueInput("event_id")
+        .setCheck(null)
+        .appendField("定时器事件");
     this.appendStatementInput("contract")
         .setCheck(null)
-        .appendField("调用智能合约");
+        .appendField("执行");
     this.setInputsInline(true);
     this.setColour(105);
     this.setTooltip("");
@@ -478,7 +460,7 @@ Blockly.Blocks['call'] = {
         .appendField(new Blockly.FieldDropdown([["业委会主任触发","committer"]]), "people");
     this.appendStatementInput("contract")
         .setCheck(null)
-        .appendField("调用智能合约");
+        .appendField("执行");
     this.setColour(345);
   }
 };
