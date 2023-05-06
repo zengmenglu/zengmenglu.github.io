@@ -437,14 +437,9 @@ Blockly.Blocks['timer'] = {
 };
 
 Blockly.JavaScript['timer'] = function(block) {
-  var y = block.getFieldValue('year');
-  var m = block.getFieldValue('month');
-  var d = block.getFieldValue('day');
-  var h = block.getFieldValue('hour');
-  var min = block.getFieldValue('minute');
-  var s = block.getFieldValue('second');
+  var id = block.getFieldValue('event_id');
   var statements_name = Blockly.JavaScript.statementToCode(block, "contract")
-  var code = `if time == "${y}-${m}-${d} ${h}:${min}:${s}" {
+  var code = `if trigger(${id})" {
   ${statements_name}()
     return
 }
@@ -991,12 +986,7 @@ Blockly.JavaScript['time'] = function(block) {
   var h = block.getFieldValue('hour');
   var min = block.getFieldValue('minute');
   var s = block.getFieldValue('second');
-  var statements_name = Blockly.JavaScript.statementToCode(block, "contract")
-  var code = `if time == "${y}-${m}-${d} ${h}:${min}:${s}" {
-  ${statements_name}()
-    return
-}
-  `;
+  var code = `${y}-${m}-${d} ${h}:${min}:${s}"`;
   return code;
 };
 
