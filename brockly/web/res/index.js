@@ -226,6 +226,8 @@ var zoom = {
 
 var omit = ['"context"', '"log"', '"os"', '"os/signal"', '"time"', '"strings"'];
 
+// 基础
+// import package
 Blockly.Blocks['require'] = {
   init: function () {
     this.setInputsInline(true);
@@ -237,7 +239,6 @@ Blockly.Blocks['require'] = {
   },
 };
 
-// 基础
 Blockly.JavaScript['require'] = function (block) {
   var value_name = Blockly.JavaScript.valueToCode(
     block,
@@ -260,6 +261,60 @@ Blockly.JavaScript['require'] = function (block) {
   return code;
 };
 
+// 结构体
+Blockly.Blocks['struct_info'] = {
+  init: function () {
+    this.appendDummyInput()
+        .appendField('数据结构名称:')
+        .appendField(new Blockly.FieldTextInput('name'), 'struct_name');
+    this.appendStatementInput('struct_item').setCheck('struct_item').appendField('字段列表：');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(230);
+    this.setTooltip('Go interface');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['struct_info'] = function (block) {
+  var struct_name = block.getFieldValue( 'struct_name');
+  var struct_items = Blockly.JavaScript.statementToCode(block, 'struct_item')
+  var code = `type ${struct_name} struct {
+    ${struct_items}
+}`;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// 结构体字段
+Blockly.Blocks['struct_item'] = {
+  init: function () {
+    this.appendDummyInput()
+        .appendField('名称:')
+        .appendField(new Blockly.FieldTextInput('数据结构字段名称（英文）'), 'item_name')
+        .appendField(', 类型:')
+        .appendField(
+            new Blockly.FieldDropdown([['字符串', 'string'],['整数','int'],['小数','float64']]),
+            'item_type'
+        );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip('Go structure item');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['struct_item'] = function (block) {
+  var item_name = block.getFieldValue('item_name');
+  var item_type = block.getFieldValue('item_type');
+  var code = `${item_name}  ${item_type}
+    `;
+  return code;
+};
+
+
+// 累加器
 Blockly.Blocks['accumulate'] = {
   init: function () {
     this.appendStatementInput('is_vote').appendField('如果');
@@ -470,26 +525,6 @@ Blockly.JavaScript['call'] = function (block) {
 //   `;
 //   return code;
 // };
-
-Blockly.Blocks['interface'] = {
-  init: function () {
-    this.appendStatementInput('ints').setCheck(null).appendField('Map');
-    this.setInputsInline(false);
-    this.setOutput(true, null);
-    this.setColour(230);
-    this.setTooltip('Go interface');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.JavaScript['interface'] = function (block) {
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'ints');
-  // TODO: Assemble JavaScript into code variable.
-  var code = `map[string]interface{}{
-    ${statements_name}
-}`;
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
 
 Blockly.Blocks['contract_init'] = {
   init: function () {
