@@ -262,27 +262,31 @@ Blockly.JavaScript['require'] = function (block) {
 };
 
 // 结构体
-Blockly.Blocks['struct_info'] = {
+Blockly.Blocks['structure'] = {
   init: function () {
     this.appendDummyInput()
-        .appendField('数据结构名称:')
+        .appendField('自定义数据结构:')
         .appendField(new Blockly.FieldTextInput('name'), 'struct_name');
     this.appendStatementInput('struct_item').setCheck('struct_item').appendField('字段列表：');
     this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(230);
+    // this.setOutput(true, null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(110);
     this.setTooltip('Go interface');
     this.setHelpUrl('');
   },
 };
 
-Blockly.JavaScript['struct_info'] = function (block) {
+Blockly.JavaScript['structure'] = function (block) {
   var struct_name = block.getFieldValue( 'struct_name');
   var struct_items = Blockly.JavaScript.statementToCode(block, 'struct_item')
   var code = `type ${struct_name} struct {
     ${struct_items}
-}`;
-  return [code, Blockly.JavaScript.ORDER_NONE];
+}
+
+`;
+  return code;
 };
 
 // 结构体字段
@@ -299,7 +303,7 @@ Blockly.Blocks['struct_item'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(110);
     this.setTooltip('Go structure item');
     this.setHelpUrl('');
   },
@@ -462,12 +466,79 @@ Blockly.JavaScript['http_handlerFunc'] = function (block) {
   return code;
 };
 
-//-----//
+// 投票
+// 投票列表
+Blockly.Blocks["vote_list"] = {
+  init: function () {
+    this.appendStatementInput("vote_items").setCheck(null).appendField("投票项：");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(105);
+    this.setTooltip('');
+
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['vote_list'] = function (block) {
+  var vote_items = Blockly.JavaScript.statementToCode(block, 'vote_items');
+  var code = `var voteList = []string {
+  ${vote_items}
+}
+  `;
+  return code;
+};
+
+// 投票项
+Blockly.Blocks["vote_item"] = {
+  init: function () {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput('投票内容'), 'item');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(105);
+    this.setTooltip('');
+
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['vote_item'] = function (block) {
+  var vote_items = block.getFieldValue('item');
+  var code = `"${vote_items}",
+  `;
+  return code;
+};
+
+// 定时器
+//获取时钟服务
+Blockly.Blocks['timer_institute'] = {
+  init: function () {
+    this.appendDummyInput().appendField('从CA获取时钟服务');
+    this.setInputsInline(false);
+    this.setColour(100);
+  },
+};
+
+Blockly.JavaScript['timer_institute'] = function (block) {
+  var code = `getTimerFromCA()
+
+`;
+  return code;
+};
+
+// 定时器定时触发
 Blockly.Blocks['timer'] = {
   init: function () {
-    this.appendValueInput('event_id').setCheck(null).appendField('定时器事件');
-    this.appendStatementInput('contract').setCheck(null).appendField('执行');
-    this.setInputsInline(true);
+    this.appendDummyInput()
+        .appendField('当定时器')
+        .appendField(new Blockly.FieldTextInput('event_1'), 'item')
+        .appendField('触发时');
+    // this.appendValueInput('event_id').setCheck(null).appendField('定时器事件');
+    this.appendStatementInput('contract').setCheck(null).appendField('');
+    // this.setInputsInline(true);
     this.setColour(105);
     this.setTooltip('');
 
@@ -486,20 +557,21 @@ Blockly.JavaScript['timer'] = function (block) {
   return code;
 };
 
-Blockly.Blocks['call'] = {
+// 触发合约
+Blockly.Blocks['invoke'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField('手动触发')
+      .appendField('当')
       .appendField(
-        new Blockly.FieldDropdown([['业委会主任触发', 'committer']]),
+        new Blockly.FieldDropdown([['业委会主任', 'committer']]),
         'people'
-      );
-    this.appendStatementInput('contract').setCheck(null).appendField('执行');
+      ).appendField('触发时');
+    this.appendStatementInput('contract').setCheck(null).appendField('');
     this.setColour(345);
   },
 };
 
-Blockly.JavaScript['call'] = function (block) {
+Blockly.JavaScript['invoke'] = function (block) {
   var people = block.getFieldValue('people');
   var statements_name = Blockly.JavaScript.statementToCode(block, 'contract');
   var code = `if ${people}() {
@@ -509,24 +581,9 @@ Blockly.JavaScript['call'] = function (block) {
   `;
   return code;
 };
-//
-// Blockly.JavaScript['timer'] = function(block) {
-//   var y = block.getFieldValue('year');
-//   var m = block.getFieldValue('month');
-//   var d = block.getFieldValue('day');
-//   var h = block.getFieldValue('hour');
-//   var min = block.getFieldValue('minute');
-//   var s = block.getFieldValue('second');
-//   var statements_name = Blockly.JavaScript.statementToCode(block, "contract")
-//   var code = `if time == "${y}-${m}-${d} ${h}:${min}:${s}" {
-//   ${statements_name}()
-//     return
-// }
-//   `;
-//   return code;
-// };
 
-Blockly.Blocks['contract_init'] = {
+// 合约执行动作列表
+Blockly.Blocks['contract_handle_list'] = {
   init: function () {
     this.appendStatementInput('methods')
       .setCheck(null)
@@ -541,7 +598,7 @@ Blockly.Blocks['contract_init'] = {
   },
 };
 
-Blockly.JavaScript['contract_init'] = function (block) {
+Blockly.JavaScript['contract_handle_list'] = function (block) {
   var people = block.getFieldValue('methods');
   var statements_name = Blockly.JavaScript.statementToCode(block, 'methods');
   var code = `
@@ -566,7 +623,7 @@ func (voteCount *VoteCount) InvokeContract(method string) protogo.Response {
 
 Blockly.Blocks['resident'] = {
   init: function () {
-    this.appendDummyInput('').appendField('创建住户信息');
+    this.appendDummyInput('').appendField('住户信息结构初始化');
     // this.setInputsInline(false);
     // this.setOutput(true, null);
     this.setPreviousStatement(true, null);
@@ -582,13 +639,15 @@ Blockly.JavaScript['resident'] = function (block) {
 	AccountId string
 	Area      float64
 	Name      string
-}`;
+}
+
+`;
   return code;
 };
 
 Blockly.Blocks['vote_info'] = {
   init: function () {
-    this.appendDummyInput('').appendField('创建投票信息');
+    this.appendDummyInput('').appendField('投票信息结构初始化');
     // this.setInputsInline(false);
     // this.setOutput(true, null);
     this.setPreviousStatement(true, null);
@@ -607,7 +666,9 @@ Blockly.JavaScript['vote_info'] = function (block) {
 	ApprovalArea float64
 	TotalArea    float64
 	AreaRate     float64
-}`;
+}
+
+`;
   return code;
 };
 
@@ -1033,28 +1094,6 @@ Blockly.Blocks['time_event'] = {
 };
 
 Blockly.JavaScript['time_event'] = function (block) {
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'ints');
-  // TODO: Assemble JavaScript into code variable.
-  var code = `map[string]interface{}{
-    ${statements_name}
-}`;
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.Blocks['structure'] = {
-  init: function () {
-    this.appendStatementInput('info').setCheck(null).appendField('自定义信息');
-    this.setInputsInline(false);
-    // this.setOutput(true, null);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
-    this.setTooltip('Go interface');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.JavaScript['structure'] = function (block) {
   var statements_name = Blockly.JavaScript.statementToCode(block, 'ints');
   // TODO: Assemble JavaScript into code variable.
   var code = `map[string]interface{}{
