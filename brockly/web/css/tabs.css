@@ -1,83 +1,75 @@
-#blocklyDiv, body, html {
-	background: #5792e0;
+#blocklyDiv,
+body,
+html {
+  background: #5792e0;
 }
 
-*, ::after, ::before{
+*,
+::after,
+::before {
+  box-sizing: border-box;
 
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 
-	-webkit-box-sizing: border-box;
-
-	-moz-box-sizing: border-box;
-
+  -moz-box-sizing: border-box;
 }
 
-.tabs ul{
+.tabs ul {
+  padding: 0;
 
-	padding: 0;
+  margin: 0;
 
-	margin: 0;
+  list-style-type: none;
 
-	list-style-type: none;
+  border-bottom: 1px solid #eee;
 
-	border-bottom: 1px solid #eee;
+  display: flex;
 
-	display: flex;
+  align-items: center;
 
-	align-items: center;
-
-	justify-content: flex-start;
-
+  justify-content: flex-start;
 }
 
-.tabs ul li a{
+.tabs ul li a {
+  display: block;
 
-	display: block;
+  outline: none;
 
-	outline: none;
+  padding: 5px;
 
-	padding: 5px;
+  text-decoration: none;
 
-	text-decoration: none;
+  border: 1px solid #eee;
 
-	border: 1px solid #eee;
+  border-bottom: 0;
 
-	border-bottom: 0;
+  background-color: #eee;
 
-	background-color: #eee;
+  color: #000;
 
-	color: #000;
+  transform: translateY(1px);
 
-	transform: translateY(1px);
+  -webkit-transform: translateY(1px);
 
-	-webkit-transform: translateY(1px);
-
-	-moz-transform: translateY(1px);
-	font-size: 14px;
-
+  -moz-transform: translateY(1px);
+  font-size: 14px;
 }
 
-.tabs ul li a.active{
-
-	background-color: #FFF;
-	border-bottom:2px solid #333;
-
+.tabs ul li a.active {
+  background-color: #fff;
+  border-bottom: 2px solid #333;
 }
 
-.tabs > div > div{
+.tabs > div > div {
+  display: none;
 
-	display: none;
+  border: 1px solid #eee;
 
-	border: 1px solid #eee;
+  border-top: 0;
 
-	border-top: 0;
-
-	padding: 2rem 1rem;
-
+  padding: 2rem 1rem;
 }
 
-.tabs > div > div.active{
-
-	display: block;
-
+.tabs > div > div.active {
+  display: block;
 }

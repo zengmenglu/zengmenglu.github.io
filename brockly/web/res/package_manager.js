@@ -1,360 +1,326 @@
 tabs(document.querySelector('.tabs'));
 
+function getList() {
+  var saved = localStorage.getItem('pkgs');
 
-function getList(){
+  if (!saved) {
+    saved = '';
+  }
 
-	var saved = localStorage.getItem("pkgs");
+  var list = saved.split(',').filter((m) => {
+    return m != '';
+  });
 
-	if(!saved){
-		saved = "";
-	}
-
-	var list = saved.split(",").filter( m => {
-		return m != ""
-	});
-
-	return list;
+  return list;
 }
 
-function addPackage(){
+function addPackage() {
+  var list = getList();
 
-	var list = getList();
+  list.push(document.getElementById('packageName').value);
 
-	list.push(
-		document.getElementById("packageName").value
-	);
+  localStorage.setItem('pkgs', list.join(','));
 
-	localStorage.setItem("pkgs", list.join(","));
-
-	window.location = "";
-
+  window.location = '';
 }
 
-function removePackage(name){
-	var list = getList();
+function removePackage(name) {
+  var list = getList();
 
-	var index = list.indexOf(name);
+  var index = list.indexOf(name);
 
-	list.splice(index, 1);
+  list.splice(index, 1);
 
-	localStorage.setItem("pkgs", list.join(","));
+  localStorage.setItem('pkgs', list.join(','));
 
-	alert("Refresh the page to apply changes");
+  alert('Refresh the page to apply changes');
 }
 
-function setBlock(f, path, color){
-	var ref = `${f.namespace}_${f.name}`;
+function setBlock(f, path, color) {
+  var ref = `${f.namespace}_${f.name}`;
 
-	console.log(ref)
-	var params = f.params.split(",")
+  console.log(ref);
+  var params = f.params.split(',');
 
-	Blockly.Blocks[ref] = {
-		init: function() {
+  Blockly.Blocks[ref] = {
+    init: function () {
+      this.appendDummyInput().appendField(`${f.name}`);
 
-			this.appendDummyInput()
-				.appendField(`${f.name}`);
+      for (var b = 0; b < params.length; b++) {
+        var p = params[b];
+        var parts = p.split(' ');
 
-			for(var b = 0; b < params.length; b++){
-				var p = params[b];
-				var parts = p.split(" ")
+        this.appendValueInput(parts[0])
+          .setCheck(p.includes(' string') ? 'String' : null)
+          .appendField(`${parts[0]} (${parts[parts.length - 1]})`);
+      }
 
-				this.appendValueInput(parts[0])
-					.setCheck(p.includes(" string") ? "String" : null)
-					.appendField(`${parts[0]} (${parts[parts.length - 1]})`);
-			}
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
 
-			this.setPreviousStatement(true, null);
-			this.setNextStatement(true, null);
+      this.setColour(color);
+      this.setTooltip(f.comment.split('/').join(''));
+      this.setHelpUrl(path);
+    },
+  };
 
-			this.setColour(color);
-			this.setTooltip(f.comment.split("/").join(""));
-			this.setHelpUrl(path);
-		}
-	};
+  Blockly.JavaScript[ref] = function (block) {
+    //var value_name = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
 
+    //var text_hostname = block.getFieldValue('hostname');
 
-	Blockly.JavaScript[ref] = function(block) {
+    var initialString = `${f.namespace}.${f.name}`;
+    var args = [];
 
-		//var value_name = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+    for (var b = 0; b < params.length; b++) {
+      var p = params[b];
+      var parts = p.split(' ');
 
-		//var text_hostname = block.getFieldValue('hostname');
+      var val = Blockly.JavaScript.valueToCode(
+        block,
+        parts[0],
+        Blockly.JavaScript.ORDER_ATOMIC
+      );
+      if (val == '') continue;
+      args.push(val.split("'").join('"'));
+    }
 
-		var initialString = `${f.namespace}.${f.name}`;
-		var args = [];
+    if (args.length > 0) {
+      initialString += '(';
+      initialString += args.join(',');
+      initialString += ')\n';
+    } else {
+      initialString += '\n';
+    }
 
-
-		for(var b = 0; b < params.length; b++){
-			var p = params[b];
-			var parts = p.split(" ")
-
-			var val = Blockly.JavaScript.valueToCode(block, parts[0], Blockly.JavaScript.ORDER_ATOMIC);
-			if(val == "")
-				continue;
-			args.push(val.split("'").join('"'));
-		}
-
-
-		if(args.length > 0 ){
-			initialString += "(";
-			initialString += args.join(",");
-			initialString += ")\n";
-		} else {
-			initialString += "\n";
-		}
-
-		return initialString;
-	};
+    return initialString;
+  };
 }
 
-function setBlockStruct(f, path, color){
+function setBlockStruct(f, path, color) {
+  var ref = `${f.namespace}_${f.name}`;
 
-	var ref = `${f.namespace}_${f.name}`;
+  console.log(ref);
+  var params = f.fields;
 
-	console.log(ref)
-	var params = f.fields
+  Blockly.Blocks[ref] = {
+    init: function () {
+      this.appendDummyInput().appendField(`${f.name}`);
 
-	Blockly.Blocks[ref] = {
-		init: function() {
+      for (var b = 0; b < params.length; b++) {
+        var p = params[b];
 
-			this.appendDummyInput()
-				.appendField(`${f.name}`);
+        if (!p.name) continue;
 
-			for(var b = 0; b < params.length; b++){
-				var p = params[b];
+        this.appendValueInput(p.name)
+          .setCheck(p.type == 'string' ? 'String' : null)
+          .appendField(`${p.name} (${p.type})`);
+      }
 
-				if(!p.name)
-					continue;
+      this.setInputsInline(false);
+      this.setOutput(true, null);
 
-				this.appendValueInput(p.name)
-					.setCheck(p.type == "string" ? "String" : null)
-					.appendField(`${p.name} (${p.type})`);
-			}
+      this.appendDummyInput()
+        .appendField('Pointer')
+        .appendField(new Blockly.FieldCheckbox('TRUE'), 'pointer');
 
-			this.setInputsInline(false);
-			this.setOutput(true, null);
+      this.setColour(color);
+      this.setTooltip(f.comment.split('/').join(''));
+      this.setHelpUrl(path);
+    },
+  };
 
-			this.appendDummyInput()
-				.appendField("Pointer")
-				.appendField(new Blockly.FieldCheckbox("TRUE"), "pointer");
+  Blockly.JavaScript[ref] = function (block) {
+    //var value_name = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
 
-			this.setColour(color);
-			this.setTooltip(f.comment.split("/").join(""));
-			this.setHelpUrl(path);
-		}
-	};
+    //var text_hostname = block.getFieldValue('hostname');
+    var checkbox_pointer = block.getFieldValue('pointer') == 'TRUE';
 
+    var initialString = `${checkbox_pointer ? '&' : ''}${f.namespace}.${
+      f.name
+    }{`;
+    var args = [];
 
-	Blockly.JavaScript[ref] = function(block) {
+    for (var b = 0; b < params.length; b++) {
+      var p = params[b];
+      var val = Blockly.JavaScript.valueToCode(
+        block,
+        p.name,
+        Blockly.JavaScript.ORDER_ATOMIC
+      );
 
-		//var value_name = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+      if (val == '') continue;
 
-		//var text_hostname = block.getFieldValue('hostname');
-		var checkbox_pointer = block.getFieldValue('pointer') == 'TRUE';
+      args.push(`${p.name} : ${val.split("'").join('"')}`);
+    }
+    initialString += args.join(',');
+    initialString += '}';
 
-		var initialString = `${checkbox_pointer ? "&" : ""}${f.namespace}.${f.name}{`;
-		var args = [];
-
-
-		for(var b = 0; b < params.length; b++){
-			var p = params[b];
-			var val = Blockly.JavaScript.valueToCode(block, p.name, Blockly.JavaScript.ORDER_ATOMIC);
-
-			if(val == "")
-				continue;
-
-			args.push(`${p.name} : ${val.split("'").join('"')}`);
-		}
-		initialString += args.join(",");
-		initialString += "}";
-
-		return [initialString, Blockly.JavaScript.ORDER_NONE];
-	};
+    return [initialString, Blockly.JavaScript.ORDER_NONE];
+  };
 }
 
-function mapBlocks(data, path, index){
+function mapBlocks(data, path, index) {
+  var path_parts = path.split('/');
+  var p_name = path_parts[path_parts.length - 1];
 
-	var path_parts = path.split("/");
-	var p_name = path_parts[path_parts.length - 1];
+  var color = 50 + 30 * index;
+  var functions = JSON.parse(data);
 
+  var xmlStr = `<category name="${p_name}" colour="${color}">`;
 
-	var color = 50 + (30 * index);
-	var functions = JSON.parse(data);
+  for (var i = functions.length - 1; i >= 0; i--) {
+    var f = functions[i];
 
-	var xmlStr = `<category name="${p_name}" colour="${color}">`
+    if (!f.name) continue;
 
-	for (var i = functions.length - 1; i >= 0; i--) {
-		var f = functions[i];
+    var ref = `${f.namespace}_${f.name}`;
 
-		if(!f.name)
-			continue;
+    setBlock(f, path, color);
 
-		var ref = `${f.namespace}_${f.name}`;
+    xmlStr += `<block type="${ref}"></block>`;
+  }
 
-		setBlock(f, path, color)
+  xmlStr += '</category>';
 
-		xmlStr += `<block type="${ref}"></block>`;
-
-	}
-
-	xmlStr += "</category>"
-
-	document.getElementById('toolbox').innerHTML += xmlStr
+  document.getElementById('toolbox').innerHTML += xmlStr;
 }
 
-function mapBlocksStruct(data, path, index){
+function mapBlocksStruct(data, path, index) {
+  var path_parts = path.split('/');
+  var p_name = path_parts[path_parts.length - 1];
 
-	var path_parts = path.split("/");
-	var p_name = path_parts[path_parts.length - 1];
+  var color = 250 + 30 * index;
+  var functions = JSON.parse(data);
 
-	var color = 250 + (30 * index);
-	var functions = JSON.parse(data);
+  var xmlStr = `<category name="${p_name} types" colour="${color}">`;
 
-	var xmlStr = `<category name="${p_name} types" colour="${color}">`
+  for (var i = functions.length - 1; i >= 0; i--) {
+    var f = functions[i];
 
-	for (var i = functions.length - 1; i >= 0; i--) {
-		var f = functions[i];
+    if (!f.name) continue;
 
-		if(!f.name)
-			continue;
+    var ref = `${f.namespace}_${f.name}`;
 
-		var ref = `${f.namespace}_${f.name}`;
+    setBlockStruct(f, path, color);
 
-		setBlockStruct(f, path, color)
+    xmlStr += `<block type="${ref}"></block>`;
+  }
 
-		xmlStr += `<block type="${ref}"></block>`;
+  xmlStr += '</category>';
 
-	}
-
-	xmlStr += "</category>"
-
-	document.getElementById('toolbox').innerHTML += xmlStr
+  document.getElementById('toolbox').innerHTML += xmlStr;
 }
 
 var init = false;
 var struct_mapped = false;
 var workspace = null;
 
+function initBlockly() {
+  if (!struct_mapped && !window.location.host.includes('github.io')) {
+    importStructPackages();
+    return;
+  }
 
+  if (init) {
+    return;
+  }
 
-function initBlockly(){
+  init = true;
 
-	if(!struct_mapped && !window.location.host.includes("github.io")){
-		importStructPackages()
-		return
-	}
+  workspace = Blockly.inject('blocklyDiv', {
+    toolbox: document.getElementById('toolbox'),
+    theme: theme,
+    trashcan: true,
+    maxTrashcanContents: 0,
+    zoom,
+  });
+  workspace.addChangeListener(showPreview);
 
-	if(init ){
-		return
-	}
+  BlocklyStorage.backupOnUnload();
 
-	init = true;
-
-	workspace = Blockly.inject('blocklyDiv',{
-		toolbox: document.getElementById('toolbox'),
-		theme : theme,
-		trashcan : true,
-		maxTrashcanContents : 0,
-		zoom
-	});
-	workspace.addChangeListener(showPreview);
-
-	BlocklyStorage.backupOnUnload();
-
-	setTimeout(BlocklyStorage.restoreBlocks, 300);
+  setTimeout(BlocklyStorage.restoreBlocks, 300);
 }
 
-function importPackage(path, index){
+function importPackage(path, index) {
+  var path_parts = path.split('/');
+  var p_name = path_parts[path_parts.length - 1];
+  var entry = `"${path}"`;
 
-	var path_parts = path.split("/");
-	var p_name = path_parts[path_parts.length - 1];
-	var entry = `"${path}"`;
+  omit.push(entry);
 
-	omit.push(entry);
+  function reqListener() {
+    mapBlocks(this.responseText, path, index);
 
-	function reqListener () {
+    if (index == 0) {
+      initBlockly();
+    }
+  }
 
-		mapBlocks(this.responseText,path, index);
-
-		if(index == 0){
-			initBlockly();
-		}
-	}
-
-	var oReq = new XMLHttpRequest();
-	oReq.addEventListener("load", reqListener);
-	oReq.open("GET", "/map?name=" + path);
-	oReq.send();
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener('load', reqListener);
+  oReq.open('GET', '/map?name=' + path);
+  oReq.send();
 }
 
-function importStruct(path, index){
+function importStruct(path, index) {
+  var path_parts = path.split('/');
+  var p_name = path_parts[path_parts.length - 1];
 
-	var path_parts = path.split("/");
-	var p_name = path_parts[path_parts.length - 1];
+  function reqListener() {
+    mapBlocksStruct(this.responseText, path, index);
 
+    if (index == 0) {
+      struct_mapped = true;
+      initBlockly();
+    }
+  }
 
-	function reqListener () {
-
-		mapBlocksStruct(this.responseText,path, index);
-
-		if(index == 0){
-			struct_mapped = true;
-			initBlockly();
-		}
-	}
-
-	var oReq = new XMLHttpRequest();
-	oReq.addEventListener("load", reqListener);
-	oReq.open("GET", "/map_struct?name=" + path);
-	oReq.send();
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener('load', reqListener);
+  oReq.open('GET', '/map_struct?name=' + path);
+  oReq.send();
 }
 
-function importStructPackages(){
+function importStructPackages() {
+  var list = getList();
 
-	var list = getList();
+  for (var i = list.length - 1; i >= 0; i--) {
+    var p = list[i];
+    let index = i + 0;
 
-	for (var i = list.length - 1; i >= 0; i--) {
-		var p = list[i];
-		let index = i + 0;
+    if (p.length == 0) continue;
 
-		if(p.length == 0)
-			continue;
+    importStruct(p, index);
+  }
 
-		importStruct(p, index);
-
-	}
-
-	if(list.length == 0)
-		initBlockly()
+  if (list.length == 0) initBlockly();
 }
 
-(function(){
+(function () {
+  var list = getList();
 
-	var list = getList();
+  var htmlList = '<ul>';
 
-	var htmlList = "<ul>";
+  for (var i = list.length - 1; i >= 0; i--) {
+    var p = list[i];
+    let index = i + 0;
 
-	for (var i = list.length - 1; i >= 0; i--) {
-		var p = list[i];
-		let index = i + 0;
+    if (p.length == 0) continue;
 
-		if(p.length == 0)
-			continue;
+    importPackage(p, index);
 
-		importPackage(p, index);
-
-		htmlList += `<li style="width: 100%;
+    htmlList += `<li style="width: 100%;
 							    padding: 10px;
 							    border-bottom: 2px dashed #333;">
 			<button style="float:right" onclick="removePackage('${p}')">Remove</button>
 			<p style="margin-top:0px;">${p}</p>
 		</li>`;
-	}
+  }
 
-	if(list.length == 0)
-		initBlockly()
+  if (list.length == 0) initBlockly();
 
-	htmlList += "</ul>";
+  htmlList += '</ul>';
 
-	document.getElementById("packageList").innerHTML = htmlList;
-
+  document.getElementById('packageList').innerHTML = htmlList;
 })();
