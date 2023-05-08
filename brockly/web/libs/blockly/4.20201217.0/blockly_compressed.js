@@ -3203,7 +3203,7 @@
       : Blockly.utils.toolbox.Position.LEFT;
     var q = a.css;
     void 0 === q && (q = !0);
-    var t = 'https://blockly-demo.appspot.com/static/media/';
+    var t = 'static/media/';
     a.media ? (t = a.media) : a.path && (t = a.path + 'media/');
     var r = void 0 === a.oneBasedIndex ? !0 : !!a.oneBasedIndex,
       u = a.renderer || 'geras',

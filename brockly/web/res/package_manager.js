@@ -217,10 +217,10 @@ var struct_mapped = false;
 var workspace = null;
 
 function initBlockly() {
-  if (!struct_mapped && !window.location.host.includes('github.io')) {
-    importStructPackages();
-    return;
-  }
+  // if (!struct_mapped && !window.location.host.includes('github.io')) {
+  //   importStructPackages();
+  //   return;
+  // }
 
   if (init) {
     return;
