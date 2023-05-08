@@ -234,6 +234,7 @@ Blockly.Blocks['require'] = {
   }
 };
 
+// 基础
 Blockly.JavaScript['require'] = function(block) {
 
   var value_name = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
@@ -439,7 +440,7 @@ Blockly.Blocks['timer'] = {
 Blockly.JavaScript['timer'] = function(block) {
   var id = block.getFieldValue('event_id');
   var statements_name = Blockly.JavaScript.statementToCode(block, "contract")
-  var code = `if trigger(${id})" {
+  var code = `if trigger(${id}) {
   ${statements_name}()
     return
 }
@@ -470,22 +471,22 @@ Blockly.JavaScript['call'] = function(block) {
   `;
   return code;
 };
-
-Blockly.JavaScript['timer'] = function(block) {
-  var y = block.getFieldValue('year');
-  var m = block.getFieldValue('month');
-  var d = block.getFieldValue('day');
-  var h = block.getFieldValue('hour');
-  var min = block.getFieldValue('minute');
-  var s = block.getFieldValue('second');
-  var statements_name = Blockly.JavaScript.statementToCode(block, "contract")
-  var code = `if time == "${y}-${m}-${d} ${h}:${min}:${s}" {
-  ${statements_name}()
-    return
-}
-  `;
-  return code;
-};
+//
+// Blockly.JavaScript['timer'] = function(block) {
+//   var y = block.getFieldValue('year');
+//   var m = block.getFieldValue('month');
+//   var d = block.getFieldValue('day');
+//   var h = block.getFieldValue('hour');
+//   var min = block.getFieldValue('minute');
+//   var s = block.getFieldValue('second');
+//   var statements_name = Blockly.JavaScript.statementToCode(block, "contract")
+//   var code = `if time == "${y}-${m}-${d} ${h}:${min}:${s}" {
+//   ${statements_name}()
+//     return
+// }
+//   `;
+//   return code;
+// };
 
 Blockly.Blocks['interface'] = {
   init: function() {
