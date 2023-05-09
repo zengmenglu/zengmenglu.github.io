@@ -518,6 +518,29 @@ Blockly.JavaScript['http_handlerFunc'] = function (block) {
 
 // 投票
 // 投票列表
+Blockly.Blocks["upload_file"] = {
+  init: function () {
+    this.appendStatementInput("vote_items").setCheck(null).appendField("上传投票文件");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);
+    this.setColour(105);
+    this.setTooltip('');
+
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['upload_file'] = function (block) {
+  var vote_items = Blockly.JavaScript.statementToCode(block, 'vote_items');
+  var code = `var voteFile = []string {
+  ${vote_items}
+}
+  `;
+  return code;
+};
+
+// 投票列表
 Blockly.Blocks["vote_list"] = {
   init: function () {
     this.appendStatementInput("vote_items").setCheck(null).appendField("投票项：");
@@ -1156,9 +1179,13 @@ Blockly.Blocks['time_event'] = {
   init: function () {
     this.appendValueInput('event_id')
       .setCheck(null)
-      .appendField('定时事件编号');
-    this.appendValueInput('timer').setCheck(null).appendField('时间');
-    this.appendValueInput('owner').setCheck(null).appendField('事件设定者');
+      .appendField('定时器ID：');
+    this.appendValueInput('timer').setCheck(null).appendField('截止时间：');
+    this.appendDummyInput().appendField("设定者：").appendField(
+        new Blockly.FieldDropdown([['银联', 'bankco'],['CA','ca'],['业委','committee']]),
+        'owner'
+    );
+    // this.appendValueInput('owner').setCheck(null).appendField('设定者：');
     this.setInputsInline(false);
     // this.setInputsInline(true);
     // this.setOutput(true, null);
