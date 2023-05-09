@@ -340,6 +340,56 @@ Blockly.JavaScript['accumulate'] = function (block) {
   return code;
 };
 
+// 向上取整
+Blockly.Blocks['round_up'] = {
+  init: function () {
+    this.setInputsInline(true);
+    this.setHelpUrl('');
+    this.setColour(230);
+    this.appendValueInput('VALUE').setCheck("Number").appendField('对');
+    this.appendDummyInput().appendField('向上取整');
+    this.setOutput(true, null);
+  },
+};
+
+Blockly.JavaScript['round_up'] = function (block) {
+  var value = Blockly.JavaScript.valueToCode(
+      block,
+      'VALUE',
+      Blockly.JavaScript.ORDER_ATOMIC
+  );
+
+  var code = `math.Ceil(${value})
+  `;
+
+  return code;
+};
+
+// 向下取整
+Blockly.Blocks['round_down'] = {
+  init: function () {
+    this.setInputsInline(true);
+    this.setHelpUrl('');
+    this.setColour(230);
+    this.appendValueInput('VALUE').setCheck('Number').appendField('对');
+    this.appendDummyInput().appendField('向下取整');
+    this.setOutput(true, null);
+  },
+};
+
+Blockly.JavaScript['round_down'] = function (block) {
+  var value = Blockly.JavaScript.valueToCode(
+      block,
+      'VALUE',
+      Blockly.JavaScript.ORDER_ATOMIC
+  );
+
+  var code = `math.Floor(${value})
+  `;
+
+  return code;
+};
+
 Blockly.Blocks['server'] = {
   init: function () {
     this.appendStatementInput('children')
@@ -516,16 +566,18 @@ Blockly.JavaScript['vote_item'] = function (block) {
 //获取时钟服务
 Blockly.Blocks['timer_institute'] = {
   init: function () {
-    this.appendDummyInput().appendField('从CA获取时钟服务');
+    // this.appendDummyInput().appendField('从CA获取时钟服务');
+    this.appendValueInput('the_time').setCheck(null).appendField('从CA获取时钟服务');
+    this.setOutput(true, null);
     this.setInputsInline(false);
-    this.setColour(100);
+    this.setColour(150);
   },
 };
 
 Blockly.JavaScript['timer_institute'] = function (block) {
-  var code = `getTimerFromCA()
-
-`;
+  var the_time = Blockly.JavaScript.valueToCode(block, 'the_time', Blockly.JavaScript.ORDER_ATOMIC);
+  var code = `getTimerFromCA("${the_time}")
+  `;
   return code;
 };
 
@@ -674,13 +726,15 @@ Blockly.JavaScript['vote_info'] = function (block) {
 
 Blockly.Blocks['get_vote_info'] = {
   init: function () {
-    this.appendDummyInput('').appendField('从链上获取此次投票的花名册');
-    this.appendValueInput('vote_id').appendField('设置投票编号：');
+    this.appendDummyInput()
+        .appendField('获取投票编号为')
+        .appendField(new Blockly.FieldTextInput('vote_1'), 'vote_id')
+        .appendField('的投票花名册');
 
     // this.setInputsInline(false);
-    // this.setOutput(true, null);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+    this.setOutput(true, null);
+    // this.setPreviousStatement(true, null);
+    // this.setNextStatement(true, null);
     this.setColour(345);
     this.setHelpUrl('');
   },
@@ -690,6 +744,29 @@ Blockly.JavaScript['get_vote_info'] = function (block) {
   var code = `get voting information()`;
   return code;
 };
+
+Blockly.Blocks['vote_threshold'] = {
+  init: function () {
+    this.appendDummyInput()
+        .appendField('设置投票编号为')
+        .appendField(new Blockly.FieldTextInput('vote_1'), 'vote_id')
+        .appendField('的阈值为')
+        .appendField(new Blockly.FieldTextInput('0.33'), 'threthold');
+
+    // this.setInputsInline(false);
+    this.setOutput(true, null);
+    // this.setPreviousStatement(true, null);
+    // this.setNextStatement(true, null);
+    this.setColour(560);
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['vote_threshold'] = function (block) {
+  var code = `set voting threshold()`;
+  return code;
+};
+
 
 Blockly.Blocks['cal_vote_result'] = {
   init: function () {
