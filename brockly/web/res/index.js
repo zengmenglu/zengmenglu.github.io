@@ -563,27 +563,7 @@ Blockly.JavaScript['vote_list'] = function (block) {
   return code;
 };
 
-// 投票项
-Blockly.Blocks["vote_item"] = {
-  init: function () {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput('投票内容'), 'item');
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setInputsInline(true);
-    this.setColour(105);
-    this.setTooltip('');
 
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.JavaScript['vote_item'] = function (block) {
-  var vote_items = block.getFieldValue('item');
-  var code = `"${vote_items}",
-  `;
-  return code;
-};
 
 // 定时器
 //获取时钟服务
