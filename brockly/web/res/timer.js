@@ -100,3 +100,33 @@ Blockly.JavaScript['time_event'] = function (block) {
 }`;
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+// CA时钟服务
+Blockly.Blocks['CA_time_event'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('<CA时钟服务>')
+        this.appendValueInput('event_id')
+            .setCheck(null)
+            .appendField('定时器ID：');
+        this.appendValueInput('timer').setCheck(null).appendField('截止时间：');
+        // this.appendValueInput('owner').setCheck(null).appendField('设定者：');
+        this.setInputsInline(false);
+        // this.setInputsInline(true);
+        // this.setOutput(true, null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(345);
+        this.setTooltip('Go interface');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['CA_time_event'] = function (block) {
+    var statements_name = Blockly.JavaScript.statementToCode(block, 'ints');
+    // TODO: Assemble JavaScript into code variable.
+    var code = `map[string]interface{}{
+    ${statements_name}
+}`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};

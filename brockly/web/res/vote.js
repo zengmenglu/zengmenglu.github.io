@@ -27,21 +27,45 @@ Blockly.JavaScript['vote_block'] = function (block) {
     return code;
 };
 
+//注册投票总体块
+Blockly.Blocks['vote_id'] = {
+    init: function () {
+        this.appendValueInput('NAME')
+            .appendField("接收投票ID并标记为")
+            .appendField(new Blockly.FieldTextInput('vote_id_1'), 'key');
+            // .appendField('标记为');
+            // .appendValueInput('NAME')
+            // .setCheck(null);
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('Go interface field');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['vote_id'] = function (block) {
+    var code = `
+// todo
+`;
+    return code;
+};
+
 // 注册投票信息
 Blockly.Blocks['vote_register'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("参与者:")
-            .appendField(new Blockly.FieldTextInput('小区名称'), 'vote_participant');
+            .appendField("<投票初始化合约>")
+        this.appendDummyInput()
+            .appendField("小区名称:")
+            .appendField(new Blockly.FieldTextInput('name'), 'vote_participant');
         this.appendDummyInput()
             .appendField("投票名称:")
             .appendField(new Blockly.FieldTextInput('...意见征询'), 'vote_title');
         this.appendDummyInput()
             .appendField('投票文件:')
             .appendField(new Blockly.FieldTextInput('文件oss地址'), 'vote_file');
-        this.appendDummyInput()
-            .appendField('投票阈值:')
-            .appendField(new Blockly.FieldNumber(0.33), 'vote_threshold');
         this.appendStatementInput('vote_items')
             .appendField('表决项目：');
         this.appendDummyInput()
@@ -49,9 +73,9 @@ Blockly.Blocks['vote_register'] = {
             .appendField(new Blockly.FieldDropdown([['1', '1'],['2','2'],['3','3'],['4','4'],['5','5']]),
             'vote_choice');
         this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        // this.setOutput(true)
+        // this.setPreviousStatement(true, null);
+        // this.setNextStatement(true, null);
+        this.setOutput(true)
         this.setColour(160);
     },
 };
@@ -103,8 +127,8 @@ Blockly.Blocks['vote_item'] = {
         this.appendDummyInput()
             .appendField('序号:')
             .appendField(new Blockly.FieldNumber(1), 'vote_item_id')
-            .appendField(', 表决项目:')
-            .appendField(new Blockly.FieldTextInput('contents'), 'vote_items');
+            .appendField(', 生效阈值:')
+            .appendField(new Blockly.FieldNumber(0.67), 'vote_threshold');
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setInputsInline(true);
@@ -192,28 +216,6 @@ Blockly.JavaScript['vote_list'] = function (block) {
     return code;
 };
 
-
-Blockly.Blocks['get_vote_info'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField('获取投票编号为')
-            .appendField(new Blockly.FieldTextInput('vote_1'), 'vote_id')
-            .appendField('的投票花名册');
-
-        // this.setInputsInline(false);
-        this.setOutput(true, null);
-        // this.setPreviousStatement(true, null);
-        // this.setNextStatement(true, null);
-        this.setColour(345);
-        this.setHelpUrl('');
-    },
-};
-
-Blockly.JavaScript['get_vote_info'] = function (block) {
-    var code = `get voting information()`;
-    return code;
-};
-
 Blockly.Blocks['vote_threshold'] = {
     init: function () {
         this.appendDummyInput()
@@ -276,16 +278,40 @@ Blockly.JavaScript['upload'] = function (block) {
 Blockly.Blocks['distribute'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('投票ID:')
-            .appendField(new Blockly.FieldNumber(1), 'vote_item_id');
-        this.appendStatementInput('distribute')
-            .appendField("发票");
+            .appendField('<投票渠道注册>');
+        this.appendStatementInput('distribute');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
         this.setColour(290);
         this.setHelpUrl('');
     },
 };
 
 Blockly.JavaScript['distribute'] = function (block) {
+    var code = `//todo`;
+    return code;
+};
+
+// 发票注册单项
+Blockly.Blocks['distribute_item'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(
+                new Blockly.FieldDropdown([['随申办', 'suishenban'],['业委会','yeweihui'],['社区云','region_cloud'],['物业微信号','wx']]),
+                'participant'
+            )
+
+            .appendField(' 投票ID:')
+            .appendField(new Blockly.FieldTextInput("vote_id_1"), 'vote_item_id');
+
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(290);
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['distribute_item'] = function (block) {
     var code = `//todo`;
     return code;
 };

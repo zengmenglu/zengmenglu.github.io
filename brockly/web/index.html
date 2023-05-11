@@ -38,16 +38,10 @@
 					</div>
 				</div>
 				<div class="flex-el" style="padding:50px 30px;" >
-					<p><b>注册投票</b></p>
-					<img src="pic/vote_reg.png" height="15%"></img>
-					<p><b>发票(此操作需链下执行)</b></p>
-					<img src="pic/distri_vote.png" height="7%"></img>
-					<p><b>设置定时器(此操作需在链下执行)</b></p>
-					<img src="pic/3.png" height="10%"></img>
-					<p><b>触发计票(此操作需在链下执行)</b></p>
-					<img src="pic/invoke.png" height="3%"></img>
-					<p>计票合约</p>
-					<img src="pic/2.png" height="10%"></img>
+					<p><b>初始化：注册投票 -> 注册定时器 -> 发票 </b></p>
+					<img src="pic/vote_init.png" height="60%"></img>
+					<p><b>计票</b></p>
+					<img src="pic/invoke_cal.png" height="30%"></img>
 					<!--<input type="text" id="packageName" placeholder="Package import path">
 					<button onclick="addPackage()">Add</button>-->
 					<br/>
@@ -80,10 +74,12 @@
 		<block type="accumulate"></block>
 		<block type="round_up"></block>
 		<block type="round_down"></block>
+		<block type="arithmetic"></block>
+		<block type="compare"></block>
 	</category>
 	<category name="时钟"  colour="560">
 		<block type="timer_init"></block>
-		<block type="time_event"></block>
+		<block type="CA_time_event"></block>
 		<block type="timer_institute"></block>
 		<block type="time"></block>
 	</category>
@@ -96,17 +92,25 @@
 	</category>
 	<category name="投票" colour="345">
 		<block type="vote_block"></block>
+		<block type="vote_id"></block>
 		<block type="vote_register"></block>
 <!--		<block type="upload_file"></block>-->
 <!--		<block type="vote_list"></block>-->
 		<block type="vote_item"></block>
 <!--		<block type="vote_choice"></block>-->
 <!--		<block type="vote_threshold"></block>-->
-		<block type="get_vote_info"></block>
-		<block type="cal_vote_result"></block>
-		<block type="upload"></block>
 		<block type="distribute"></block>
+		<block type="distribute_item"></block>
 		<block type="distribute_participant"></block>
+	</category>
+	<category name="计票" colour="65">
+		<block type="get_vote_info"></block>
+		<block type="for_range"></block>
+		<block type="if"></block>
+		<block type="choose"></block>
+		<block type="cal_vote_result"></block>
+		<block type="cal_ticket"></block>
+		<block type="upload"></block>
 	</category>
 
 <!--	<category name="路由" colour="345">-->
@@ -127,6 +131,7 @@
 <script type="text/javascript" src="res/vote.js"></script>
 <script type="text/javascript" src="res/timer.js"></script>
 <script type="text/javascript" src="res/invoke.js"></script>
+<script type="text/javascript" src="res/statistic.js"></script>
 <script type="text/javascript" src="res/package_manager.js"></script>
 </body>
 </html>

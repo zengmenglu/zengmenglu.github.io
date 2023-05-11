@@ -14,10 +14,10 @@
 Blockly.Blocks['trigger'] = {
     init: function () {
         this.appendValueInput('event_1').setCheck('String').appendField('当');
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['或', 'or'],['且','and']]),
-                'judge');
-        this.appendValueInput('event_2').setCheck('String');
+        // this.appendDummyInput()
+        //     .appendField(new Blockly.FieldDropdown([['或', 'or'],['且','and']]),
+        //         'judge');
+        // this.appendValueInput('event_2').setCheck('String');
         this.appendStatementInput('contract').setCheck(null).appendField('');
         // this.setInputsInline(true);
         this.setColour(105);
@@ -114,5 +114,68 @@ func (voteCount *VoteCount) InvokeContract(method string) protogo.Response {
 	${statements_name}\n
 }
 `;
+    return code;
+};
+
+// 调用合约
+Blockly.Blocks['contract_name'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('<调用合约>');
+        this.appendDummyInput()
+            .appendField("链：")
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ['投票链', 'vote_chain'],
+                ]),
+                'chain_name'
+            )
+            .appendField(", 合约：")
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ['计票合约', 'vote_count_contract'],
+                    ['投票合约', 'vote_contract'],
+                ]),
+                'contract_name'
+            );
+        this.setInputsInline(false);
+        // this.setInputsInline(true);
+        // this.setOutput(true, null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('Go interface');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['contract_name'] = function (block) {
+    var name = block.getFieldValue('contractName');
+    return name;
+};
+
+// 公证处计票模块
+
+// 注册投票信息
+Blockly.Blocks['cal_ticket'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("<公证处计票模块>")
+        this.appendDummyInput()
+            .appendField("投票ID:")
+            .appendField(new Blockly.FieldTextInput('name'), 'vote_participant');
+        this.appendDummyInput()
+            .appendField("邮箱地址:")
+            .appendField(new Blockly.FieldTextInput('...@sheca.com'), 'vote_title');
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        // this.setOutput(true)
+        this.setColour(160);
+    },
+};
+
+Blockly.JavaScript['cal_ticket'] = function (block) {
+    var code = `//todo`;
     return code;
 };

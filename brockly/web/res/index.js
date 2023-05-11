@@ -321,11 +321,15 @@ Blockly.JavaScript['struct_item'] = function (block) {
 // 累加器
 Blockly.Blocks['accumulate'] = {
   init: function () {
-    this.appendStatementInput('is_vote').appendField('如果');
-    this.appendDummyInput().appendField('计数器累加1');
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput('选项1人员票数'), 'result')
+        // .appendValueInput('event_1').setCheck('String');
+        .appendField(new Blockly.FieldDropdown([['+', 'add'],['-','del'],['✖️','multi'],['➗','div']]),
+            'op')
+        .appendField(new Blockly.FieldTextInput('num'), 'num');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(345);
+    this.setColour(290);
   },
 };
 
@@ -451,7 +455,7 @@ Blockly.Blocks['http_handlerFunc'] = {
 
 Blockly.Blocks['main'] = {
   init: function () {
-    this.appendStatementInput('children').setCheck(null).appendField('Main');
+    this.appendStatementInput('children').setCheck(null).appendField('当开始时');
 
     this.setInputsInline(true);
     this.setColour(105);
@@ -588,32 +592,6 @@ Blockly.JavaScript['vote_info'] = function (block) {
 
 `;
   return code;
-};
-
-
-Blockly.Blocks['contract_name'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField('调用合约 ')
-      .appendField(
-        new Blockly.FieldDropdown([
-          ['计票合约', 'vote_count_contract'],
-          ['投票合约', 'vote_contract'],
-        ]),
-        'contractName'
-      );
-
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
-    this.setTooltip('Line of Go code');
-    this.setHelpUrl('');
-  },
-};
-
-Blockly.JavaScript['contract_name'] = function (block) {
-  var name = block.getFieldValue('contractName');
-  return name;
 };
 
 Blockly.Blocks['route'] = {
