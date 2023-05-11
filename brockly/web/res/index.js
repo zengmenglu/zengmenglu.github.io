@@ -859,6 +859,22 @@ Blockly.JavaScript['interface'] = function (block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.Blocks['text'] = {
+  init: function () {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput(''), 'key');
+    this.setInputsInline(false);
+    this.setOutput(true)
+    this.setColour(230);
+    this.setTooltip('Go interface field');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['text'] = function (block) {
+  var text_key = block.getFieldValue('key');
+  return text_key;
+};
 
 Blockly.Blocks['field'] = {
   init: function () {

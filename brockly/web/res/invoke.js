@@ -161,12 +161,10 @@ Blockly.Blocks['cal_ticket'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("<公证处计票模块>")
-        this.appendDummyInput()
-            .appendField("投票ID:")
-            .appendField(new Blockly.FieldTextInput('name'), 'vote_participant');
-        this.appendDummyInput()
-            .appendField("邮箱地址:")
-            .appendField(new Blockly.FieldTextInput('...@sheca.com'), 'vote_title');
+        this.appendValueInput("vote_id:")
+            .appendField("选择投票ID: ");
+        this.appendValueInput("email")
+            .appendField('设置邮箱地址:');
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -176,6 +174,27 @@ Blockly.Blocks['cal_ticket'] = {
 };
 
 Blockly.JavaScript['cal_ticket'] = function (block) {
+    var code = `//todo`;
+    return code;
+};
+
+Blockly.Blocks['choose_vote_id'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ['vote_id_1', 'id1'],
+                    ['vote_id_2', 'id2']]),
+                'participant'
+            );
+        this.setOutput(true)
+        // this.setPreviousStatement(true, null);
+        // this.setNextStatement(true, null);
+        this.setColour(230);
+    },
+};
+
+Blockly.JavaScript['choose_vote_id'] = function (block) {
     var code = `//todo`;
     return code;
 };
