@@ -44,14 +44,9 @@
 					<img src="pic/distri_vote.png" height="7%"></img>
 					<p><b>设置定时器(此操作需在链下执行)</b></p>
 					<img src="pic/3.png" height="10%"></img>
-					<p><b>方式一</b></p>
-					<p>通过合约名称的形式调用合约：</p>
-					<img src="pic/1.png" height="3%"></img>
-					<!--<input type="text" id="packageName" placeholder="Package import path">
-					<button onclick="addPackage()">Add</button>-->
-					<br/>
-					<p><b>方式二</b></p>
-					<p>通过设置具体步骤的形式设置并调用合约：</p>
+					<p><b>触发计票(此操作需在链下执行)</b></p>
+					<img src="pic/invoke.png" height="3%"></img>
+					<p>计票合约</p>
 					<img src="pic/2.png" height="10%"></img>
 					<!--<input type="text" id="packageName" placeholder="Package import path">
 					<button onclick="addPackage()">Add</button>-->
@@ -93,7 +88,8 @@
 		<block type="time"></block>
 	</category>
 	<category name="调用" colour="150">
-		<block type="timer"></block>
+		<block type="trigger"></block>
+		<block type="timer_trigger"></block>
 		<block type="invoke"></block>
 		<block type="contract_name"></block>
 		<block type="contract_handle_list"></block>
@@ -130,6 +126,7 @@
 <script type="text/javascript" src="res/index.js"></script>
 <script type="text/javascript" src="res/vote.js"></script>
 <script type="text/javascript" src="res/timer.js"></script>
+<script type="text/javascript" src="res/invoke.js"></script>
 <script type="text/javascript" src="res/package_manager.js"></script>
 </body>
 </html>
