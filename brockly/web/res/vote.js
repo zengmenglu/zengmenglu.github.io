@@ -6,7 +6,7 @@
 
 /**
  * @fileoverview Loading and saving blocks with localStorage and cloud storage.
- * @author q.neutron@gmail.com (Quynh Neutron)
+ * @author mengluzeng@163.com
  */
 'use strict';
 
@@ -269,5 +269,42 @@ Blockly.Blocks['upload'] = {
 
 Blockly.JavaScript['upload'] = function (block) {
     var code = `upload()`;
+    return code;
+};
+
+// 发票
+Blockly.Blocks['distribute'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('投票ID:')
+            .appendField(new Blockly.FieldNumber(1), 'vote_item_id');
+        this.appendStatementInput('distribute')
+            .appendField("发票");
+        this.setColour(290);
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['distribute'] = function (block) {
+    var code = `//todo`;
+    return code;
+};
+
+// 发票参与
+Blockly.Blocks['distribute_participant'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(
+                new Blockly.FieldDropdown([['随申办', 'suishenban'],['业委会','yeweihui'],['社区云','region_cloud'],['物业微信号','wx']]),
+                'participant'
+            );
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+    },
+};
+
+Blockly.JavaScript['distribute_participant'] = function (block) {
+    var code = `//todo`;
     return code;
 };
