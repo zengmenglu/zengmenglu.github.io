@@ -105,11 +105,11 @@ Blockly.JavaScript['time_event'] = function (block) {
 Blockly.Blocks['CA_time_event'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('<CA时钟服务>')
+            .appendField('<CA时间服务>')
         this.appendValueInput('event_id')
             .setCheck(null)
-            .appendField('定时器ID：');
-        this.appendValueInput('timer').setCheck(null).appendField('截止时间：');
+            .appendField('注册事件ID：');
+        this.appendValueInput('timer').setCheck(null).appendField('触发时间：');
         // this.appendValueInput('owner').setCheck(null).appendField('设定者：');
         this.setInputsInline(false);
         // this.setInputsInline(true);

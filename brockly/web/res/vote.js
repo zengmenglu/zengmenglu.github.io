@@ -59,7 +59,10 @@ Blockly.Blocks['vote_register'] = {
             .appendField("<投票初始化合约>")
         this.appendDummyInput()
             .appendField("小区名称:")
-            .appendField(new Blockly.FieldTextInput('name'), 'vote_participant');
+            .appendField(new Blockly.FieldTextInput('...name'), 'vote_participant');
+        this.appendDummyInput()
+            .appendField("小区地址:")
+            .appendField(new Blockly.FieldTextInput('...place'), 'vote_place');
         this.appendDummyInput()
             .appendField("投票名称:")
             .appendField(new Blockly.FieldTextInput('...意见征询'), 'vote_title');

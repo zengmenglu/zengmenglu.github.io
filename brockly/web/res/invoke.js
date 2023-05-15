@@ -37,8 +37,8 @@ Blockly.JavaScript['trigger'] = function (block) {
 Blockly.Blocks['timer_trigger'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField('当定时器')
-            .appendField(new Blockly.FieldTextInput('event_1'), 'item')
+            .appendField('当事件ID')
+            .appendField(new Blockly.FieldTextInput('time_event_id_1'), 'item')
             .appendField('发生时');
         // this.setInputsInline(true);
         this.setOutput(true);
