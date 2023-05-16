@@ -78,6 +78,23 @@ Blockly.JavaScript['if'] = function (block) {
     return code;
 };
 
+// ifelse
+Blockly.Blocks['else'] = {
+    init: function () {
+        this.appendStatementInput('do').appendField('否则');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(120);
+    },
+};
+
+Blockly.JavaScript['else'] = function (block) {
+    var code = `todo`;
+    return code;
+};
+
+
+
 //四则运算
 Blockly.Blocks['arithmetic'] = {
     init: function() {

@@ -465,6 +465,37 @@ Blockly.Blocks['main'] = {
   },
 };
 
+Blockly.JavaScript['main'] = function (block) {
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'children');
+  // TODO: Assemble JavaScript into code variable.
+  var packages = [];
+
+  for (var i = omit.length - 1; i >= 0; i--) {
+    var p = omit[i];
+    var path_parts = p.split('/');
+    var p_name = path_parts[path_parts.length - 1];
+
+    var pSanit = p_name.split('"').join('');
+
+    if (statements_name.includes(`${pSanit}.`)) {
+      packages.push(`import ${p}`);
+    }
+  }
+
+  var importStr = packages.join('\n');
+
+  var code = `
+${importStr}
+
+func main() {
+  
+${statements_name}
+
+}
+`;
+  return code;
+};
+
 Blockly.Blocks['route_group'] = {
   init: function () {
     this.appendStatementInput('NAME')
@@ -808,37 +839,6 @@ ${statements_name}
   return code;
 };
 
-Blockly.JavaScript['main'] = function (block) {
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'children');
-  // TODO: Assemble JavaScript into code variable.
-  var packages = [];
-
-  for (var i = omit.length - 1; i >= 0; i--) {
-    var p = omit[i];
-    var path_parts = p.split('/');
-    var p_name = path_parts[path_parts.length - 1];
-
-    var pSanit = p_name.split('"').join('');
-
-    if (statements_name.includes(`${pSanit}.`)) {
-      packages.push(`import ${p}`);
-    }
-  }
-
-  var importStr = packages.join('\n');
-
-  var code = `
-${importStr}
-
-func main() {
-  
-${statements_name}
-
-}
-`;
-  return code;
-};
-
 Blockly.Blocks['interface'] = {
   init: function () {
     this.appendStatementInput('ints').setCheck(null).appendField('Map');
@@ -906,6 +906,26 @@ Blockly.JavaScript['field'] = function (block) {
 `;
   return code;
 };
+
+
+Blockly.Blocks['empty_state'] = {
+  init: function () {
+    this.appendValueInput('NAME')
+        .setCheck(null);
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip('Go interface field');
+    this.setHelpUrl('');
+  },
+};
+
+Blockly.JavaScript['empty_state'] = function (block) {
+  var code = `//todo`;
+  return code;
+};
+
 
 Blockly.Blocks['handler'] = {
   init: function () {
