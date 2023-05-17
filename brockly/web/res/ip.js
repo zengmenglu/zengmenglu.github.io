@@ -152,7 +152,7 @@ Blockly.Blocks['ip_get_use_cnt'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(330);
         this.setTooltip('Go interface field');
         this.setHelpUrl('');
     },
@@ -182,6 +182,35 @@ Blockly.Blocks['ip_cal'] = {
 };
 
 Blockly.JavaScript['ip_call'] = function (block) {
+    var code = `//todo`;
+    return code;
+};
+
+//大小判断
+Blockly.Blocks['ip_compare'] = {
+    init: function() {
+        this.appendValueInput('VALUE').setCheck(null);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([
+                ['大于', 'more'],
+                ['小于','less'],
+                ['等于','equal'],
+                ['大于或等于','not_less'],
+                ['小于或等于','not_more'],
+                ['或','or'],
+                ["并且",'and'],
+                ]),
+                'op');
+        this.appendValueInput('VALUE').setCheck(null);
+        this.setColour(65);
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setInputsInline(true);
+        this.setOutput(true);
+    },
+};
+
+Blockly.JavaScript['ip_compare'] = function (block) {
     var code = `//todo`;
     return code;
 };
