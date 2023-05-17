@@ -127,23 +127,38 @@ Blockly.Blocks['ip_use_counter'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("<IP使用统计模块>");
-        this.appendDummyInput()
-            .appendField("循环:");
-        this.appendValueInput('use').setCheck(null).appendField('每次使用IP：');
-        this.appendStatementInput("do")
-        // this.appendValueInput("vote_id:")
-        //     .appendField("授权ID: ");
-        // this.appendValueInput("email")
-        //     .appendField('设置邮箱地址:');
+        this.appendValueInput('use').setCheck(null).appendField('授权ID：');
+        this.appendValueInput("vote_id:").appendField("统计起始时间: ");
+        this.appendValueInput("email").appendField('统计终止时间:');
         this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        // this.setOutput(true)
+        // this.setPreviousStatement(true, null);
+        // this.setNextStatement(true, null);
+        this.setOutput(true)
         this.setColour(160);
     },
 };
 
-Blockly.JavaScript['ip_call'] = function (block) {
+Blockly.JavaScript['ip_use_counter'] = function (block) {
+    var code = `//todo`;
+    return code;
+};
+
+// 获取ip授权ID
+Blockly.Blocks['ip_get_use_cnt'] = {
+    init: function () {
+        this.appendValueInput('NAME')
+            .appendField("接收IP使用次数并标记为")
+            .appendField(new Blockly.FieldTextInput('auth_id_1'), 'key');
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('Go interface field');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['ip_get_use_cnt'] = function (block) {
     var code = `//todo`;
     return code;
 };
@@ -155,8 +170,9 @@ Blockly.Blocks['ip_cal'] = {
             .appendField("<IP分润模块>");
         this.appendValueInput("vote_id:")
             .appendField("授权ID: ");
-        this.appendValueInput("email")
-            .appendField('设置邮箱地址:');
+        this.appendValueInput("vote_id:")
+            .appendField("IP使用次数: ");
+        this.appendStatementInput('do');
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

@@ -110,6 +110,17 @@ Blockly.Blocks['CA_time_event'] = {
             .setCheck(null)
             .appendField('注册事件ID：');
         this.appendValueInput('timer').setCheck(null).appendField('触发时间：');
+        this.appendDummyInput().appendField("重复：").appendField(
+            new Blockly.FieldDropdown([
+                ['不重复', 'no'],
+                ['每天','day'],
+                ['每周','week'],
+                ['每月','month'],
+                ['每季','quarter'],
+                ['每年','year'],
+                ]),
+            'owner'
+        );
         // this.appendValueInput('owner').setCheck(null).appendField('设定者：');
         this.setInputsInline(false);
         // this.setInputsInline(true);
