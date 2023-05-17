@@ -59,7 +59,16 @@
 </div>
 
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-	<category name="基础" colour="100">
+	<category name="流程" colour="330">
+		<block type="main"></block>
+		<block type="trigger"></block>
+		<block type="contract_name"></block>
+		<block type="contract_handle_list"></block>
+		<block type="for_range"></block>
+		<block type="if"></block>
+		<block type="else"></block>
+	</category>
+	<category name="数据" colour="100">
 		<block type="math_number" colour="120">
 			<field name="NUM" >123</field>
 		</block>
@@ -73,21 +82,13 @@
 		<block type="structure"></block>
 		<block type="struct_item"></block>
 	</category>
-	<category name="流程" colour="560">
-		<block type="main"></block>
-		<block type="trigger"></block>
-		<block type="contract_name"></block>
-		<block type="contract_handle_list"></block>
-		<block type="for_range"></block>
-		<block type="if"></block>
-		<block type="else"></block>
-	</category>
 	<category name="计算" colour="210">
 		<block type="accumulate"></block>
 		<block type="round_up"></block>
 		<block type="round_down"></block>
 		<block type="arithmetic"></block>
 		<block type="compare"></block>
+		<block type="ip_compare"></block>
 	</category>
 	<category name="时钟"  colour="560">
 		<block type="timer_init"></block>
@@ -103,7 +104,10 @@
 <!--		<block type="second"></block>-->
 <!--		<block type="time_every"></block>-->
 	</category>
-	<category name="计票" colour="345">
+	<category name="转账" colour="20">
+		<block type="transfer"></block>
+	</category>
+	<category name="计票" colour="210">
 <!--		<block type="vote_block"></block>-->
 		<block type="vote_id"></block>
 		<block type="choose_vote_id"></block>
@@ -131,11 +135,9 @@
 		<block type="ip_auth"></block>
 		<block type="ip_use_counter"></block>
 		<block type="ip_get_use_cnt"></block>
-		<block type="ip_compare"></block>
+
 	</category>
-	<category name="转账" colour="20">
-		<block type="transfer"></block>
-	</category>
+
 
 <!--	<category name="路由" colour="345">-->
 <!--		<block type="route_group"></block>-->
