@@ -110,17 +110,6 @@ Blockly.Blocks['CA_time_event'] = {
             .setCheck(null)
             .appendField('注册事件ID：');
         this.appendValueInput('timer').setCheck(null).appendField('触发时间：');
-        this.appendDummyInput().appendField("重复：").appendField(
-            new Blockly.FieldDropdown([
-                ['不重复', 'no'],
-                ['每天','day'],
-                ['每周','week'],
-                ['每月','month'],
-                ['每季','quarter'],
-                ['每年','year'],
-                ]),
-            'owner'
-        );
         // this.appendValueInput('owner').setCheck(null).appendField('设定者：');
         this.setInputsInline(false);
         // this.setInputsInline(true);
@@ -142,14 +131,64 @@ Blockly.JavaScript['CA_time_event'] = function (block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-
-Blockly.Blocks['year'] = {
+// CA时钟服务
+Blockly.Blocks['CA_repeat_time_event'] = {
     init: function () {
-        this.setInputsInline(false);
+        this.appendDummyInput()
+            .appendField('<CA时间服务>')
         this.appendValueInput('event_id')
             .setCheck(null)
-            .appendField(new Blockly.FieldNumber(2023), 'year')
-            .appendField('年');
+            .appendField('注册事件ID：');
+        this.appendValueInput('period：')
+            .setCheck(null)
+            .appendField('周期：');
+        // this.appendDummyInput().appendField("周期：")
+        //     .appendField(
+        //     new Blockly.FieldDropdown([
+        //         ['每天','day'],
+        //         ['每周','week'],
+        //         ['每月','month'],
+        //         ['每季','quarter'],
+        //         ['每年','year'],
+        //     ]),
+        //     'owner'
+        // );
+        // this.appendValueInput('owner').setCheck(null).appendField('设定者：');
+        this.setInputsInline(false);
+        // this.setInputsInline(true);
+        // this.setOutput(true, null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(345);
+        this.setTooltip('Go interface');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['CA_repeat_time_event'] = function (block) {
+    var statements_name = Blockly.JavaScript.statementToCode(block, 'ints');
+    // TODO: Assemble JavaScript into code variable.
+    var code = `map[string]interface{}{
+    ${statements_name}
+}`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.Blocks['every_year'] = {
+    init: function () {
+        this.setInputsInline(false);
+        this.appendDummyInput()
+            .appendField('每年')
+            .appendField(new Blockly.FieldTextInput('5'), 'month')
+            .appendField('月')
+            .appendField(new Blockly.FieldTextInput('6'), 'day')
+            .appendField('日')
+            .appendField(new Blockly.FieldTextInput('12'), 'hour')
+            .appendField('时')
+            .appendField(new Blockly.FieldTextInput('00'), 'minute')
+            .appendField('分')
+            .appendField(new Blockly.FieldTextInput('00'), 'second')
+            .appendField('秒');
         this.setOutput(true, null);
         // this.setNextStatement(true, null);
         this.setColour(100);
@@ -158,7 +197,7 @@ Blockly.Blocks['year'] = {
     },
 };
 
-Blockly.JavaScript['year'] = function (block) {
+Blockly.JavaScript['every_year'] = function (block) {
     var y = block.getFieldValue('year');
     var m = block.getFieldValue('month');
     var d = block.getFieldValue('day');
@@ -169,13 +208,19 @@ Blockly.JavaScript['year'] = function (block) {
     return code;
 };
 
-Blockly.Blocks['month'] = {
+Blockly.Blocks['every_month'] = {
     init: function () {
         this.setInputsInline(false);
-        this.appendValueInput('event_id')
-            .setCheck(null)
-            .appendField(new Blockly.FieldNumber(5), 'month')
-            .appendField('月');
+        this.appendDummyInput()
+            .appendField('每月')
+            .appendField(new Blockly.FieldTextInput('6'), 'day')
+            .appendField('日')
+            .appendField(new Blockly.FieldTextInput('12'), 'hour')
+            .appendField('时')
+            .appendField(new Blockly.FieldTextInput('00'), 'minute')
+            .appendField('分')
+            .appendField(new Blockly.FieldTextInput('00'), 'second')
+            .appendField('秒');
         this.setOutput(true, null);
         // this.setNextStatement(true, null);
         this.setColour(100);
@@ -184,7 +229,7 @@ Blockly.Blocks['month'] = {
     },
 };
 
-Blockly.JavaScript['month'] = function (block) {
+Blockly.JavaScript['every_month'] = function (block) {
     var y = block.getFieldValue('year');
     var m = block.getFieldValue('month');
     var d = block.getFieldValue('day');
@@ -195,13 +240,17 @@ Blockly.JavaScript['month'] = function (block) {
     return code;
 };
 
-Blockly.Blocks['day'] = {
+Blockly.Blocks['every_day'] = {
     init: function () {
         this.setInputsInline(false);
-        this.appendValueInput('event_id')
-            .setCheck(null)
-            .appendField(new Blockly.FieldNumber(25), 'day')
-            .appendField('日');
+        this.appendDummyInput()
+            .appendField('每日')
+            .appendField(new Blockly.FieldTextInput('12'), 'hour')
+            .appendField('时')
+            .appendField(new Blockly.FieldTextInput('00'), 'minute')
+            .appendField('分')
+            .appendField(new Blockly.FieldTextInput('00'), 'second')
+            .appendField('秒');
         this.setOutput(true, null);
         // this.setNextStatement(true, null);
         this.setColour(100);
@@ -210,7 +259,7 @@ Blockly.Blocks['day'] = {
     },
 };
 
-Blockly.JavaScript['month'] = function (block) {
+Blockly.JavaScript['every_day'] = function (block) {
     var y = block.getFieldValue('year');
     var m = block.getFieldValue('month');
     var d = block.getFieldValue('day');
@@ -220,6 +269,37 @@ Blockly.JavaScript['month'] = function (block) {
     var code = `${y}-${m}-${d} ${h}:${min}:${s}"`;
     return code;
 };
+
+Blockly.Blocks['every_week'] = {
+    init: function () {
+        this.setInputsInline(false);
+        this.appendDummyInput()
+            .appendField('每周')
+            .appendField(new Blockly.FieldTextInput('12'), 'hour')
+            .appendField('时')
+            .appendField(new Blockly.FieldTextInput('00'), 'minute')
+            .appendField('分')
+            .appendField(new Blockly.FieldTextInput('00'), 'second')
+            .appendField('秒');
+        this.setOutput(true, null);
+        // this.setNextStatement(true, null);
+        this.setColour(100);
+        this.setTooltip('Go interface');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['every_week'] = function (block) {
+    var y = block.getFieldValue('year');
+    var m = block.getFieldValue('month');
+    var d = block.getFieldValue('day');
+    var h = block.getFieldValue('hour');
+    var min = block.getFieldValue('minute');
+    var s = block.getFieldValue('second');
+    var code = `${y}-${m}-${d} ${h}:${min}:${s}"`;
+    return code;
+};
+
 
 Blockly.Blocks['hour'] = {
     init: function () {
