@@ -337,3 +337,55 @@ Blockly.JavaScript['distribute_participant'] = function (block) {
     var code = `//todo`;
     return code;
 };
+
+//
+// Blockly.Blocks['resident'] = {
+//     init: function () {
+//         this.appendDummyInput('').appendField('住户信息结构初始化');
+//         // this.setInputsInline(false);
+//         // this.setOutput(true, null);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(210);
+//         this.setHelpUrl('');
+//     },
+// };
+//
+// Blockly.JavaScript['resident'] = function (block) {
+//     var code = `type resident struct {
+// 	Id        string
+// 	AccountId string
+// 	Area      float64
+// 	Name      string
+// }
+//
+// `;
+//     return code;
+// };
+//
+// Blockly.Blocks['vote_info'] = {
+//     init: function () {
+//         this.appendDummyInput('').appendField('投票信息结构初始化');
+//         // this.setInputsInline(false);
+//         // this.setOutput(true, null);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(345);
+//         this.setHelpUrl('');
+//     },
+// };
+//
+// Blockly.JavaScript['vote_info'] = function (block) {
+//     var code = `type VoteCount struct {
+// 	Roster       []string
+// 	ApprovalNum  uint
+// 	TotalNum     uint
+// 	ApprovalRate float64
+// 	ApprovalArea float64
+// 	TotalArea    float64
+// 	AreaRate     float64
+// }
+//
+// `;
+//     return code;
+// };

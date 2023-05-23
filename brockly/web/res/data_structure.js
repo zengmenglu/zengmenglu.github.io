@@ -10,6 +10,132 @@
  */
 'use strict';
 
+// 字符串
+Blockly.Blocks['text'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput(''), 'key');
+        this.setInputsInline(false);
+        this.setOutput(true)
+        this.setColour(230);
+        this.setTooltip('Go interface field');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['text'] = function (block) {
+    var text_key = block.getFieldValue('key');
+    return text_key;
+};
+
+// map
+Blockly.Blocks['interface'] = {
+    init: function () {
+        this.appendStatementInput('ints').setCheck(null).appendField('Map');
+        this.setInputsInline(false);
+        this.setOutput(true, null);
+        this.setColour(230);
+        this.setTooltip('Go interface');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['interface'] = function (block) {
+    var statements_name = Blockly.JavaScript.statementToCode(block, 'ints');
+    // TODO: Assemble JavaScript into code variable.
+    var code = `map[string]interface{}{
+    ${statements_name}
+}`;
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// map key
+Blockly.Blocks['field'] = {
+    init: function () {
+        this.appendValueInput('NAME')
+            .setCheck(null)
+            .appendField(new Blockly.FieldTextInput('key_name'), 'key');
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('Go interface field');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['field'] = function (block) {
+    var text_key = block.getFieldValue('key');
+    var value_name = Blockly.JavaScript.valueToCode(
+        block,
+        'NAME',
+        Blockly.JavaScript.ORDER_ATOMIC
+    );
+    // TODO: Assemble JavaScript into code variable.
+
+    if (value_name[0] == "'" && value_name[value_name.length - 1] == "'")
+        value_name = value_name.split("'").join('"');
+
+    var code = `"${text_key}" : ${value_name},
+`;
+    return code;
+};
+
+// 结构体
+Blockly.Blocks['structure'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('自定义数据结构:')
+            .appendField(new Blockly.FieldTextInput('name'), 'struct_name');
+        this.appendStatementInput('struct_item').setCheck('struct_item').appendField('字段列表：');
+        this.setInputsInline(true);
+        // this.setOutput(true, null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(110);
+        this.setTooltip('Go interface');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['structure'] = function (block) {
+    var struct_name = block.getFieldValue( 'struct_name');
+    var struct_items = Blockly.JavaScript.statementToCode(block, 'struct_item')
+    var code = `type ${struct_name} struct {
+    ${struct_items}
+}
+
+`;
+    return code;
+};
+
+// 结构体字段
+Blockly.Blocks['struct_item'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField('名称:')
+            .appendField(new Blockly.FieldTextInput('数据结构字段名称（英文）'), 'item_name')
+            .appendField(', 类型:')
+            .appendField(
+                new Blockly.FieldDropdown([['字符串', 'string'],['整数','int'],['小数','float64']]),
+                'item_type'
+            );
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(110);
+        this.setTooltip('Go structure item');
+        this.setHelpUrl('');
+    },
+};
+
+Blockly.JavaScript['struct_item'] = function (block) {
+    var item_name = block.getFieldValue('item_name');
+    var item_type = block.getFieldValue('item_type');
+    var code = `${item_name}  ${item_type}
+    `;
+    return code;
+};
 
 Blockly.Blocks['get_vote_info'] = {
     init: function () {
