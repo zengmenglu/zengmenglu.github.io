@@ -98,20 +98,52 @@ Blockly.JavaScript['else'] = function (block) {
 //四则运算
 Blockly.Blocks['arithmetic'] = {
     init: function() {
+        this.appendValueInput('VALUE').setCheck(null);
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([['+', 'add'],['-','del'],['✖','multi'],['➗','div']]),
+            .appendField(new Blockly.FieldDropdown([['+', 'add'],['-','del'],['✖','multi'],['➗','div'],['=','equal']]),
                 'op');
+        this.appendValueInput('VALUE').setCheck(null);
         this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
-
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(20);
+        this.setInputsInline(true);
+        this.setOutput(true);
+        // this.setPreviousStatement(true, null);
+        // this.setNextStatement(true, null);
+        // this.setColour(20);
     },
 };
 
 Blockly.JavaScript['arithmetic'] = function (block) {
+    var code = `//todo`;
+    return code;
+};
+
+//大小判断
+Blockly.Blocks['ip_compare'] = {
+    init: function() {
+        this.appendValueInput('VALUE').setCheck(null);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([
+                    ['大于', 'more'],
+                    ['小于','less'],
+                    ['等于','equal'],
+                    ['大于或等于','not_less'],
+                    ['小于或等于','not_more'],
+                    ['或','or'],
+                    ["并且",'and'],
+                ]),
+                'op');
+        this.appendValueInput('VALUE').setCheck(null);
+        this.setColour(65);
+        this.setTooltip("");
+        this.setHelpUrl("");
+        this.setInputsInline(true);
+        this.setOutput(true);
+    },
+};
+
+Blockly.JavaScript['ip_compare'] = function (block) {
     var code = `//todo`;
     return code;
 };

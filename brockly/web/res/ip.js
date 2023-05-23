@@ -160,40 +160,13 @@ Blockly.JavaScript['ip_call'] = function (block) {
     return code;
 };
 
-//大小判断
-Blockly.Blocks['ip_compare'] = {
-    init: function() {
-        this.appendValueInput('VALUE').setCheck(null);
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown([
-                ['大于', 'more'],
-                ['小于','less'],
-                ['等于','equal'],
-                ['大于或等于','not_less'],
-                ['小于或等于','not_more'],
-                ['或','or'],
-                ["并且",'and'],
-                ]),
-                'op');
-        this.appendValueInput('VALUE').setCheck(null);
-        this.setColour(65);
-        this.setTooltip("");
-        this.setHelpUrl("");
-        this.setInputsInline(true);
-        this.setOutput(true);
-    },
-};
 
-Blockly.JavaScript['ip_compare'] = function (block) {
-    var code = `//todo`;
-    return code;
-};
 
 //大小判断
 Blockly.Blocks['ip_money_cal'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("<IP计费模块>");
+            .appendField("<IP结算模块>");
         this.appendValueInput("vote_id:")
             .appendField("IP使用次数: ");
         this.appendStatementInput('do');

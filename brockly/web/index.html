@@ -59,15 +59,6 @@
 </div>
 
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-	<category name="流程" colour="330">
-		<block type="main"></block>
-		<block type="trigger"></block>
-		<block type="contract_name"></block>
-		<block type="contract_handle_list"></block>
-		<block type="for_range"></block>
-		<block type="if"></block>
-		<block type="else"></block>
-	</category>
 	<category name="数据" colour="100">
 		<block type="math_number" colour="120">
 			<field name="NUM" >123</field>
@@ -76,18 +67,27 @@
 		<block type="text"></block>
 		<block type="interface"></block>
 		<block type="field"></block>
-		<block type="empty_state"></block>
 <!--		<block type="resident"></block>-->
 <!--		<block type="vote_info"></block>-->
 		<block type="structure"></block>
 		<block type="struct_item"></block>
 	</category>
+	<category name="流程" colour="330">
+		<block type="main"></block>
+		<block type="trigger"></block>
+<!--		<block type="for_range"></block>-->
+		<block type="if"></block>
+		<block type="else"></block>
+		<block type="empty_state"></block>
+		<block type="contract_name"></block>
+		<block type="contract_handle_list"></block>
+	</category>
 	<category name="计算" colour="210">
-		<block type="accumulate"></block>
+<!--		<block type="accumulate"></block>-->
 		<block type="round_up"></block>
 		<block type="round_down"></block>
 		<block type="arithmetic"></block>
-		<block type="compare"></block>
+<!--		<block type="compare"></block>-->
 		<block type="ip_compare"></block>
 	</category>
 	<category name="时钟"  colour="560">
@@ -95,8 +95,8 @@
 		<block type="CA_time_event"></block>
 		<block type="CA_repeat_time_event"></block>
 <!--		<block type="timer_institute"></block>-->
-		<block type="time"></block>
 		<block type="timer_trigger"></block>
+		<block type="time"></block>
 		<block type="every_year"></block>
 		<block type="every_month"></block>
 		<block type="every_week"></block>
