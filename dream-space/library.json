@@ -1,0 +1,270 @@
+{
+  "air": [
+    {
+      "series": "air",
+      "number": "01",
+      "title": "小椰子和天空中的巨无霸",
+      "model": "空客 A380",
+      "cover": "assets/covers/air/01.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "02",
+      "title": "小椰子和轻轻的梦想",
+      "model": "波音 787",
+      "cover": "assets/covers/air/02.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "03",
+      "title": "小椰子和机翼的秘密",
+      "model": "塞斯纳 172",
+      "cover": "assets/covers/air/03.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "04",
+      "title": "小椰子和大白鲸的大肚子",
+      "model": "空客 BelugaXL",
+      "cover": "assets/covers/air/04.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "05",
+      "title": "小椰子和短短的跑道",
+      "model": "DHC-6",
+      "cover": "assets/covers/air/05.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "06",
+      "title": "小椰子和忙碌的空中货船",
+      "model": "波音 747-8F",
+      "cover": "assets/covers/air/06.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "07",
+      "title": "小椰子和森林的求救信",
+      "model": "CL-415",
+      "cover": "assets/covers/air/07.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "08",
+      "title": "小椰子和一百万个小零件",
+      "model": "C919",
+      "cover": "assets/covers/air/08.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "09",
+      "title": "小椰子和会飞的实验室",
+      "model": "A310 Zero G",
+      "cover": "assets/covers/air/09.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "10",
+      "title": "小椰子和最快的选择",
+      "model": "协和式",
+      "cover": "assets/covers/air/10.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "11",
+      "title": "小椰子追逐太阳",
+      "model": "阳光动力 2 号",
+      "cover": "assets/covers/air/11.webp",
+      "readable": false
+    },
+    {
+      "series": "air",
+      "number": "12",
+      "title": "小椰子和第一次飞翔",
+      "model": "莱特飞行者一号",
+      "cover": "assets/covers/air/12.webp",
+      "readable": false
+    }
+  ],
+  "rail": [
+    {
+      "series": "rail",
+      "number": "01",
+      "title": "绿巨人",
+      "model": "CR200J",
+      "cover": "assets/covers/rail/01.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "02",
+      "title": "润泽江南",
+      "model": "CR400BF-Z",
+      "cover": "assets/covers/rail/02.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "03",
+      "title": "蓝妹妹",
+      "model": "CR300AF",
+      "cover": "assets/covers/rail/03.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "04",
+      "title": "蓝暖男",
+      "model": "CR300BF",
+      "cover": "assets/covers/rail/04.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "05",
+      "title": "小椰子的小火车，等一等",
+      "model": "东风4C",
+      "cover": "assets/covers/rail/05.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "06",
+      "title": "小西瓜，车库要关门啦！",
+      "model": "东风4B",
+      "cover": "assets/covers/rail/06.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "07",
+      "title": "花老虎，泡泡站到啦",
+      "model": "东风4D",
+      "cover": "assets/covers/rail/07.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "08",
+      "title": "红神龙，请你帮个忙",
+      "model": "CR400AF",
+      "cover": "assets/covers/rail/08.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "09",
+      "title": "金凤凰，我来说清楚",
+      "model": "CR400BF",
+      "cover": "assets/covers/rail/09.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "10",
+      "title": "烧酒，晚安列车出发了",
+      "model": "韶山9改",
+      "cover": "assets/covers/rail/10.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "11",
+      "title": "扫把，现在轮到我！",
+      "model": "韶山8",
+      "cover": "assets/covers/rail/11.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "12",
+      "title": "美女号，这个我不借！",
+      "model": "韶山7E",
+      "cover": "assets/covers/rail/12.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "13",
+      "title": "韶山7B，第一次也没关系",
+      "model": "韶山7B",
+      "cover": "assets/covers/rail/13.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "14",
+      "title": "香蕉和大脸猫，一起出发",
+      "model": "韶山7C",
+      "cover": "assets/covers/rail/14.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "15",
+      "title": "烧鸡，今天我带队！",
+      "model": "韶山7",
+      "cover": "assets/covers/rail/15.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "16",
+      "title": "韶山6，再试一小步",
+      "model": "韶山6",
+      "cover": "assets/covers/rail/16.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "17",
+      "title": "韶山6B，今天我来帮忙",
+      "model": "韶山6B",
+      "cover": "assets/covers/rail/17.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "18",
+      "title": "害怕也可以说出来",
+      "model": "韶山4改",
+      "cover": "assets/covers/rail/18.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "19",
+      "title": "和谐D3B，这次我想讲给大家听",
+      "model": "和谐D3B",
+      "cover": "assets/covers/rail/19.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "20",
+      "title": "CR450，我还没玩完",
+      "model": "CR450",
+      "cover": "assets/covers/rail/20.webp",
+      "readable": true
+    },
+    {
+      "series": "rail",
+      "number": "21",
+      "title": "韶山4改，你想运什么？",
+      "model": "韶山4改",
+      "cover": "assets/covers/rail/21.webp",
+      "readable": true
+    }
+  ]
+}

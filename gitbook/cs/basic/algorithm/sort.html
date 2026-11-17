@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>排序 · Zengmenglu Zone</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zengmenglu">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    
+    
+    
+    
+
+    <link rel="prev" href="string.html"><link rel="next" href="recursion.html"></head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary"><li><a class="custom-link" href="/" data-need-reload="1">返回梦空间</a></li><li class="divider"><li class="chapter" data-level="1.1" data-path="./"><a href="../../../index.html">Introduction</a></li><li class="header">计算机</li><li class="chapter" data-level="2.1" data-path="cs/basic/networks/computerNetworks.html"><a href="../networks/computerNetworks.html">计算机网络</a><ul class="articles"><li class="chapter" data-level="2.1.1" data-path="cs/basic/networks/applicationLayer.html"><a href="../networks/applicationLayer.html">应用层</a></li><li class="chapter" data-level="2.1.2" data-path="cs/basic/networks/transportLayer.html"><a href="../networks/transportLayer.html">传输层</a></li></ul></li><li class="chapter" data-level="2.2" data-path="cs/basic/os/operatingSystem.html"><a href="../os/operatingSystem.html">操作系统</a><ul class="articles"><li class="chapter" data-level="2.2.1" data-path="cs/basic/os/processAndThread.html"><a href="../os/processAndThread.html">X程</a></li></ul></li><li class="chapter" data-level="2.3" data-path="cs/basic/algorithm/alg.html"><a href="alg.html">数据结构与算法</a><ul class="articles"><li class="chapter" data-level="2.3.1" data-path="cs/basic/algorithm/leetcode.html"><a href="leetcode.html">Leetcode</a></li><li class="chapter" data-level="2.3.2" data-path="cs/basic/algorithm/tree.html"><a href="tree.html">树</a></li><li class="chapter" data-level="2.3.3" data-path="cs/basic/algorithm/string.html"><a href="string.html">字符串</a></li><li class="chapter active" data-level="2.3.4" data-path="cs/basic/algorithm/sort.html"><a href="sort.html">排序</a></li><li class="chapter" data-level="2.3.5" data-path="cs/basic/algorithm/recursion.html"><a href="recursion.html">递归</a></li><li class="chapter" data-level="2.3.6" data-path="cs/basic/algorithm/dynamicProgram.html"><a href="dynamicProgram.html">动态规划</a></li><li class="chapter" data-level="2.3.7" data-path="cs/basic/algorithm/bfsDfs.html"><a href="bfsDfs.html">DFS &amp; BFS</a></li><li class="chapter" data-level="2.3.8" data-path="cs/basic/algorithm/complex.html"><a href="complex.html">算法复杂度</a></li><li class="chapter" data-level="2.3.9" data-path="cs/basic/algorithm/bit.html"><a href="bit.html">比特位操作</a></li><li class="chapter" data-level="2.3.10" data-path="cs/basic/algorithm/scene/scene.html"><a href="scene/scene.html">应用场景</a><ul class="articles"><li class="chapter" data-level="2.3.10.1" data-path="cs/basic/algorithm/scene/setcover.html"><a href="scene/setcover.html">集合覆盖</a></li><li class="chapter" data-level="2.3.10.2" data-path="cs/basic/algorithm/scene/concurrent.html"><a href="scene/concurrent.html">并发</a></li></ul></li></ul></li><li class="chapter" data-level="2.4" data-path="cs/golang/Golang.html"><a href="../../golang/Golang.html">其他</a><ul class="articles"><li class="chapter" data-level="2.4.1" data-path="cs/golang/Golang.html"><a href="../../golang/Golang.html">Golang</a><ul class="articles"><li class="chapter" data-level="2.4.1.1" data-path="cs/golang/gocmd.html"><a href="../../golang/gocmd.html">命令行操作</a></li><li class="chapter" data-level="2.4.1.2" data-path="cs/golang/gobasic.html"><a href="../../golang/gobasic.html">基础</a></li><li class="chapter" data-level="2.4.1.3" data-path="cs/golang/godata.html"><a href="../../golang/godata.html">数据</a></li><li class="chapter" data-level="2.4.1.4" data-path="cs/golang/gobufio.html"><a href="../../golang/gobufio.html">输入输出</a></li><li class="chapter" data-level="2.4.1.5" data-path="cs/golang/goconcurrency.html"><a href="../../golang/goconcurrency.html">并发</a></li><li class="chapter" data-level="2.4.1.6" data-path="cs/golang/goEngineer.html"><a href="../../golang/goEngineer.html">工程</a><ul class="articles"><li class="chapter" data-level="2.4.1.6.1" data-path="cs/golang/godebug.html"><a href="../../golang/godebug.html">Debug</a></li><li class="chapter" data-level="2.4.1.6.2" data-path="cs/golang/goTest.html"><a href="../../golang/goTest.html">测试</a></li><li class="chapter" data-level="2.4.1.6.3" data-path="cs/golang/goperform.html"><a href="../../golang/goperform.html">性能</a></li></ul></li><li class="chapter" data-level="2.4.1.7" data-path="cs/golang/goOthers.html"><a href="../../golang/goOthers.html">其他</a></li></ul></li><li class="chapter" data-level="2.4.2" data-path="cs/archi/db/database.html"><a href="../../archi/db/database.html">数据库</a></li><li class="chapter" data-level="2.4.3" data-path="cs/archi/distributesys/distributionSystem.html"><a href="../../archi/distributesys/distributionSystem.html">分布式系统</a></li><li class="chapter" data-level="2.4.4" data-path="cs/archi/designpattern/designPattern.html"><a href="../../archi/designpattern/designPattern.html">设计模式</a></li><li class="chapter" data-level="2.4.5" data-path="cs/Logic/logic.html"><a href="../../Logic/logic.html">智力题</a></li><li class="chapter" data-level="2.4.6" data-path="cs/Project/project.html"><a href="../../Project/project.html">项目</a><ul class="articles"><li class="chapter" data-level="2.4.6.1" data-path="cs/Project/flowCtrol.html"><a href="../../Project/flowCtrol.html">流量控制</a></li></ul></li></ul></li><li class="header">Career</li><li class="chapter" data-level="3.1" data-path="career/guidance/guidance.html"><a href="../../../career/guidance/guidance.html">Guidance</a><ul class="articles"><li class="chapter" data-level="3.1.1" data-path="career/guidance/limingbo.html"><a href="../../../career/guidance/limingbo.html">我的12年等于24年</a></li></ul></li><li class="chapter" data-level="3.2" data-path="read/read.html"><a href="../../../read/read.html">Reading</a><ul class="articles"><li class="chapter" data-level="3.2.1" data-path="read/booklist.html"><a href="../../../read/booklist.html">书单</a></li><li class="chapter" data-level="3.2.2" data-path="read/read.html"><a href="../../../read/read.html">book</a></li><li class="chapter" data-level="3.2.3" data-path="read/poetry.html"><a href="../../../read/poetry.html">诗词</a></li></ul></li><li class="divider"><li><a class="gitbook-link" href="https://www.gitbook.com" target="_blank">本书使用 GitBook 发布</a></li></ul></nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../index.html">排序</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#%E6%8E%92%E5%BA%8F"><b></b>排序</a></li><ul><li><span class="title-icon "></span><a href="#%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95"><b></b>排序方法</a></li><li><span class="title-icon "></span><a href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83"><b></b>排序算法比较</a></li></ul><li><span class="title-icon "></span><a href="#%E5%8F%82%E8%80%83"><b></b>参考</a></li></ul></div><a href="#%E6%8E%92%E5%BA%8F" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="排序"><a name="%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a>排序</h1>
+<h2 id="排序方法"><a name="%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95" class="anchor-navigation-ex-anchor" href="#%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95"><i class="fa fa-link" aria-hidden="true"></i></a>排序方法</h2>
+<p>需要掌握额外空间消耗、平均时间复杂度、最差时间复杂度，并比较不同排序算法之间的优劣。</p>
+<h4 id="插入排序"><a name="%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a>插入排序</h4>
+<p>每步将一个待排序的记录，按其关键码值的大小插入前面已经排序的文件中适当位置上，直到全部插入完为止。</p>
+<p>insert sort，稳定的，最差O(n^2)，平均O(n^2)，最好O(n），空间O(1)</p>
+<pre><code>// 简单插入排序
+func insertSort(nums []int) []int {
+    for i := 1; i&lt; len(nums); i++ {
+        preIdx := i-1
+        curVal := nums[i]
+        for ;preIdx &gt;= 0 &amp;&amp; curVal &lt; nums[preIdx]; preIdx--{
+            nums[preIdx+1] = nums[preIdx]
+        }
+        nums[preIdx+1] = curVal
+    }
+    return nums
+}
+</code></pre><p>注： 上述解法中num[:i-1]是已经排好序的部分，num[j]是要插入的数，需要逐个比较已经排好序部分的数，然后插入到合适的地方。（这里其实也用到的冒泡）</p>
+<h4 id="冒泡排序"><a name="%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a>冒泡排序</h4>
+<p>bubble sort,  稳定的，最差O(n^2)，平均O(n^2)，最好O(n^2)，空间O(1)</p>
+<pre><code>// 冒泡排序
+func bubleSort(nums []int)[]int{
+    for i := 0; i &lt; len(nums) - 1; i++{
+        for j := 0; j &lt; len(nums) - i - 1; j++ {
+            if nums[j] &gt; nums[j + 1]{
+                nums[j], nums[j+1] = nums[j+1], nums[j] 
+            }
+        }
+    }
+    return nums
+}
+</code></pre><h4 id="选择排序"><a name="%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a>选择排序</h4>
+<p>selection sort，稳定的，最差O(n^2)，平均O(n^2)，最好O(n^2)，空间O(1) </p>
+<pre><code>// 简单选择排序
+func selectSort(nums []int) []int {
+    for i := 0; i &lt; len(nums) - 1; i++ {
+        minIdx := i
+        for j := i+1; j &lt; len(nums); j++ {
+            if nums[minIdx] &gt; nums[j] {
+                minIdx = j
+            }
+        }
+        nums[i], nums[minIdx] = nums[minIdx], nums[i]
+    } 
+    return nums
+}
+</code></pre><h4 id="快速排序"><a name="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a><strong><u>快速排序</u></strong></h4>
+<p>先选出一个数，比该数小的放在左边，大的放在右边。</p>
+<ul>
+<li>quick sort，不稳定，最差O(n^2)，平均O(nlog2^n)，最好O(nlog2^n)，空间O(nlog2^n)</li>
+<li>快速排序当n很小时，是很慢的。</li>
+<li><p>可以有改进的方法：</p>
+<ul>
+<li>在递归调用的时候，当数组长度小于一定长度的时候，用插入排序来排序小数组；</li>
+<li><p>当数组长度小于一定长度的时候，数组基本有序，这个时候调用插入排序对全数组进行排序；这个长度在小于9的时候最好；</p>
+<pre><code>// 快速排序
+func quickSort(nums []int)[]int{
+partialLast(nums,0, len(nums)-1)
+return nums
+}
+func partial(nums []int, low, high int){ // 第一个值为pivot
+if low &gt;= high {return}
+pivot := nums[low]
+i,j := low, high
+for i&lt;j{
+  for ;i&lt;j &amp;&amp; nums[j]&gt;=pivot;j--{}
+  if i&lt;j{
+      nums[i] = nums[j]
+      i++
+  } 
+  for ;i&lt;j&amp;&amp;nums[i]&lt;=pivot;i++{}
+  if i&lt;j{
+      nums[j] = nums[i]
+      j--
+  }
+}
+nums[i] = pivot
+partial(nums, low, i-1)
+partial(nums,i+1,high)
+}
+func partialMid(nums []int, low, high int) { //中间一个值作pivot
+if low &gt;= high {
+  return
+}
+
+pivot := nums[(low+high)/2]
+i, j := low, high
+nums[(low+high)/2], nums[j]  = nums[j], nums[(low+high)/2]
+for i &lt;= j {
+  for ;i &lt;= j &amp;&amp; nums[i] &lt; pivot;i++ {}
+  for ;i &lt;= j &amp;&amp; nums[j] &gt;= pivot; j-- {}
+  if i &lt; j {
+      nums[i], nums[j] = nums[j], nums[i]
+      i++
+      j--
+  }
+}
+nums[i], nums[high]  = nums[high], nums[i]
+partialMid(nums, low, i - 1)
+partialMid(nums, i + 1, high)
+}
+func partialLast(nums []int, low, high int) {// 最后一个值作为pivot
+if low &gt;= high{
+  return
+}
+pivot := nums[high]
+i,j := low, high
+for i &lt; j{
+  for ;i &lt; j &amp;&amp; nums[i] &lt;= pivot; i++ {}
+  if i &lt; j {
+      nums[j] = nums[i]
+      j--
+  }
+  for ;i &lt; j &amp;&amp; nums[j] &gt;= pivot; j--{}
+  if i &lt; j {
+      nums[i] = nums[j]
+      i++
+  }
+}
+nums[i] = pivot
+partialLast(nums, low, i-1)
+partialLast(nums, i+1, high)
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h4 id="shell排序"><a name="shell%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#shell%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a>shell排序</h4>
+<p>将数组分为多个子序列，每个子序列用插入排序，不稳定，最差O(n^2)，平均O(n^1.5)，最好O(n)，空间O(1) </p>
+<pre><code>// 希尔排序
+func shellSort(nums []int) []int{
+    for gap := len(nums) / 2; gap &gt; 0; gap = gap / 2 {
+        for i := gap; i &lt; len(nums); i++ {
+            preIdx := i - gap;
+            curVal := nums[i]
+            for ; preIdx &gt;= 0 &amp;&amp; curVal &lt; nums[preIdx]; preIdx -= gap{
+                nums[preIdx + gap] = nums[preIdx]
+            }
+            nums[preIdx + gap] = curVal
+        }
+    }
+    return nums
+}
+</code></pre><h4 id="堆排序"><a name="%E5%A0%86%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a>堆排序</h4>
+<p>heap_sort, 不稳定，最差O(nlog2^n)，平均O(nlog2^n)，最好O(nlog2^n)，空间O(1)，适合于外排序，处理数据集大而不适合在内存排序的情况</p>
+<ul>
+<li>父结点的键值总是大于或等于（小于或等于）任何一个子节点的键值；</li>
+<li>每个结点的左子树和右子树都是一个二叉堆（都是最大堆或最小堆）；</li>
+<li>堆的存储一般是用数组存储，i结点的父节点下标(i-1)/2，左右子结点的下标为<code>2*i+1和2*i+2</code></li>
+</ul>
+<pre><code>// 堆排序
+func heapSort(nums []int) []int {
+    for i := len(nums)/2 - 1; i &gt;= 0; i-- { // 从倒数第一个非叶子节点（父节点）开始，每次将最大值放在所有父节点上
+        heaplify(nums, i, len(nums))
+    }
+
+    for i := len(nums) - 1; i &gt; 0; i-- { // 每次将堆的最大值放在最后，重新构造新的堆
+        nums[0], nums[i] = nums[i], nums[0]
+        heaplify(nums, 0, i)
+    }
+    return nums
+}
+func heaplify(nums []int, start, end int) { // 将最大值放在start位置上
+    curIdx := start
+    for curIdx &lt; end {
+        left := 2 * curIdx + 1
+        right := 2 * curIdx + 2
+        if left &lt; end &amp;&amp; nums[left] &gt; nums[curIdx] &amp;&amp; (right &gt;= end || nums[left] &gt; nums[right]) {
+            nums[curIdx], nums[left] = nums[left], nums[curIdx]
+            curIdx = left
+        } else if right &lt; end &amp;&amp; nums[right] &gt; nums[curIdx] {
+            nums[curIdx], nums[right] = nums[right], nums[curIdx]
+            curIdx = right
+        }else {
+            break
+        }
+
+    }
+}
+</code></pre><h4 id="归并排序"><a name="%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F" class="anchor-navigation-ex-anchor" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><i class="fa fa-link" aria-hidden="true"></i></a>归并排序</h4>
+<p>merge sort, 递归的思想，稳定，最差O(nlog2^n)，平均O(nlog2^n)，最好O(nlog2^n)，空间O(1)</p>
+<p><img src="evernotecid://BE224651-30A6-49A9-8AD9-C6C3F1ABBBF8/appyinxiangcom/445930/ENResource/p2778" alt="d85620247da35b84fda5daf1baae2a7d.png"></p>
+<h2 id="排序算法比较"><a name="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83" class="anchor-navigation-ex-anchor" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83"><i class="fa fa-link" aria-hidden="true"></i></a>排序算法比较</h2>
+<table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th>最差时间复杂度</th>
+<th>平均时间复杂度</th>
+<th>最好时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插入排序</td>
+<td><code>O(n^2)</code></td>
+<td><code>O(n^2)</code></td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>冒泡排序</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(n^2)</td>
+<td>O(nlog2^n)</td>
+<td>O(nlog2^n)</td>
+<td>O(nlog2^n)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(nlog2^n)</td>
+<td>O(nlog2^n)</td>
+<td>O(nlog2^n)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>O(nlog2^n)</td>
+<td>O(nlog2^n)</td>
+<td>O(nlog2^n)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>shell排序</td>
+<td>O(n^2)</td>
+<td>O(n^1.5)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>基排序</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>稳定</td>
+</tr>
+</tbody>
+</table>
+<p><em>注：稳定性指，如果允许输入的关键码可以重复时，如果算法不改变具有相同关键码记录的原始输入顺序，这种算法称为稳定的。</em></p>
+<p><img src="evernotecid://BE224651-30A6-49A9-8AD9-C6C3F1ABBBF8/appyinxiangcom/445930/ENResource/p2779" alt="eb78bd56601d10f094fa790773a0fef0.png"></p>
+<p>总结：</p>
+<ul>
+<li>按平均时间性能：<ul>
+<li>O(n^2)的方法：插入排序、冒泡排序、选择排序；插入排序在基本有序的情况下快</li>
+<li>O(nlog2^n)的方法：快速排序、堆排序、归并排序；其中快排目前被认为是最快的一种排序；后者的话，n较大时，归并更快</li>
+<li>O(n)的方法：基排序</li>
+</ul>
+</li>
+<li>按空间性能：<ul>
+<li>O(n)的方法：归并排序、基排序</li>
+<li>O(log2^n)的方法：快速排序</li>
+<li>O(1)的方法：插入排序、冒泡排序、选择排序、堆排序</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a name="%E5%8F%82%E8%80%83" class="anchor-navigation-ex-anchor" href="#%E5%8F%82%E8%80%83"><i class="fa fa-link" aria-hidden="true"></i></a>参考</h1>
+<ul>
+<li>排序算法动图图解：cnblogs.com/onepixel/p/7674659.html</li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright © ZengMenglu 2020 all right reserved，powered by Gitbook</span><span class="footer-modification">本书发布时间：
+2020-03-20 07:12:31
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                
+                
+                
+                
+            
+        
+    <a href="string.html" class="navigation navigation-prev" aria-label="Previous page: 字符串"><i class="fa fa-angle-left"></i></a><a href="recursion.html" class="navigation navigation-next" aria-label="Next page: 递归"><i class="fa fa-angle-right"></i></a></div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"排序","level":"2.3.4","depth":2,"next":{"title":"递归","level":"2.3.5","depth":2,"path":"cs/basic/algorithm/recursion.md","ref":"cs/basic/algorithm/recursion.md","articles":[]},"previous":{"title":"字符串","level":"2.3.3","depth":2,"path":"cs/basic/algorithm/string.md","ref":"cs/basic/algorithm/string.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","-chapter-fold","code","-search","search-pro","github","splitter","tbfed-pagefooter","sharing","-highlight","styles-less","expandable-chapters-small","-toggle-chapters","-lunr","-fontsettings","ancre-navigation","-multipart","pageview-count","mermaid","mermaid-gb3"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © ZengMenglu 2020","modify_label":"本书发布时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/zengmenglu"},"styles-less":{},"splitter":{},"search-pro":{},"mermaid":{},"code":{"copyButtons":true},"mermaid-gb3":{},"back-to-top-button":{},"pageview-count":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"zengmenglu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Zengmenglu Zone","language":"zh-hans","output.name":"site","links":{"sidebar":{"返回梦空间":"/"}},"gitbook":"3.2.3","description":""},"file":{"path":"content/cs/basic/algorithm/sort.md","mtime":"2020-03-19T23:12:31.422Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-26T23:41:14.337Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+
+    <script src="../../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Leetcode · Zengmenglu Zone</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zengmenglu">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="tree.html">
+    
+    
+    <link rel="prev" href="dataStructAndAlgorithm.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary"><li><a class="custom-link" href="/" data-need-reload="1">返回梦空间</a></li><li class="divider"><li class="chapter" data-level="1.1" data-path="./"><a href="../../index.html">Introduction</a></li><li class="header">计算机</li><li class="chapter" data-level="2.1" data-path="cs/basic/networks/computerNetworks.html"><a href="../basic/networks/computerNetworks.html">计算机网络</a><ul class="articles"><li class="chapter" data-level="2.1.1" data-path="cs/basic/networks/applicationLayer.html"><a href="../basic/networks/applicationLayer.html">应用层</a></li><li class="chapter" data-level="2.1.2" data-path="cs/basic/networks/transportLayer.html"><a href="../basic/networks/transportLayer.html">传输层</a></li></ul></li><li class="chapter" data-level="2.2" data-path="cs/basic/os/operatingSystem.html"><a href="../basic/os/operatingSystem.html">操作系统</a><ul class="articles"><li class="chapter" data-level="2.2.1" data-path="cs/basic/os/processAndThread.html"><a href="../basic/os/processAndThread.html">X程</a></li></ul></li><li class="chapter" data-level="2.3" data-path="cs/basic/algorithm/alg.html"><a href="../basic/algorithm/alg.html">数据结构与算法</a><ul class="articles"><li class="chapter" data-level="2.3.1" data-path="cs/basic/algorithm/leetcode.html"><a href="../basic/algorithm/leetcode.html">Leetcode</a></li><li class="chapter" data-level="2.3.2" data-path="cs/basic/algorithm/tree.html"><a href="../basic/algorithm/tree.html">树</a></li><li class="chapter" data-level="2.3.3" data-path="cs/basic/algorithm/string.html"><a href="../basic/algorithm/string.html">字符串</a></li><li class="chapter" data-level="2.3.4" data-path="cs/basic/algorithm/sort.html"><a href="../basic/algorithm/sort.html">排序</a></li><li class="chapter" data-level="2.3.5" data-path="cs/basic/algorithm/recursion.html"><a href="../basic/algorithm/recursion.html">递归</a></li><li class="chapter" data-level="2.3.6" data-path="cs/basic/algorithm/dynamicProgram.html"><a href="../basic/algorithm/dynamicProgram.html">动态规划</a></li><li class="chapter" data-level="2.3.7" data-path="cs/basic/algorithm/bfsDfs.html"><a href="../basic/algorithm/bfsDfs.html">DFS &amp; BFS</a></li><li class="chapter" data-level="2.3.8" data-path="cs/basic/algorithm/complex.html"><a href="../basic/algorithm/complex.html">算法复杂度</a></li><li class="chapter" data-level="2.3.9" data-path="cs/basic/algorithm/bit.html"><a href="../basic/algorithm/bit.html">比特位操作</a></li><li class="chapter" data-level="2.3.10" data-path="cs/basic/algorithm/scene/scene.html"><a href="../basic/algorithm/scene/scene.html">应用场景</a><ul class="articles"><li class="chapter" data-level="2.3.10.1" data-path="cs/basic/algorithm/scene/setcover.html"><a href="../basic/algorithm/scene/setcover.html">集合覆盖</a></li><li class="chapter" data-level="2.3.10.2" data-path="cs/basic/algorithm/scene/concurrent.html"><a href="../basic/algorithm/scene/concurrent.html">并发</a></li></ul></li></ul></li><li class="chapter" data-level="2.4" data-path="cs/golang/Golang.html"><a href="../golang/Golang.html">其他</a><ul class="articles"><li class="chapter" data-level="2.4.1" data-path="cs/golang/Golang.html"><a href="../golang/Golang.html">Golang</a><ul class="articles"><li class="chapter" data-level="2.4.1.1" data-path="cs/golang/gocmd.html"><a href="../golang/gocmd.html">命令行操作</a></li><li class="chapter" data-level="2.4.1.2" data-path="cs/golang/gobasic.html"><a href="../golang/gobasic.html">基础</a></li><li class="chapter" data-level="2.4.1.3" data-path="cs/golang/godata.html"><a href="../golang/godata.html">数据</a></li><li class="chapter" data-level="2.4.1.4" data-path="cs/golang/gobufio.html"><a href="../golang/gobufio.html">输入输出</a></li><li class="chapter" data-level="2.4.1.5" data-path="cs/golang/goconcurrency.html"><a href="../golang/goconcurrency.html">并发</a></li><li class="chapter" data-level="2.4.1.6" data-path="cs/golang/goEngineer.html"><a href="../golang/goEngineer.html">工程</a><ul class="articles"><li class="chapter" data-level="2.4.1.6.1" data-path="cs/golang/godebug.html"><a href="../golang/godebug.html">Debug</a></li><li class="chapter" data-level="2.4.1.6.2" data-path="cs/golang/goTest.html"><a href="../golang/goTest.html">测试</a></li><li class="chapter" data-level="2.4.1.6.3" data-path="cs/golang/goperform.html"><a href="../golang/goperform.html">性能</a></li></ul></li><li class="chapter" data-level="2.4.1.7" data-path="cs/golang/goOthers.html"><a href="../golang/goOthers.html">其他</a></li></ul></li><li class="chapter" data-level="2.4.2" data-path="cs/archi/db/database.html"><a href="../archi/db/database.html">数据库</a></li><li class="chapter" data-level="2.4.3" data-path="cs/archi/distributesys/distributionSystem.html"><a href="../archi/distributesys/distributionSystem.html">分布式系统</a></li><li class="chapter" data-level="2.4.4" data-path="cs/archi/designpattern/designPattern.html"><a href="../archi/designpattern/designPattern.html">设计模式</a></li><li class="chapter" data-level="2.4.5" data-path="cs/Logic/logic.html"><a href="../Logic/logic.html">智力题</a></li><li class="chapter" data-level="2.4.6" data-path="cs/Project/project.html"><a href="../Project/project.html">项目</a><ul class="articles"><li class="chapter" data-level="2.4.6.1" data-path="cs/Project/flowCtrol.html"><a href="../Project/flowCtrol.html">流量控制</a></li></ul></li></ul></li><li class="header">Career</li><li class="chapter" data-level="3.1" data-path="career/guidance/guidance.html"><a href="../../career/guidance/guidance.html">Guidance</a><ul class="articles"><li class="chapter" data-level="3.1.1" data-path="career/guidance/limingbo.html"><a href="../../career/guidance/limingbo.html">我的12年等于24年</a></li></ul></li><li class="chapter" data-level="3.2" data-path="read/read.html"><a href="../../read/read.html">Reading</a><ul class="articles"><li class="chapter" data-level="3.2.1" data-path="read/booklist.html"><a href="../../read/booklist.html">书单</a></li><li class="chapter" data-level="3.2.2" data-path="read/read.html"><a href="../../read/read.html">book</a></li><li class="chapter" data-level="3.2.3" data-path="read/poetry.html"><a href="../../read/poetry.html">诗词</a></li></ul></li><li class="divider"><li><a class="gitbook-link" href="https://www.gitbook.com" target="_blank">本书使用 GitBook 发布</a></li></ul></nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../index.html">Leetcode</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#%E7%9B%AE%E5%BD%95"><b></b>目录</a></li><li><span class="title-icon "></span><a href="#42-%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0"><b></b>42. 缺失的第一个正数</a></li><li><span class="title-icon "></span><a href="#46-%E5%85%A8%E6%8E%92%E5%88%97"><b></b>46. 全排列</a></li><li><span class="title-icon "></span><a href="#96-%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><b></b>96. 不同的二叉搜索树</a></li><li><span class="title-icon "></span><a href="#153-%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC"><b></b>153. 寻找旋转排序数组中的最小值</a></li><li><span class="title-icon "></span><a href="#200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F"><b></b>200. 岛屿数量</a></li><li><span class="title-icon "></span><a href="#403-%E9%9D%92%E8%9B%99%E8%BF%87%E6%B2%B3"><b></b>403. 青蛙过河</a></li><li><span class="title-icon "></span><a href="#698-%E5%88%92%E5%88%86%E4%B8%BAk%E4%B8%AA%E7%9B%B8%E7%AD%89%E7%9A%84%E5%AD%90%E9%9B%86"><b></b>698. 划分为k个相等的子集</a></li><li><span class="title-icon "></span><a href="#779-%E7%AC%ACk%E4%B8%AA%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7"><b></b>779. 第K个语法符号</a></li><li><span class="title-icon "></span><a href="#794-%E6%9C%89%E6%95%88%E7%9A%84%E4%BA%95%E5%AD%97%E6%B8%B8%E6%88%8F"><b></b>794. 有效的井字游戏</a></li><li><span class="title-icon "></span><a href="#894-%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><b></b>894. 所有可能的满二叉树</a></li><li><span class="title-icon "></span><a href="#912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><b></b>912. 排序数组</a></li><li><span class="title-icon "></span><a href="#923-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%8F%AF%E8%83%BD"><b></b>923. 三数之和的多种可能</a></li><li><span class="title-icon "></span><a href="#993-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%A0%82%E5%85%84%E5%BC%9F%E8%8A%82%E7%82%B9"><b></b>993. 二叉树的堂兄弟节点</a></li><li><span class="title-icon "></span><a href="#1277-%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA-1-%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%AD%90%E7%9F%A9%E9%98%B5"><b></b>1277. 统计全为 1 的正方形子矩阵</a></li><li><span class="title-icon "></span><a href="#1278-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2-iii"><b></b>1278. 分割回文串 III</a></li><li><span class="title-icon "></span><a href="#1360-%E6%97%A5%E6%9C%9F%E4%B9%8B%E9%97%B4%E9%9A%94%E5%87%A0%E5%A4%A9"><b></b>1360. 日期之间隔几天</a></li></ul></div><a href="#%E7%9B%AE%E5%BD%95" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="目录"><a name="%E7%9B%AE%E5%BD%95" class="anchor-navigation-ex-anchor" href="#%E7%9B%AE%E5%BD%95"><i class="fa fa-link" aria-hidden="true"></i></a>目录</h1>
+<ul>
+<li><a href="#42">42. 缺失的第一个正数</a></li>
+<li><a href="#46">46. 全排列</a></li>
+<li><a href="tree.html#leetcode94">94. 二叉树的中序遍历</a></li>
+<li><a href="#96">96. 不同的二叉搜索树</a></li>
+<li><a href="tree.html#leetcode102">102. 二叉树的层次遍历</a></li>
+<li><a href="tree.html#leetcode105">105. 从前序与中序遍历序列构造二叉树</a></li>
+<li><a href="tree.html#leetcode106">106. 从中序与后序遍历序列构造二叉树</a></li>
+<li><a href="tree.html#leetcode144">144. 二叉树的前序遍历</a></li>
+<li><a href="tree.html#leetcode145">145. 二叉树的后序遍历</a></li>
+<li><a href="#153">153. 寻找旋转排序数组中的最小值</a></li>
+<li><a href="#200">200. 岛屿数量</a></li>
+<li><a href="#403">403. 青蛙过河</a></li>
+<li><a href="#698">698. 划分为k个相等的子集</a></li>
+<li><a href="#779">779. 第K个语法符号</a></li>
+<li><a href="#794">794. 有效的井字游戏</a></li>
+<li><a href="tree.html#leetcode889">889. 根据前序和后序遍历构造二叉树</a></li>
+<li><a href="#894">894. 所有可能的满二叉树</a></li>
+<li><a href="#912">912. 排序数组</a></li>
+<li><a href="#923">923. 三数之和的多种可能</a></li>
+<li><a href="#993">993. 二叉树的堂兄弟节点</a></li>
+<li><a href="tree.html#leetcode1028">1028. 从先序遍历还原二叉树</a></li>
+<li><a href="#1277">1277. 统计全为 1 的正方形子矩阵</a></li>
+<li><a href="#1278">1278. 分割回文串 III</a></li>
+<li><a href="#1360">1360. 日期之间隔几天</a></li>
+<li><a href="tree.html#leetcode1361">1361. 验证二叉树</a></li>
+</ul>
+<h1 id="42-缺失的第一个正数"><a name="42-%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0" class="anchor-navigation-ex-anchor" href="#42-%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0"><i class="fa fa-link" aria-hidden="true"></i></a><a id="42" href="https://leetcode-cn.com/problems/first-missing-positive/" target="_blank">42. 缺失的第一个正数</a></h1>
+<p>给定一个未排序的整数数组，找出其中没有出现的最小的正整数。</p>
+<p>与剑指 offer第三题类似，不同之处在于可能出现负数或大于数组长度n的数。对于这样的数跳过即可，对其他1～n的数换到下标0～n-1的位置。如果数组内数据为[1,2,...,n], 那么第一个未出现的正数是n+1，所以第一个未出现的正数范围是1～n+1。</p>
+<ul>
+<li>nums[i] == i+1 符合置换条件，不需要交换。</li>
+<li>nums[i] == nums[nums[i]-1] 两个交换值相等的情况下，会产生死循环，所以也无需交换，继续下一个。</li>
+</ul>
+<pre><code>func firstMissingPositive(nums []int) int {
+    n := len(nums)
+    for i := 0; i &lt; n; {
+        for (i&lt; n) &amp;&amp; (nums[i] &lt;= 0 || nums[i] &gt; n || nums[i] == i+1 || nums[i] == nums[nums[i]-1]){
+            i++
+        }
+        if i&lt; n {
+            nums[i], nums[nums[i]-1] =  nums[nums[i]-1],nums[i]       
+        }
+    }
+    for i:=0;i&lt;n;i++{
+        if nums[i]!=i+1{
+            return i+1
+        }
+    }
+    return n+1
+}
+</code></pre><h1 id="46-全排列"><a name="46-%E5%85%A8%E6%8E%92%E5%88%97" class="anchor-navigation-ex-anchor" href="#46-%E5%85%A8%E6%8E%92%E5%88%97"><i class="fa fa-link" aria-hidden="true"></i></a><a id="46" href="https://leetcode-cn.com/problems/permutations/" target="_blank">46. 全排列</a></h1>
+<p>给定一个没有重复数字的序列，返回其所有可能的全排列。 </p>
+<p><em>TAG：【递归】【回溯】</em></p>
+<p>假设数字序列为<code>[0...n-1]</code>,首先是确定第一个数，将序号为0～n-1的数分别与第一个数交换位置。交换完了之后要恢复数组原貌，再确定第二个数，将第二个数后面所有数字和第二个数交换。如此，直到确定了所有数之后就得到了一个结果。</p>
+<ul>
+<li>注意这里储存结果的二维数组必须得使用指针，否则结果传不出来。</li>
+<li>如果不恢复原貌，得到的结果会有重复，并且得到的结果不全。</li>
+<li>交换一定要从start开始，而不是start+1，</li>
+</ul>
+<pre><code>func permute(nums []int) [][]int {
+    var results [][]int
+    backTrace(nums, &amp;results,0)
+    return results
+}
+
+func backTrace(nums []int, results *[][]int, start int){
+    if start == len(nums){
+        *results = append(*results,append([]int{},nums...))
+    }
+    for i := start; i &lt; len(nums); i++{
+        nums[start],nums[i] = nums[i],nums[start] // 交换
+        backTrace(nums, results, start+1) // 计算下一个数
+        nums[start],nums[i] = nums[i],nums[start] // 恢复原貌
+    }
+}
+</code></pre><h1 id="96-不同的二叉搜索树"><a name="96-%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91" class="anchor-navigation-ex-anchor" href="#96-%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a><a id="96" href"https:="" leetcode-cn.com="" problems="" unique-binary-search-trees="" "="">96. 不同的二叉搜索树</a></h1>
+<p>给定一个整数 n，求以 1 ... n 为节点组成的二叉搜索树有多少种？</p>
+<p>TAG：【动态规划】</p>
+<p>本题是一维的动态规划算法，构造<code>result[i]</code>代表<code>1～i</code>组成的二叉搜索树的种类。可以知道m~n的二叉搜索树的种类等于1～n-m+1为节点组成的二叉搜索树。又根据二叉搜索树的性质，root左边的数小于root，右边的数大于root。因此，1～i为节点的二叉搜索树的种类是以1～i分别为root时左右两边二叉树种类的乘积。</p>
+<pre><code>func numTrees(n int) int {
+    var result = make([]int, n+1)
+    result[0] = 1
+    result[1] = 1
+    for i:=2;i&lt;=n;i++{  
+        for r:=1;r&lt;=i;r++{// 以r为root
+                result[i] += result[r-1]*result[i-r]
+        }
+    }
+    return result[n]
+}
+</code></pre><h1 id="153-寻找旋转排序数组中的最小值"><a name="153-%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC" class="anchor-navigation-ex-anchor" href="#153-%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC"><i class="fa fa-link" aria-hidden="true"></i></a><a id="153" href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank">153. 寻找旋转排序数组中的最小值</a></h1>
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。请找出其中最小的元素。你可以假设数组中不存在重复元素。</p>
+<p>旋转数组前半部分所有数字值大于后半部分，需要找到旋转点。所以判断一截数组，如果第一个元素大于最后一个元素，说明这截数组仍然是旋转数组。</p>
+<ul>
+<li>要判断<code>end-start==1</code>的情况，应为当这种情况下，<code>mid=(start+end)/2</code>会出现<code>mid==start</code>，从而造成死循环。</li>
+<li>本题假设没有重复数字，当有重复数字时，会有nums[start] == nums[end]==nums[mid]的情况，这个时候需要顺序查找最小值。</li>
+</ul>
+<pre><code>func findMin(nums []int) int {
+    if len(nums) == 0 {
+        return 0
+    }
+    start, end :=0, len(nums)-1
+    for nums[start] &gt; nums[end]{
+        if end -start == 1{
+            return nums[end]
+        }
+        mid := (start + end)/2
+        if nums[start] &gt;= nums[mid] {
+            end = mid
+        } else if nums[start] &lt;= nums[mid]{
+            start = mid
+        }
+    }
+    return nums[start]
+}
+</code></pre><h1 id="200-岛屿数量"><a name="200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F" class="anchor-navigation-ex-anchor" href="#200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F"><i class="fa fa-link" aria-hidden="true"></i></a><a id="200" href="https://leetcode-cn.com/problems/number-of-islands/submissions/" target="_blank">200. 岛屿数量</a></h1>
+<p>给定一个由 '1'（陆地）和 '0'（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。</p>
+<p><em>TAG:【图】【递归】【深度优先】【广度优先】</em></p>
+<p>深度优先搜索：关键词递归</p>
+<ol>
+<li>从某个点开始，如果值是1，说明至少有1个岛，岛屿的数量+1.</li>
+<li>然后从这个点开始深度优先深度从上下左右四个方向开始深度优先搜索，直到遍历到值是0的点，将之前遍历到的值是1的点改成0.</li>
+<li>知道所有点被遍历完为止。</li>
+</ol>
+<p>广度优先搜索：关键词队列</p>
+<ol>
+<li>与深度优先搜索一样，不同点在于，把当前节点周围值为1的节点都存储下来，依次遍历直到邻接点是0为止。</li>
+</ol>
+<pre><code>// 深度优先搜索
+func numIslands(grid [][]byte) int {
+    result := 0
+    for i := 0; i &lt; len(grid); i++ {
+        for j := 0; j &lt; len(grid[i]); j++ {// 遍历每一个点
+            if grid[i][j] == '1' {
+                result++
+                grid[i][j] = '0'
+                dfs(&amp;grid, i, j) // 发散深度优先搜索
+            }
+        }
+    }
+    return result
+}
+
+func dfs(grid *[][]byte, x, y int) {
+    if x-1 &gt;= 0 &amp;&amp; (*grid)[x-1][y] == '1' {
+        (*grid)[x-1][y] = '0'
+        dfs(grid, x-1, y)
+    }
+    if x+1 &lt; len((*grid)) &amp;&amp; (*grid)[x+1][y] == '1' {
+        (*grid)[x+1][y] = '0'
+        dfs(grid, x+1, y)
+    }
+    if y-1 &gt;= 0 &amp;&amp; (*grid)[x][y-1] == '1' {
+        (*grid)[x][y-1] = '0'
+        dfs(grid, x, y-1)
+    }
+    if y+1 &lt; len((*grid)[x]) &amp;&amp; (*grid)[x][y+1] == '1' {
+        (*grid)[x][y+1] = '0'
+        dfs(grid, x, y+1)
+    }
+}
+</code></pre><pre><code>// 广度优先算法
+func numIslands(grid [][]byte) int {
+    if len(grid) == 0{
+        return 0
+    }
+    result := 0
+    neigbor := make([]int, 0)
+    row := len(grid)
+    col:=len(grid[0])
+    for i := 0; i &lt; row; i++ {
+        for j := 0; j &lt; col; j++ {
+            if grid[i][j] == '1' {
+                result++
+                grid[i][j] = '0'
+                neigbor = append(neigbor,i*col+j)  //  队列存储节点的邻接节点
+                for len(neigbor)&gt;0{
+                    x,y:=neigbor[0]/col,neigbor[0]%col
+                    neigbor = neigbor[1:]
+                    if x-1 &gt;= 0 &amp;&amp; grid[x-1][y] == '1' {
+                        grid[x-1][y] = '0'
+                        neigbor = append(neigbor, (x-1)*col+y)
+                    }
+                    if x+1 &lt; len(grid) &amp;&amp; grid[x+1][y] == '1' {
+                        grid[x+1][y] = '0'
+                        neigbor = append(neigbor, (x+1)*col+y)
+                    }
+                    if y-1 &gt;= 0 &amp;&amp; grid[x][y-1] == '1' {
+                        grid[x][y-1] = '0'
+                        neigbor = append(neigbor, x*col+y-1)
+                    }
+                    if y+1 &lt; len(grid[x]) &amp;&amp; grid[x][y+1] == '1' {
+                        grid[x][y+1] = '0'
+                        neigbor = append(neigbor, x*col+y+1)
+                    }
+                }
+            }
+        }
+    }
+    return result
+}
+</code></pre><h1 id="403-青蛙过河"><a name="403-%E9%9D%92%E8%9B%99%E8%BF%87%E6%B2%B3" class="anchor-navigation-ex-anchor" href="#403-%E9%9D%92%E8%9B%99%E8%BF%87%E6%B2%B3"><i class="fa fa-link" aria-hidden="true"></i></a><a id="403" href="https://leetcode-cn.com/problems/frog-jump/" target="_blank">403. 青蛙过河</a></h1>
+<p>给定石子的位置列表（用单元格序号升序表示）， 请判定青蛙能否成功过河（即能否在最后一步跳至最后一个石子上）。 开始时， 青蛙默认已站在第一个石子上，并可以假定它第一步只能跳跃一个单位（即只能从单元格1跳至单元格2）。如果青蛙上一步跳跃了 k 个单位，那么它接下来的跳跃距离只能选择为 k - 1、k 或 k + 1个单位。 另请注意，青蛙只能向前方（终点的方向）跳跃。实例：输入[0,1,3,5,6,8,12,17]，输出true。</p>
+<p><em>TAG：【动态规划】</em></p>
+<p>本题涉及二维的动态规划</p>
+<ul>
+<li>dp[i][j] 表示在stones[i]上可以跳跃j步。</li>
+<li>当计算到dp[i][j]， i=n-1且存在为true的j时，说明前一个节点也可以跳j步到达这最后一个石头上。</li>
+</ul>
+<pre><code>func canCross(stones []int) bool {
+    var dp = make([][]bool, len(stones)) // 在stones[i]上可以跳跃j步
+    for i := range dp {
+        dp[i] = make([]bool, len(stones))
+    }
+    dp[0][1] = true
+    for i := 1; i &lt; len(stones); i++ {
+        for j := 0; j &lt; i; j++ {
+            dis := stones[i] - stones[j]
+            if dis &lt;= 0 || dis &gt;= len(stones) || !dp[j][dis] {continue}// dis的范围判断是为了dp[j][dis]下标不越界
+            if i == len(stones)-1 {return true} // 成功判定
+            dp[i][dis] = true // 更新dp数组
+            if dis-1 &gt; 0 {    dp[i][dis-1] = true}
+            if dis+1 &lt; len(stones) {dp[i][dis+1] = true}
+        }
+    }
+    return false
+}
+</code></pre><h1 id="698-划分为k个相等的子集"><a name="698-%E5%88%92%E5%88%86%E4%B8%BAk%E4%B8%AA%E7%9B%B8%E7%AD%89%E7%9A%84%E5%AD%90%E9%9B%86" class="anchor-navigation-ex-anchor" href="#698-%E5%88%92%E5%88%86%E4%B8%BAk%E4%B8%AA%E7%9B%B8%E7%AD%89%E7%9A%84%E5%AD%90%E9%9B%86"><i class="fa fa-link" aria-hidden="true"></i></a><a id="698" href="">698. 划分为k个相等的子集</a></h1>
+<p>给定一个整数数组  nums 和一个正整数 k，找出是否有可能把这个数组分成 k 个非空子集，其总和都相等。</p>
+<p>输入： nums = [4, 3, 2, 3, 5, 2, 1], k = 4 </p>
+<p>输出： True </p>
+<p>说明： 有可能将其分成 4 个子集（5），（1,4），（2,3），（2,3）等于总和。</p>
+<p><em>TAG：【数组】【递归】【动态规划】</em></p>
+<pre><code>func canPartitionKSubsets(nums []int, k int) bool {
+    total := 0
+    for i := range nums {
+        total += nums[i]
+    }
+    if k &lt;= 0 || total%k != 0 {
+        return false
+    }
+    sum := total / k
+    sort.Ints(nums)
+    lastIdx := len(nums) - 1
+    for i := len(nums) - 1; i &gt;= 0; i-- {
+        if nums[i] &gt; sum {
+            return false
+        }
+        if nums[i] == sum {
+            lastIdx--
+            k--
+        }
+        if nums[i] &lt; sum {
+            break
+        }
+    }
+    record := make([]int, k)
+    return canPartitionKSubsetsRecurse(nums, record, lastIdx, sum)
+}
+
+func canPartitionKSubsetsRecurse(nums, record []int, lastIdx, sum int) bool { // 递归
+    if lastIdx &lt; 0 {
+        return true
+    }
+    for i := range record {
+        if record[i]+nums[lastIdx] &lt;= sum {
+            record[i] += nums[lastIdx]
+            if canPartitionKSubsetsRecurse(nums, record, lastIdx-1, sum) { // 子问题
+                return true
+            }
+            record[i] -= nums[lastIdx]
+        }
+        if record[i] == 0 {
+            return false
+        }
+    }
+    return false
+}
+</code></pre><h1 id="779-第k个语法符号"><a name="779-%E7%AC%ACk%E4%B8%AA%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7" class="anchor-navigation-ex-anchor" href="#779-%E7%AC%ACk%E4%B8%AA%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7"><i class="fa fa-link" aria-hidden="true"></i></a><a id="779" href="https://leetcode-cn.com/problems/k-th-symbol-in-grammar/submissions/" target="_blank">779. 第K个语法符号</a></h1>
+<p>在第一行我们写上一个 0。接下来的每一行，将前一行中的0替换为01，1替换为10。给定行数 N 和序数 K，返回第 N 行中第 K个字符。（K从1开始）</p>
+<p><em>TAG：【数组】【递归】</em></p>
+<ul>
+<li>按照递归2步走：终止条件，递归式。</li>
+</ul>
+<pre><code>func kthGrammar(N int, K int) int {
+    if N&lt;=1||K&lt;=1{
+        return 0
+    }
+    return (1-kthGrammar(N-1,(K+1)/2))^(K%2)
+}
+</code></pre><h1 id="794-有效的井字游戏"><a name="794-%E6%9C%89%E6%95%88%E7%9A%84%E4%BA%95%E5%AD%97%E6%B8%B8%E6%88%8F" class="anchor-navigation-ex-anchor" href="#794-%E6%9C%89%E6%95%88%E7%9A%84%E4%BA%95%E5%AD%97%E6%B8%B8%E6%88%8F"><i class="fa fa-link" aria-hidden="true"></i></a><a id="794" href="https://leetcode-cn.com/problems/valid-tic-tac-toe-state/" target="_blank">794. 有效的井字游戏</a></h1>
+<p>用字符串数组作为井字游戏的游戏板 board。当且仅当在井字游戏过程中，玩家有可能将字符放置成游戏板所显示的状态时，才返回 true。该游戏板是一个 3 x 3 数组，由字符 " "，"X" 和 "O" 组成。字符 " " 代表一个空位。
+以下是井字游戏的规则：
+玩家轮流将字符放入空位（" "）中。
+第一个玩家总是放字符 “X”，且第二个玩家总是放字符 “O”。
+“X” 和 “O” 只允许放置在空位中，不允许对已放有字符的位置进行填充。
+当有 3 个相同（且非空）的字符填充任何行、列或对角线时，游戏结束。
+当所有位置非空时，也算为游戏结束。
+如果游戏结束，玩家不允许再放置字符。</p>
+<p><em>TAG：【数组】【二维】</em> </p>
+<p>本题就是找规律，分为以下3个特殊情形：</p>
+<ol>
+<li>X棋子先下，因此X的数量比O多1个，或者与O相等，其他情况说明不符合游戏规则，返回false。</li>
+<li>当X满足赢的条件的时候，X数量比O多1，否则返回false。</li>
+<li>当O满足赢的条件的时候，O数量和X一样多，否则返回false。</li>
+</ol>
+<pre><code>
+func validTicTacToe(board []string) bool {
+    cntO,cntX:=count(board)
+    if cntX-cntO!= 1 &amp;&amp; cntX-cntO!=0{ // 条件1判断
+        return false
+    }
+    if win(board,'X') &amp;&amp; cntX-cntO!=1{ // 条件2判断
+        return false
+    }
+    if win(board,'O') &amp;&amp; cntX!=cntO{ // 条件3判断
+        return false
+    }
+    return true
+}
+func count(board []string)(int,int){ // 获取X和O棋子的个数
+    var cntO, cntX int
+    for j := 0; j &lt; len(board); j++ {
+        for k := 0; k &lt; len(board[0]); k++ {
+            if board[j][k] == 'O' {
+                cntO++
+            } else if board[j][k] == 'X' {
+                cntX++
+            }
+        }
+    }
+    return cntO,cntX
+}
+func win(board []string, winner byte)bool{ // 判断棋子winner是否满足赢的条件
+    for i:=0;i&lt;len(board);i++{
+        if (board[i][0]==winner &amp;&amp; board[i][1]==winner &amp;&amp; board[i][2]==winner)||
+            (board[0][i]==winner &amp;&amp; board[1][i]==winner &amp;&amp; board[2][i]==winner){
+            return true
+        }
+    }
+    if (board[0][0] == winner &amp;&amp; board[1][1] == winner &amp;&amp; board[2][2]==winner)||
+        (board[2][0] == winner &amp;&amp; board[1][1] == winner &amp;&amp; board[0][2]==winner){
+        return true
+    }
+    return false
+}
+</code></pre><h1 id="894-所有可能的满二叉树"><a name="894-%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor-navigation-ex-anchor" href="#894-%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a><a id="894" href="https://leetcode-cn.com/problems/all-possible-full-binary-trees/submissions/" target="_blank">894. 所有可能的满二叉树</a></h1>
+<p>满二叉树是一类二叉树，其中每个结点恰好有 0 或 2 个子结点。返回包含 N 个结点的所有可能满二叉树的列表。 答案的每个元素都是一个可能树的根结点。答案中每个树的每个结点都必须有 node.val=0。你可以按任何顺序返回树的最终列表。</p>
+<p><em>TAG：【递归】【树】</em></p>
+<ul>
+<li>递归的思路，N个节点时，根节点占用一个节点，左右子孩子占有N-1个节点，由于是满二叉树，因此如果存在左孩子，必定需要有右孩子，反之亦然。遍历左孩子占用节点树为1～N-2的情况，得出左孩子可能的根节点的数据，将这些根节点接上原始root，则得到了不同的目标答案。</li>
+<li>核心在于构建递归函数的入参和出参。理论上，递归函数是可以不设置任何出参的，可以在入参中存储结果。（需要存储结果的原因在于存储下子问题的解，避免重复子问题计算）。由于目标结果是树的头节点的切片<code>[]*TreeNode</code>，因此如果我们需要存在子问题的解，则需要存节点数为1～N范围的结果值，因此，存储结果的类型设置为<code>[][]*TreeNode</code>.</li>
+</ul>
+<pre><code>func allPossibleFBT(N int) []*TreeNode {
+    if N == 0 {
+        return nil
+    }
+    store := make([][]*TreeNode, N+1)
+    findTree(N, &amp;store)
+    return store[N]
+}
+
+func findTree(N int, store *[][]*TreeNode) {
+    if N == 1 {
+        (*store)[N] = []*TreeNode{&amp;TreeNode{0, nil, nil}}
+        return
+    }
+
+    result := make([]*TreeNode, 0)
+    for i := 1; i &lt; N-1; i++ {
+        var left, right []*TreeNode
+        if len((*store)[i]) == 0 {
+            findTree(i, store)
+        }
+        left = (*store)[i]
+        if len((*store)[N-1-i]) == 0 {
+            findTree(N-1-i, store)
+        }
+        right = (*store)[N-1-i]
+
+        // 递归的核心处
+        for j := range left {
+            for k := range right {
+                root := &amp;TreeNode{0, left[j], right[k]}
+                result = append(result, root)
+            }
+        }
+    }
+    (*store)[N] = result
+}
+</code></pre><h1 id="912-排序数组"><a name="912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84" class="anchor-navigation-ex-anchor" href="#912-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><i class="fa fa-link" aria-hidden="true"></i></a><a id="912" href="https://leetcode-cn.com/problems/sort-an-array/" target="_blank">912. 排序数组</a></h1>
+<p>给定一个整数数组 nums，将该数组升序排列。</p>
+<p>TAG：【排序】【数组】</p>
+<p>快速排序:</p>
+<pre><code>func quickSort(nums []int){
+    partition(nums, 0, len(nums)-1)
+}
+func partition(nums []int, start, end int){
+    if start &gt;= end{
+        return
+    }
+    var i, j  = start, end
+    pivot:=nums[start]
+    for i &lt; j{
+        for ;i&lt;j;j--{  //从尾开始，将不小于pivot的值放在左边
+            if nums[j]&lt;=pivot{
+                nums[i] = nums[j]
+                i++
+                break
+            }
+        }
+        for ;i&lt;j;i++{ // 从首开始
+            if nums[i]&gt;=pivot{
+                nums[j] = nums[i]
+                j--
+                break
+            }
+        }
+    }
+    nums[i] = pivot // 置位
+    partition(nums, start, i-1) // 分治
+    partition(nums, i+1, end)
+}
+</code></pre><p>堆排序：</p>
+<pre><code>func heapSort(nums []int){
+    for i:=len(nums)/2-1;i&gt;=0;i--{ // 从最后一个非叶子结点开始调整，构造一个完成最大堆
+        heaplify(nums, i, len(nums)-1)
+    }
+    for j:=len(nums)-1;j&gt;=1;j--{// 将堆定最大元素取出，将堆最后一个叶子结点放在堆定，再调整
+        nums[0],nums[j] = nums[j],nums[0]
+        heaplify(nums,0,j-1)
+    }
+}
+func heaplify(nums []int, start, end int){// 堆的调整
+    for i := start; i&lt;=end; {
+        left:=2*i+1
+        right:=2*i+2
+        if left&lt;=end &amp;&amp; nums[left]&gt;nums[i] &amp;&amp; (right &gt; end || nums[right]&lt;=nums[left]){
+            nums[left],nums[i] = nums[i],nums[left]
+            i=left
+        }else if right &lt;= end &amp;&amp; nums[right]&gt;nums[i]{
+            nums[right],nums[i] = nums[i],nums[right]
+            i=right
+        }else{
+            break
+        }
+    }
+}
+</code></pre><h1 id="923-三数之和的多种可能"><a name="923-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%8F%AF%E8%83%BD" class="anchor-navigation-ex-anchor" href="#923-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%8F%AF%E8%83%BD"><i class="fa fa-link" aria-hidden="true"></i></a><a id="923" href="https://leetcode-cn.com/problems/3sum-with-multiplicity/submissions/" target="_blank">923. 三数之和的多种可能</a></h1>
+<p>给定一个整数数组 A，以及一个整数 target 作为目标值，返回满足 i &lt; j &lt; k 且 A[i] + A[j] + A[k] == target 的元组 i, j, k 的数量。由于结果会非常大，请返回 结果除以 10^9 + 7 的余数。（3 &lt;= A.length &lt;= 3000，0 &lt;= A[i] &lt;= 100，0 &lt;= target &lt;= 300）</p>
+<p><em>【三指针】</em></p>
+<ul>
+<li>由于数字大小范围为0～100，首先采用桶排序，对A数组中的数字出现的次数进行统计，record[i]表示数字i出现的次数，如果没有数字i，则record[i]=0。</li>
+<li>定好第一个数，另外两个数分别用首尾指针确定，由于可能出现3个数字中有相同的数的情况，首指针从第一个数的位置开始，首尾指针可以相等。</li>
+<li>注意判断特殊情况，第一个数和第二个数相等，第二个数和第三个数相等的情况。</li>
+</ul>
+<pre><code>func threeSumMulti(A []int, target int) int {
+    const maxResult = 1000000007
+    const maxNum = 100
+    var record = make([]int, maxNum+1)
+    for i := range A {
+        record[A[i]]++
+    }
+    result := 0
+    for i := 0; i &lt; len(record); i++ {
+        if record[i] == 0 {
+            continue
+        }
+        left := target - i
+        for j, k := i, len(record)-1; k &gt;= j; {
+            if record[j] == 0 || j+k &lt; left {
+                j++
+                continue
+            }
+            if record[k] == 0 || j+k &gt; left {
+                k--
+                continue
+            }
+            if i &lt; j &amp;&amp; j &lt; k {
+                result = (result + record[i]*record[j]*record[k]) % maxResult
+            } else if i == j &amp;&amp; j &lt; k &amp;&amp; record[i] &gt;= 2 {
+                result = (result + ((record[i]*(record[i]-1))/2)*record[k]) % maxResult
+            } else if i &lt; j &amp;&amp; j == k &amp;&amp; record[j] &gt;= 2 {
+                result = (result + ((record[j]*(record[j]-1))/2)*record[i]) % maxResult
+            } else if record[i] &gt;= 3 {
+                result = (result + ((record[j] * (record[j] - 1) * (record[j] - 2)) / 6)) % maxResult
+            }
+            j++
+            k--
+        }
+    }
+    return result
+}
+</code></pre><h1 id="993-二叉树的堂兄弟节点"><a name="993-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%A0%82%E5%85%84%E5%BC%9F%E8%8A%82%E7%82%B9" class="anchor-navigation-ex-anchor" href="#993-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%A0%82%E5%85%84%E5%BC%9F%E8%8A%82%E7%82%B9"><i class="fa fa-link" aria-hidden="true"></i></a><a id="993" href="https://leetcode-cn.com/problems/cousins-in-binary-tree/" target="_blank">993. 二叉树的堂兄弟节点</a></h1>
+<p>在二叉树中，根节点位于深度 0 处，每个深度为 k 的节点的子节点位于深度 k+1 处。如果二叉树的两个节点深度相同，但父节点不同，则它们是一对堂兄弟节点。我们给出了具有唯一值的二叉树的根节点 root，以及树中两个不同节点的值 x 和 y。只有与值 x 和 y 对应的节点是堂兄弟节点时，才返回 true。否则，返回 false。</p>
+<p>TAG：【树】</p>
+<p>递归分别求x和y的深度和父节点的值。</p>
+<pre><code>func isCousins(root *TreeNode, x int, y int) bool {
+    var xParent, yParent, xdepth, ydepth int
+    xflg:=isChild(root,x,&amp;xParent,&amp;xdepth)
+    yflg:=isChild(root, y,&amp;yParent,&amp;ydepth)
+    if !xflg || !yflg || xParent == yParent || xdepth!=ydepth {
+        return false
+    }
+    return true
+}
+
+func isChild(root *TreeNode, val int, parent *int, depth *int) (bool){
+    if root == nil { return false}
+    if (root.Left != nil &amp;&amp; root.Left.Val== val) || (root.Right != nil &amp;&amp; root.Right.Val== val){
+        *parent = root.Val
+        *depth+=1
+        return true
+    }
+    if isChild(root.Left, val, parent, depth) || isChild(root.Right, val, parent,depth){
+        *depth+=1
+        return true
+    }
+    return false
+}
+</code></pre><h1 id="1277-统计全为-1-的正方形子矩阵"><a name="1277-%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA-1-%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%AD%90%E7%9F%A9%E9%98%B5" class="anchor-navigation-ex-anchor" href="#1277-%E7%BB%9F%E8%AE%A1%E5%85%A8%E4%B8%BA-1-%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%AD%90%E7%9F%A9%E9%98%B5"><i class="fa fa-link" aria-hidden="true"></i></a><a id="1277" href="https://leetcode-cn.com/problems/count-square-submatrices-with-all-ones/" target="_blank">1277. 统计全为 1 的正方形子矩阵</a></h1>
+<p>给你一个 m * n 的矩阵，矩阵中的元素不是 0 就是 1，请你统计并返回其中完全由 1 组成的 正方形 子矩阵的个数。</p>
+<pre><code>输入：matrix =
+[
+  [0,1,1,1],
+  [1,1,1,1],
+  [0,1,1,1]
+]
+输出：15
+解释： 
+边长为 1 的正方形有 10 个。
+边长为 2 的正方形有 4 个。
+边长为 3 的正方形有 1 个。
+正方形的总数 = 10 + 4 + 1 = 15.
+</code></pre><p>按照边长1～min(row,col)的小正方形的情况，暴力求解。</p>
+<h1 id="1278-分割回文串-iii"><a name="1278-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2-iii" class="anchor-navigation-ex-anchor" href="#1278-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2-iii"><i class="fa fa-link" aria-hidden="true"></i></a><a id="1278" href="https://leetcode-cn.com/problems/palindrome-partitioning-iii/" target="_blank">1278. 分割回文串 III</a></h1>
+<p>给你一个由小写字母组成的字符串 s，和一个整数 k。</p>
+<p>请你按下面的要求分割字符串：</p>
+<p>首先，你可以将 s 中的部分字符修改为其他的小写英文字母。
+接着，你需要把 s 分割成 k 个非空且不相交的子串，并且每个子串都是回文串。
+请返回以这种方式分割字符串所需修改的最少字符数。</p>
+<pre><code>输入：s = "abc", k = 2
+输出：1
+解释：你可以把字符串分割成 "ab" 和 "c"，并修改 "ab" 中的 1 个字符，将它变成回文串。
+</code></pre><pre><code>dp[i][j] = min(dp[i][j],dp[m][j-1]+cost[m+1][i]), m=1...i-1
+</code></pre><p><code>dp[i][j]</code> 代表字符串s前i个字符分成j个子串需要修改的最少字符数，<code>cost[m][n]</code>代表字符串第m到n个字符的子串变成回文需要修改的最小字符数。（下标均为从1开始）</p>
+<pre><code>func initCost(s string) [][]int { // cost[i][j]表示第i～j字符段成为回文需要变化的次数，下标0开始
+    var cost = make([][]int, len(s))
+    for i := 0; i &lt; len(s); i++{
+        cost[i] = make([]int, len(s))
+        for j := i+1; j &lt; len(s); j++{
+            for m,n := i,j; m &lt; n ; m,n = m+1, n-1 {
+                if s[m] != s[n]{
+                    cost[i][j]++
+                }
+            }
+        }
+    }
+    return cost
+}
+
+func palindromePartition(s string, k int) int {
+    var cost = initCost(s)
+    var dp = make([][]int, len(s)+1) // dp[i][j]表示0～（i-1）前i个字符段分成k份，每份为回文的次数
+    for i := 1; i &lt;= len(s); i++ {
+        dp[i] = make([]int, k+1)
+        dp[i][1]=cost[0][i-1]
+        for j := 2; j &lt;= k &amp;&amp; j &lt; i; j++ {
+            dp[i][j] = len(s)
+            for m := 1; m &lt; i; m++{
+                dp[i][j] = min(dp[i][j],dp[m][j-1]+cost[m][i-1])
+            }
+        }
+    }
+    return dp[len(s)][k]
+}
+
+func min(a, b int) int{
+    if a &lt; b {
+        return a
+    }
+    return b
+}
+</code></pre><h1 id="1360-日期之间隔几天"><a name="1360-%E6%97%A5%E6%9C%9F%E4%B9%8B%E9%97%B4%E9%9A%94%E5%87%A0%E5%A4%A9" class="anchor-navigation-ex-anchor" href="#1360-%E6%97%A5%E6%9C%9F%E4%B9%8B%E9%97%B4%E9%9A%94%E5%87%A0%E5%A4%A9"><i class="fa fa-link" aria-hidden="true"></i></a><a id="1360" href="https://leetcode-cn.com/problems/number-of-days-between-two-dates/" target="_blank">1360. 日期之间隔几天</a></h1>
+<p>日期以字符串形式给出，格式为 YYYY-MM-DD, 判断两个日期之间隔了多少天。例如输入：date1 = "2019-06-29", date2 = "2019-06-30" 。输出：1。</p>
+<ol>
+<li>方法一：可以利用go的time包，使用time.Data函数将数据转成time.Time类型，再利用time.Time的Sub方法计算时间差。</li>
+<li>方法二：自己实现类似uinx time的功能，即以某个时间点T为基准，判断t1和t2分别距离T有多少天，再求天数的差值。</li>
+</ol>
+<pre><code>func daysBetweenDates(date1 string, date2 string) int {
+
+}
+</code></pre><footer class="page-footer"><span class="copyright">Copyright © ZengMenglu 2020 all right reserved，powered by Gitbook</span><span class="footer-modification">本书发布时间：
+2020-02-27 23:30:42
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="dataStructAndAlgorithm.html" class="navigation navigation-prev " aria-label="Previous page: 数据结构与算法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="tree.html" class="navigation navigation-next " aria-label="Next page: 树">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Leetcode","level":"2.3.1","depth":2,"next":{"title":"树","level":"2.3.2","depth":2,"path":"cs/DataStructAndAlgorithm/tree.md","ref":"cs/DataStructAndAlgorithm/tree.md","articles":[]},"previous":{"title":"数据结构与算法","level":"2.3","depth":1,"path":"cs/DataStructAndAlgorithm/dataStructAndAlgorithm.md","ref":"cs/DataStructAndAlgorithm/dataStructAndAlgorithm.md","articles":[{"title":"Leetcode","level":"2.3.1","depth":2,"path":"cs/DataStructAndAlgorithm/leetcode.md","ref":"cs/DataStructAndAlgorithm/leetcode.md","articles":[]},{"title":"树","level":"2.3.2","depth":2,"path":"cs/DataStructAndAlgorithm/tree.md","ref":"cs/DataStructAndAlgorithm/tree.md","articles":[]},{"title":"字符串","level":"2.3.3","depth":2,"path":"cs/DataStructAndAlgorithm/string.md","ref":"cs/DataStructAndAlgorithm/string.md","articles":[]},{"title":"排序","level":"2.3.4","depth":2,"path":"cs/DataStructAndAlgorithm/sort.md","ref":"cs/DataStructAndAlgorithm/sort.md","articles":[]},{"title":"递归","level":"2.3.5","depth":2,"path":"cs/DataStructAndAlgorithm/recursion.md","ref":"cs/DataStructAndAlgorithm/recursion.md","articles":[]},{"title":"动态规划","level":"2.3.6","depth":2,"path":"cs/DataStructAndAlgorithm/dynamicProgram.md","ref":"cs/DataStructAndAlgorithm/dynamicProgram.md","articles":[]},{"title":"DFS & BFS","level":"2.3.7","depth":2,"path":"cs/DataStructAndAlgorithm/bfsDfs.md","ref":"cs/DataStructAndAlgorithm/bfsDfs.md","articles":[]},{"title":"算法复杂度","level":"2.3.8","depth":2,"path":"cs/DataStructAndAlgorithm/complex.md","ref":"cs/DataStructAndAlgorithm/complex.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","-chapter-fold","code","-search","search-pro","github","splitter","tbfed-pagefooter","sharing","-highlight","styles-less","expandable-chapters-small","-toggle-chapters","-lunr","-fontsettings","ancre-navigation","-multipart","pageview-count","mermaid","mermaid-gb3"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © ZengMenglu 2020","modify_label":"本书发布时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/zengmenglu"},"styles-less":{},"splitter":{},"search-pro":{},"mermaid":{},"code":{"copyButtons":true},"mermaid-gb3":{},"back-to-top-button":{},"pageview-count":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"zengmenglu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Zengmenglu Zone","language":"zh-hans","output.name":"site","links":{"sidebar":{"返回梦空间":"/"}},"gitbook":"3.2.3","description":""},"file":{"path":"content/cs/DataStructAndAlgorithm/leetcode.md","mtime":"2020-02-27T15:30:42.439Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-02T12:50:38.520Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+
+    <script src="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>

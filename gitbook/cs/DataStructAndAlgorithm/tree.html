@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>树 · Zengmenglu Zone</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zengmenglu">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="string.html">
+    
+    
+    <link rel="prev" href="leetcode.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary"><li><a class="custom-link" href="/" data-need-reload="1">返回梦空间</a></li><li class="divider"><li class="chapter" data-level="1.1" data-path="./"><a href="../../index.html">Introduction</a></li><li class="header">计算机</li><li class="chapter" data-level="2.1" data-path="cs/basic/networks/computerNetworks.html"><a href="../basic/networks/computerNetworks.html">计算机网络</a><ul class="articles"><li class="chapter" data-level="2.1.1" data-path="cs/basic/networks/applicationLayer.html"><a href="../basic/networks/applicationLayer.html">应用层</a></li><li class="chapter" data-level="2.1.2" data-path="cs/basic/networks/transportLayer.html"><a href="../basic/networks/transportLayer.html">传输层</a></li></ul></li><li class="chapter" data-level="2.2" data-path="cs/basic/os/operatingSystem.html"><a href="../basic/os/operatingSystem.html">操作系统</a><ul class="articles"><li class="chapter" data-level="2.2.1" data-path="cs/basic/os/processAndThread.html"><a href="../basic/os/processAndThread.html">X程</a></li></ul></li><li class="chapter" data-level="2.3" data-path="cs/basic/algorithm/alg.html"><a href="../basic/algorithm/alg.html">数据结构与算法</a><ul class="articles"><li class="chapter" data-level="2.3.1" data-path="cs/basic/algorithm/leetcode.html"><a href="../basic/algorithm/leetcode.html">Leetcode</a></li><li class="chapter" data-level="2.3.2" data-path="cs/basic/algorithm/tree.html"><a href="../basic/algorithm/tree.html">树</a></li><li class="chapter" data-level="2.3.3" data-path="cs/basic/algorithm/string.html"><a href="../basic/algorithm/string.html">字符串</a></li><li class="chapter" data-level="2.3.4" data-path="cs/basic/algorithm/sort.html"><a href="../basic/algorithm/sort.html">排序</a></li><li class="chapter" data-level="2.3.5" data-path="cs/basic/algorithm/recursion.html"><a href="../basic/algorithm/recursion.html">递归</a></li><li class="chapter" data-level="2.3.6" data-path="cs/basic/algorithm/dynamicProgram.html"><a href="../basic/algorithm/dynamicProgram.html">动态规划</a></li><li class="chapter" data-level="2.3.7" data-path="cs/basic/algorithm/bfsDfs.html"><a href="../basic/algorithm/bfsDfs.html">DFS &amp; BFS</a></li><li class="chapter" data-level="2.3.8" data-path="cs/basic/algorithm/complex.html"><a href="../basic/algorithm/complex.html">算法复杂度</a></li><li class="chapter" data-level="2.3.9" data-path="cs/basic/algorithm/bit.html"><a href="../basic/algorithm/bit.html">比特位操作</a></li><li class="chapter" data-level="2.3.10" data-path="cs/basic/algorithm/scene/scene.html"><a href="../basic/algorithm/scene/scene.html">应用场景</a><ul class="articles"><li class="chapter" data-level="2.3.10.1" data-path="cs/basic/algorithm/scene/setcover.html"><a href="../basic/algorithm/scene/setcover.html">集合覆盖</a></li><li class="chapter" data-level="2.3.10.2" data-path="cs/basic/algorithm/scene/concurrent.html"><a href="../basic/algorithm/scene/concurrent.html">并发</a></li></ul></li></ul></li><li class="chapter" data-level="2.4" data-path="cs/golang/Golang.html"><a href="../golang/Golang.html">其他</a><ul class="articles"><li class="chapter" data-level="2.4.1" data-path="cs/golang/Golang.html"><a href="../golang/Golang.html">Golang</a><ul class="articles"><li class="chapter" data-level="2.4.1.1" data-path="cs/golang/gocmd.html"><a href="../golang/gocmd.html">命令行操作</a></li><li class="chapter" data-level="2.4.1.2" data-path="cs/golang/gobasic.html"><a href="../golang/gobasic.html">基础</a></li><li class="chapter" data-level="2.4.1.3" data-path="cs/golang/godata.html"><a href="../golang/godata.html">数据</a></li><li class="chapter" data-level="2.4.1.4" data-path="cs/golang/gobufio.html"><a href="../golang/gobufio.html">输入输出</a></li><li class="chapter" data-level="2.4.1.5" data-path="cs/golang/goconcurrency.html"><a href="../golang/goconcurrency.html">并发</a></li><li class="chapter" data-level="2.4.1.6" data-path="cs/golang/goEngineer.html"><a href="../golang/goEngineer.html">工程</a><ul class="articles"><li class="chapter" data-level="2.4.1.6.1" data-path="cs/golang/godebug.html"><a href="../golang/godebug.html">Debug</a></li><li class="chapter" data-level="2.4.1.6.2" data-path="cs/golang/goTest.html"><a href="../golang/goTest.html">测试</a></li><li class="chapter" data-level="2.4.1.6.3" data-path="cs/golang/goperform.html"><a href="../golang/goperform.html">性能</a></li></ul></li><li class="chapter" data-level="2.4.1.7" data-path="cs/golang/goOthers.html"><a href="../golang/goOthers.html">其他</a></li></ul></li><li class="chapter" data-level="2.4.2" data-path="cs/archi/db/database.html"><a href="../archi/db/database.html">数据库</a></li><li class="chapter" data-level="2.4.3" data-path="cs/archi/distributesys/distributionSystem.html"><a href="../archi/distributesys/distributionSystem.html">分布式系统</a></li><li class="chapter" data-level="2.4.4" data-path="cs/archi/designpattern/designPattern.html"><a href="../archi/designpattern/designPattern.html">设计模式</a></li><li class="chapter" data-level="2.4.5" data-path="cs/Logic/logic.html"><a href="../Logic/logic.html">智力题</a></li><li class="chapter" data-level="2.4.6" data-path="cs/Project/project.html"><a href="../Project/project.html">项目</a><ul class="articles"><li class="chapter" data-level="2.4.6.1" data-path="cs/Project/flowCtrol.html"><a href="../Project/flowCtrol.html">流量控制</a></li></ul></li></ul></li><li class="header">Career</li><li class="chapter" data-level="3.1" data-path="career/guidance/guidance.html"><a href="../../career/guidance/guidance.html">Guidance</a><ul class="articles"><li class="chapter" data-level="3.1.1" data-path="career/guidance/limingbo.html"><a href="../../career/guidance/limingbo.html">我的12年等于24年</a></li></ul></li><li class="chapter" data-level="3.2" data-path="read/read.html"><a href="../../read/read.html">Reading</a><ul class="articles"><li class="chapter" data-level="3.2.1" data-path="read/booklist.html"><a href="../../read/booklist.html">书单</a></li><li class="chapter" data-level="3.2.2" data-path="read/read.html"><a href="../../read/read.html">book</a></li><li class="chapter" data-level="3.2.3" data-path="read/poetry.html"><a href="../../read/poetry.html">诗词</a></li></ul></li><li class="divider"><li><a class="gitbook-link" href="https://www.gitbook.com" target="_blank">本书使用 GitBook 发布</a></li></ul></nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../index.html">树</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E7%B1%BB"><b></b>二叉树分类</a></li><li><span class="title-icon "></span><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86"><b></b>二叉树的遍历</a></li><ul><li><span class="title-icon "></span><a href="#dfs"><b></b>DFS</a></li><ul><li><span class="title-icon "></span><a href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><b></b>前序遍历</a></li><li><span class="title-icon "></span><a href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><b></b>中序遍历</a></li><li><span class="title-icon "></span><a href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><b></b>后序遍历</a></li><li><span class="title-icon "></span><a href="#%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><b></b>重建二叉树</a></li><li><span class="title-icon "></span><a href="#%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91"><b></b>验证二叉树</a></li></ul><li><span class="title-icon "></span><a href="#bfs"><b></b>BFS</a></li><ul><li><span class="title-icon "></span><a href="#%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86"><b></b>层序遍历</a></li></ul></ul></ul></div><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E7%B1%BB" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="二叉树分类"><a name="%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E7%B1%BB" class="anchor-navigation-ex-anchor" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E7%B1%BB"><i class="fa fa-link" aria-hidden="true"></i></a>二叉树分类</h1>
+<ol>
+<li>满二叉树：每个结点恰有0个或2个子结点。</li>
+<li>搜索二叉树： 左叶子 &lt; 根 &lt; 右叶子</li>
+</ol>
+<h1 id="二叉树的遍历"><a name="%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86" class="anchor-navigation-ex-anchor" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86"><i class="fa fa-link" aria-hidden="true"></i></a>二叉树的遍历</h1>
+<p>树的遍历方式分为<a href="#dfs">深度优先搜索遍历（DFS）</a>与<a href="#bfs">宽度优先搜索遍历（BFS）</a>。</p>
+<ul>
+<li><p>DFS采用深度作为优先级，从根开始一直遍历到某一确定节点，再返回根到达另外一个分支。DFS又可以根据树的根节点遍历的顺序分为<a href="#leetcode144">前序遍历</a>，<a href="#leetcode94">中序遍历</a>与<a href="#leetcode145">后序遍历</a>。二叉树的遍历还涉及根据遍历结果<a href="#%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91">重建二叉树</a>, <a href="#%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91">验证有效二叉树</a>。</p>
+</li>
+<li><p>BSF按照高度层次逐层遍历树，层次高的节点优先于层次低的的节点被遍历。BFS包含树的<a href="#leetcode102">层序遍历</a></p>
+</li>
+</ul>
+<h2 id="dfs"><a name="dfs" class="anchor-navigation-ex-anchor" href="#dfs"><i class="fa fa-link" aria-hidden="true"></i></a>DFS</h2>
+<h3 id="前序遍历"><a name="%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86" class="anchor-navigation-ex-anchor" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode144" href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/" target="_blank">前序遍历</a></h3>
+<ol>
+<li>设置一个栈<code>nodeSaver</code>一次存储根节点、右节点、左节点。</li>
+<li>下一次遍历，栈顶弹出上一次的左节点Left，并继续压栈Left的右、左节点。</li>
+<li>如此，先遍历了根和左节点，最后遍历右节点。</li>
+</ol>
+<pre><code>func preorderTraversal(root *TreeNode) []int {
+    if root == nil {
+        return nil
+    }
+    nodeSaver, res := []*TreeNode{root}, []int{} // 栈初始化
+    for len(nodeSaver) &gt; 0 {
+        curNode := nodeSaver[len(nodeSaver)-1]
+        nodeSaver = nodeSaver[:len(nodeSaver)-1] // 根节点出栈
+        res = append(res, curNode.Val)
+        if curNode.Right != nil {
+            nodeSaver = append(nodeSaver, curNode.Right) // 右节点压栈
+        }
+        if curNode.Left != nil {
+            nodeSaver = append(nodeSaver, curNode.Left) // 左节点压栈
+        }
+    }
+    return res
+}
+</code></pre><h3 id="中序遍历"><a name="%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86" class="anchor-navigation-ex-anchor" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode94" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/" target="_blank">中序遍历</a></h3>
+<ol>
+<li>设置一个栈用于存储当前节点往下遍历的所有的根和左子树的节点。</li>
+<li>当当前节点遍历到末端（nil）时，开始弹栈，依次将左子树和根弹出，最后随后当前根节点的右叶子。</li>
+</ol>
+<pre><code>func inorderTraversal(root *TreeNode) []int {
+    if root == nil {
+        return nil
+    }
+    var nodeSaver []*TreeNode
+    var res []int
+    for cur := root; cur != nil || len(nodeSaver) &gt; 0; {
+        for cur != nil { 
+            nodeSaver = append(nodeSaver, cur) // 当前节点向下的所有根、左叶子压栈
+            cur = cur.Left
+        }
+        cur = nodeSaver[len(nodeSaver)-1]
+        nodeSaver = nodeSaver[:len(nodeSaver)-1] // 左叶子/根出栈
+        res = append(res, cur.Val)
+        cur = cur.Right // 处理右叶子
+    }
+    return res
+}
+</code></pre><h3 id="后序遍历"><a name="%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86" class="anchor-navigation-ex-anchor" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode145" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/submissions/" target="_blank">后序遍历</a></h3>
+<ol>
+<li>方法与前序遍历类似，前序遍历的顺序是根左右；后序顺序是左右根，后序结果逆序之后是根右左。</li>
+<li>因此设置节点压栈顺序是根、左、右，存储结果的时候，需要把当前节点的值放在前面（即结果需要逆序）</li>
+</ol>
+<pre><code>func postorderTraversal(root *TreeNode) []int {
+    if root == nil{
+        return nil
+    }
+    nodeSaver, res := []*TreeNode{root}, []int{} // 栈初始化
+    for len(nodeSaver) &gt; 0 {
+        cur := nodeSaver[len(nodeSaver)-1]
+        nodeSaver = nodeSaver[:len(nodeSaver)-1] // 根节点出栈
+        res = append([]int{cur.Val}, res...) // 结果逆序存储
+        if cur.Left != nil{
+            nodeSaver = append(nodeSaver, cur.Left) //  左节点压栈
+        }
+        if cur.Right!= nil{
+            nodeSaver = append(nodeSaver, cur.Right) // 右节点压栈
+        }
+    }
+    return res
+}
+</code></pre><h3 id="重建二叉树"><a name="%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor-navigation-ex-anchor" href="#%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a>重建二叉树</h3>
+<ol>
+<li>两种遍历序列可以确定二叉树的结构，但当且仅当其中一种遍历方式是<a href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86">中序遍历</a>时，才能唯一确定一个二叉树结构。</li>
+<li><a href="#leetcode105">由前中序构造二叉树</a>, <a href="#leetcode106">由中后序构造二叉树</a> 可以构造一棵唯一的二叉树；仅<a href="#leetcode889">由前后序构造二叉树</a>可以构造多种二叉树；由<a href="#leetcode1028">变种的前序遍历</a>可以恢复二叉树。</li>
+<li><a href="#leetcode971">翻转二叉树以匹配先序遍历</a></li>
+</ol>
+<h4 id="由前中序构造二叉树"><a name="%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor-navigation-ex-anchor" href="#%E7%94%B1%E5%89%8D%E4%B8%AD%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode105" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/submissions/" target="_blank">由前中序构造二叉树</a></h4>
+<ol>
+<li>采用递归,下面算法的前提是树中没有重复元素。前序遍历第一个节点是根节点，在中序遍历中找到根节点的位置，前半部分则是根的左叶子，后半部分是根的右叶子。</li>
+</ol>
+<pre><code>func buildTree(preorder []int, inorder []int) *TreeNode {
+    if a, b := len(preorder), len(inorder); a != b || a == 0{
+        return nil
+    }
+    root:=&amp;TreeNode{preorder[0],nil,nil} 
+    idx := 0
+    for i := range inorder{
+        if inorder[i] == preorder[0]{
+            idx = i
+            break
+        }
+    }
+    root.Left = buildTree(preorder[1:idx+1],inorder[:idx])
+    root.Right = buildTree(preorder[idx+1:],inorder[idx+1:])
+    return root
+}
+</code></pre><h4 id="由中后序构造二叉树"><a name="%E7%94%B1%E4%B8%AD%E5%90%8E%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor-navigation-ex-anchor" href="#%E7%94%B1%E4%B8%AD%E5%90%8E%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode106" href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/submissions/" target="_blank">由中后序构造二叉树</a></h4>
+<ol>
+<li>几乎与<a href="#leetcode105">由前中序构造二叉树</a>解法完全一致，使用递归即可。</li>
+</ol>
+<pre><code>func buildTree(inorder []int, postorder []int) *TreeNode {
+    if a,b := len(inorder), len(postorder); a != b || a == 0 {
+        return nil
+    }
+    rootVal:=postorder[len(postorder)-1]
+    var idx int
+    for idx=0;idx&lt;len(inorder); 从中序与后序遍历序列构造二叉树idx++{
+        if inorder[idx] == rootVal{
+            break
+        }
+    }
+    root := &amp;TreeNode{
+        rootVal,
+        buildTree(inorder[:idx],postorder[:idx]),
+        buildTree(inorder[idx+1:],postorder[idx:len(postorder)-1]),
+    }
+    return root
+}
+</code></pre><h4 id="由前后序构造二叉树"><a name="%E7%94%B1%E5%89%8D%E5%90%8E%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor-navigation-ex-anchor" href="#%E7%94%B1%E5%89%8D%E5%90%8E%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode889" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/" target="_blank">由前后序构造二叉树</a></h4>
+<ol>
+<li>前序和后序遍历不能唯一确定一个二叉树结构，下面算法给出了可能的一种二叉树。</li>
+<li>前序的第一个节点和后序的最后一个节点是根节点，据此得出递归后的pre和post入参。</li>
+</ol>
+<pre><code>func constructFromPrePost(pre []int, post []int) *TreeNode {
+    if a, b := len(pre), len(post); a != b || a == 0{
+        return nil
+    }
+    root :=  &amp;TreeNode{Val:pre[0]}
+    if len(pre) == 1{
+        return root
+    }
+    next := pre[1] // 下一个根节点
+    var idx int
+    for idx = 0; idx&lt; len(post); idx++{
+        if post[idx] == next{
+            break
+        }
+    }
+    root.Left = constructFromPrePost(pre[1:idx+2],post[:idx+1])
+    root.Right = constructFromPrePost(pre[idx+2:],post[idx+1:len(post)-1])
+    return root
+}
+</code></pre><h4 id="从变种先序遍历还原二叉树"><a name="%E4%BB%8E%E5%8F%98%E7%A7%8D%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BF%98%E5%8E%9F%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor-navigation-ex-anchor" href="#%E4%BB%8E%E5%8F%98%E7%A7%8D%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BF%98%E5%8E%9F%E4%BA%8C%E5%8F%89%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode1028" href="https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/submissions/" target="_blank">从变种先序遍历还原二叉树</a></h4>
+<p>我们从二叉树的根节点 root 开始进行深度优先搜索。在遍历中的每个节点处，我们输出 D 条短划线（其中 D 是该节点的深度），然后输出该节点的值。（如果节点的深度为 D，则其直接子节点的深度为 D + 1。根节点的深度为 0）。如果节点只有一个子节点，那么保证该子节点为左子节点。给出遍历输出 S，还原树并返回其根节点 root。例：输入："1-2--3--4-5--6--7"
+输出：</p>
+<p>
+       1<br>
+     /   \<br>
+   2      5<br>
+  / \    / \<br>
+ 3   4   6   7<br>
+</p>
+
+<ol>
+<li>定义了slashCount来定义数字A前面的横杠的个数。这个个数其实就代表了数字A在二叉树种的层次。（根节点是第0层）。由于使用Split函数会吞掉一个横杠，所以初始化的时候设置slashCount为1，补齐吞掉的横杠。</li>
+<li>nodeSave中存的节点，由于是前序遍历，所以可以保证任何时刻，nodeSave中存的节点，每层二叉树只有1个。所以每次在处理一个新节点之前，前将多余的左叶子节点去掉，只保留nodeSave当前层以上的节点。    </li>
+</ol>
+<pre><code>func recoverFromPreorder(S string) *TreeNode {
+    if len(S) == 0 {return nil}
+    splitSeg := strings.Split(S, "-")
+    rootVal, _ := strconv.Atoi(splitSeg[0])
+    root := &amp;TreeNode{Val: rootVal} // 第一个元素是根
+    slashCount, nodeSaver := 1, []*TreeNode{root}
+    for i := 1; i &lt; len(splitSeg); i++ {
+        if splitSeg[i] == "" { // 横杠计数
+            slashCount++ 
+            continue
+        }
+        val, _ := strconv.Atoi(splitSeg[i])
+        nodeSaver = nodeSaver[:slashCount] // 保留当前层以上的节点
+        newNode, parent := &amp;TreeNode{Val: val}, nodeSaver[len(nodeSaver)-1]
+        if parent.Left == nil {
+            parent.Left = newNode
+        } else {
+            parent.Right = newNode
+        }
+        nodeSaver = append(nodeSaver, newNode)
+        slashCount = 1
+    }
+    return root
+}
+</code></pre><h4 id="翻转二叉树以匹配先序遍历"><a name="%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91%E4%BB%A5%E5%8C%B9%E9%85%8D%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86" class="anchor-navigation-ex-anchor" href="#%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91%E4%BB%A5%E5%8C%B9%E9%85%8D%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode971" href="">翻转二叉树以匹配先序遍历</a></h4>
+<p>给定一个有 N 个节点的二叉树，每个节点都有一个不同于其他节点且处于 {1, ..., N} 中的值。通过交换节点的左子节点和右子节点，可以翻转该二叉树中的节点。我们的目标是翻转最少的树中节点，以便树的前序遍历行程与给定的行程 voyage 相匹配。 如果可以，则返回翻转的所有节点的值的列表。你可以按任何顺序返回答案。如果不能，则返回列表 [-1]。例如：输入二叉树</p>
+<p>  1<br>
+ /\<br>
+2 3<br></p>
+<p>voyage=[1,3,2], 则输出 [1]</p>
+<pre><code>func flipMatchVoyage(root *TreeNode, voyage []int) []int {
+    var idx = 0
+    return flipMatchVoyagePreSearch(root,voyage,&amp;idx)
+}
+
+func flipMatchVoyagePreSearch(root *TreeNode, voyage []int, idx *int)[]int{
+    var res []int
+    if root == nil &amp;&amp; *idx &gt;= len(voyage) {
+        return []int{-1}
+    }
+    if (root == nil &amp;&amp; *idx &lt; len(voyage)) || (root!= nil &amp;&amp; (*idx &gt;= len(voyage) || root.Val != voyage[*idx])){
+            return []int{-1}
+    }
+
+    if  *idx+1&lt;len(voyage) &amp;&amp;
+        ((root.Left!= nil&amp;&amp; voyage[*idx+1]!=root.Left.Val)||(root.Left==nil&amp;&amp;root.Right!=nil&amp;&amp;voyage[*idx+1]!=root.Right.Val)){
+        root.Left,root.Right = root.Right,root.Left
+        res = append(res,root.Val)
+    }
+    *idx++
+    if root.Left!= nil{
+        left:=flipMatchVoyagePreSearch(root.Left,voyage,idx)
+        if reflect.DeepEqual(left,[]int{-1}){
+            return left
+        }
+        res = append(res, left...)
+    }
+
+    if root.Right!= nil{
+        right:=flipMatchVoyagePreSearch(root.Right,voyage,idx)
+        if reflect.DeepEqual(right,[]int{-1}){
+            return right
+        }
+        res= append(res,right...)
+    }
+
+    return res
+}
+</code></pre><h3 id="验证二叉树"><a name="%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor-navigation-ex-anchor" href="#%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%A0%91"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode1361" href="https://leetcode-cn.com/problems/validate-binary-tree-nodes/" target="_blank">验证二叉树</a></h3>
+<p>二叉树上有 n 个节点，按从 0 到 n - 1 编号，其中节点 i 的两个子节点分别是 leftChild[i] 和 rightChild[i]。只有 所有 节点能够形成且只形成一颗有效的二叉树时，返回 true；否则返回 
+false。如果节点 i 没有左子节点，那么 leftChild[i] 就等于 -1。右子节点也符合该规则。例如：</p>
+<p>  0<br>
+ / \<br>
+1  2<br>
+   /<br>
+  3<br></p>
+<p>输入： n=4, leftChild=[1,-1,3,-1], rightChild=[2,-1,-1,-1], 输出：true </p>
+<ol>
+<li>要点在于首先要找到根节点，根节点的特征是入度为0。</li>
+<li>从根节点开始深度优先遍历，当遍历到叶子时，如果仍存在有节点没有被遍历到，那么就说明不是一棵有效的二叉树。</li>
+</ol>
+<pre><code>func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
+    var ingree = make([]int,n)
+    for i:=range leftChild{  // 计算入度
+        if leftChild[i]!= -1{
+            ingree[leftChild[i]]++
+        }
+        if rightChild[i]!=-1{
+            ingree[rightChild[i]]++
+        }
+    }
+
+    var root int
+    for i:=range ingree{ // 寻找根节点
+        if ingree[i]==0{
+            root = i
+            break
+        }
+    }
+    seen:=make([]bool,n) // 标记是否所有节点都被遍历到
+    seen[root] =true
+    return dfs(root,leftChild,rightChild,seen) &amp;&amp; visit(seen) 
+}
+
+func visit(seen []bool)bool{ // 判断是否所有节点都被遍历到
+    for i:=range seen{
+        if !seen[i]{
+            return false
+        }
+    }
+    return true
+}
+
+func dfs(root int,leftChild []int, rightChild []int, seen []bool)bool{
+    if root==-1{
+        return true
+    }
+    leftFlg:=true
+    if leftChild[root]!= -1 {
+        if seen[leftChild[root]]{ // 节点已经被遍历，则说明不是一颗有效二叉树
+            return false
+        }
+        seen[leftChild[root]]=true
+        leftFlg = dfs(leftChild[root],leftChild,rightChild,seen)
+    }
+    rightFlg:=true
+    if rightChild[root]!=-1{
+        if seen[rightChild[root]]{
+            return false
+        }
+        seen[rightChild[root]]=true
+        rightFlg = dfs(rightChild[root],leftChild,rightChild,seen)
+    }
+    return leftFlg&amp;&amp;rightFlg
+}
+</code></pre><h2 id="bfs"><a name="bfs" class="anchor-navigation-ex-anchor" href="#bfs"><i class="fa fa-link" aria-hidden="true"></i></a>BFS</h2>
+<h3 id="层序遍历"><a name="%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86" class="anchor-navigation-ex-anchor" href="#%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86"><i class="fa fa-link" aria-hidden="true"></i></a><a id="leetcode102" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/submissions/">层序遍历</a></h3>
+<ol>
+<li>当层序遍历的结果只需要存在一维数组中时，只需要一个一维数组存储树的节点，一直往后面追加节点即可。</li>
+<li>有的层序遍历，如下面代码，当结果需要存到二维数组中，即每一层元素单独一个一维数组时，则需要一个二维数组存储树的节点，并用curIdx记录当前层。这里要注意容易错的点是，删除slice第一个元素的时候，不能使用<code>arr = append(arr, arr[1:]...)</code>, 这样并不是从头开始append，所以并不会删除第一个元素，反而arr的元素一直在增加。直接<code>arr = arr[1:]</code>即可。(微软2019二面面试题，就是在这个地方错了)</li>
+</ol>
+<pre><code>func levelOrder(root *TreeNode) [][]int {
+    if root == nil {
+        return nil
+    }
+
+    curIdx := 0
+    nodeSaver, curLayer, res := [2][]*TreeNode{{root}, {}}, []int{}, [][]int{}
+    for len(nodeSaver[curIdx]) &gt; 0 {
+        curNode := nodeSaver[curIdx][0]
+        curLayer = append(curLayer, curNode.Val)
+        if curNode.Left != nil {
+            nodeSaver[1-curIdx] = append(nodeSaver[1-curIdx], curNode.Left)
+        }
+        if curNode.Right != nil {
+            nodeSaver[1-curIdx] = append(nodeSaver[1-curIdx], curNode.Right)
+        }
+
+        nodeSaver[curIdx] = nodeSaver[curIdx][1:] // 删除第一个元素，容易出错
+        if len(nodeSaver[curIdx]) == 0 {
+            res = append(res, curLayer)
+            curLayer = make([]int, 0) // curLayer 存储当前层的元素
+            curIdx = 1 - curIdx
+        }
+    }
+    return res
+}
+</code></pre><footer class="page-footer"><span class="copyright">Copyright © ZengMenglu 2020 all right reserved，powered by Gitbook</span><span class="footer-modification">本书发布时间：
+2020-02-25 22:48:38
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="leetcode.html" class="navigation navigation-prev " aria-label="Previous page: Leetcode">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="string.html" class="navigation navigation-next " aria-label="Next page: 字符串">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"树","level":"2.3.2","depth":2,"next":{"title":"字符串","level":"2.3.3","depth":2,"path":"cs/DataStructAndAlgorithm/string.md","ref":"cs/DataStructAndAlgorithm/string.md","articles":[]},"previous":{"title":"Leetcode","level":"2.3.1","depth":2,"path":"cs/DataStructAndAlgorithm/leetcode.md","ref":"cs/DataStructAndAlgorithm/leetcode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","-chapter-fold","code","-search","search-pro","github","splitter","tbfed-pagefooter","sharing","-highlight","styles-less","expandable-chapters-small","-toggle-chapters","-lunr","-fontsettings","ancre-navigation","-multipart","pageview-count","mermaid","mermaid-gb3"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © ZengMenglu 2020","modify_label":"本书发布时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/zengmenglu"},"styles-less":{},"splitter":{},"search-pro":{},"mermaid":{},"code":{"copyButtons":true},"mermaid-gb3":{},"back-to-top-button":{},"pageview-count":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"zengmenglu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Zengmenglu Zone","language":"zh-hans","output.name":"site","links":{"sidebar":{"返回梦空间":"/"}},"gitbook":"3.2.3","description":""},"file":{"path":"content/cs/DataStructAndAlgorithm/tree.md","mtime":"2020-02-25T14:48:38.159Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-02T12:50:38.520Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+
+    <script src="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>

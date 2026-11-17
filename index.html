@@ -1,100 +1,33 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Melody House</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/clearstyle.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
-    <link rel="shortcut icon" href="./img/favicon.png">
-    <link rel="bookmark" href="./img/favicon.png">
-    <!--<script src="main.js"></script>-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>梦空间</title>
+<meta name="theme-color" content="#111a30">
+<link rel="stylesheet" href="/dream-assets/site.css">
+<script src="/dream-assets/site.js" defer></script>
 </head>
-
-<body lang="zh-CN">
-    <nav>
-        <a class="logo" href="#">
-            <img src="./img/logomonkey.png" alt="Nav logo">
-        </a>
-        <div class="search" id="menu">
-            <img src="./img/buttonsearch.png" alt="Nav buttonsearch">
-            <form target="_blank" action="/search" accept-charset="utf-8" method="get">
-                <input name="utf8" type="hidden" value="&#X2713;" />
-                <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="在Melody House中搜索" class="search-input" />
-                <a class="search-btn" href="javascript:void(null)">
-                    <i class="icon-search"></i>
-                </a>
-            </form>
-
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="partone">
-            <div class="content">
-                <ul>
-                    <li class="title">5G技术浅谈</li>
-                    <li class="detail">当今通信技术迅速发展，物联网等新兴场景快速需求增长，5G技术成为战略部署之要务。</li>
-                    <li class="buttonmore"><a href="5g/5g.html"><img src="./img/buttonmore.png" alt="content buttonmore"></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="bgimg">
-                <img src="./img/basestation.png" alt="base station">
-            </div>
-        </div>
-        <div class="parttwo">
-            <div class="content">
-                <a alt="go language-Melody House" href="golang/go.html">
-                    <ul>
-                        <li class="title">Go语言</li>
-                        <li class="detail">自谷歌提出Go语言并将其应用在云计算领域，便开启了Go的时代。</li>
-                    </ul>
-                </a>
-            </div>
-            <div class="iconlist">
-                <table>
-                    <tr>
-                        <th><a href="#"><img src="./img/goicon1.png" alt="base station"></a></th>
-                        <th><a href="#"><img src="./img/goicon2.png" alt="base station"></a></th>
-                        <th><a href="#"><img src="./img/goicon3.png" alt="base station"></a></th>
-                        <th><a href="#"><img src="./img/goicon4.png" alt="base station"></a></th>
-                    </tr>
-                    <tr>
-                        <th>基础概述</th>
-                        <th>高级用法</th>
-                        <th>应用实例</th>
-                        <th>其他</th>
-                    </tr>
-                </table>
-            </div>
-
-        </div>
-        <div class="partthree">
-            <div class=content>
-                <ul>
-                    <li class="title">读书与随笔</li>
-                </ul>
-            </div>
-            <div class="iconlist">
-                <table>
-                    <tr>
-                        <th><a href="book/booklist.html"><img class="iconbook" src="./img/iconbook.png" alt="book info"></a></th>
-                        <th><a href="jottings/jottings.html"><img class="iconpen" src="./img/iconpen.png" alt="jottings"></a></th>
-                    </tr>
-                    <tr>
-                        <th><a href="book/booklist.html">读书笔记</a></th>
-                        <th><a href="jottings/jottings.html">Melody House杂记</a></th>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!--footer-->
-    <script type="text/javascript" src="js/footer.js"></script>
+<body class="home">
+<header class="masthead"><a class="wordmark" href="/">梦空间</a><nav aria-label="主导航"><a href="/" aria-current="page">首页</a><a href="/books/air/">飞机绘本</a><a href="/books/rail/">火车绘本</a><a href="/gitbook/">笔记</a></nav></header>
+<main class="home-layout">
+ <aside class="series-links" aria-label="系列书架"><span class="site-star" aria-hidden="true">✦</span>
+ <h2>系列书架</h2><a href="/books/air/"><span>飞机绘本<small>小椰子的飞行创造家</small></span><span aria-hidden="true">›</span></a><a href="/books/rail/"><span>火车绘本<small>知识号</small></span><span aria-hidden="true">›</span></a></aside>
+ <div class="home-content"><h1>梦空间</h1><section class="strip-section" aria-labelledby="air-heading">
+  <h2 id="air-heading"><a href="/books/air/">飞机绘本 <span>· 小椰子的飞行创造家</span></a></h2><p class="series-status">阅读版整理中</p>
+  <div class="strip-shell">
+    <button class="strip-arrow prev" type="button" aria-label="飞机绘本向左" aria-controls="air-strip" data-move="-1">‹</button>
+    <div class="strip" id="air-strip" tabindex="0" role="region" aria-label="飞机绘本封面"><div class="book pending-book" id="air-01" aria-label="《小椰子和天空中的巨无霸》，整理中"><span class="cover"><img src="/dream-assets/covers/air/01.webp" alt="小椰子和天空中的巨无霸" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>01</span><span aria-hidden="true"> · </span><span>空客 A380</span></span></div><div class="book pending-book" id="air-02" aria-label="《小椰子和轻轻的梦想》，整理中"><span class="cover"><img src="/dream-assets/covers/air/02.webp" alt="小椰子和轻轻的梦想" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>02</span><span aria-hidden="true"> · </span><span>波音 787</span></span></div><div class="book pending-book" id="air-03" aria-label="《小椰子和机翼的秘密》，整理中"><span class="cover"><img src="/dream-assets/covers/air/03.webp" alt="小椰子和机翼的秘密" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>03</span><span aria-hidden="true"> · </span><span>塞斯纳 172</span></span></div><div class="book pending-book" id="air-04" aria-label="《小椰子和大白鲸的大肚子》，整理中"><span class="cover"><img src="/dream-assets/covers/air/04.webp" alt="小椰子和大白鲸的大肚子" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>04</span><span aria-hidden="true"> · </span><span>空客 BelugaXL</span></span></div><div class="book pending-book" id="air-05" aria-label="《小椰子和短短的跑道》，整理中"><span class="cover"><img src="/dream-assets/covers/air/05.webp" alt="小椰子和短短的跑道" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>05</span><span aria-hidden="true"> · </span><span>DHC-6</span></span></div><div class="book pending-book" id="air-06" aria-label="《小椰子和忙碌的空中货船》，整理中"><span class="cover"><img src="/dream-assets/covers/air/06.webp" alt="小椰子和忙碌的空中货船" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>06</span><span aria-hidden="true"> · </span><span>波音 747-8F</span></span></div><div class="book pending-book" id="air-07" aria-label="《小椰子和森林的求救信》，整理中"><span class="cover"><img src="/dream-assets/covers/air/07.webp" alt="小椰子和森林的求救信" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>07</span><span aria-hidden="true"> · </span><span>CL-415</span></span></div><div class="book pending-book" id="air-08" aria-label="《小椰子和一百万个小零件》，整理中"><span class="cover"><img src="/dream-assets/covers/air/08.webp" alt="小椰子和一百万个小零件" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>08</span><span aria-hidden="true"> · </span><span>C919</span></span></div><div class="book pending-book" id="air-09" aria-label="《小椰子和会飞的实验室》，整理中"><span class="cover"><img src="/dream-assets/covers/air/09.webp" alt="小椰子和会飞的实验室" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>09</span><span aria-hidden="true"> · </span><span>A310 Zero G</span></span></div><div class="book pending-book" id="air-10" aria-label="《小椰子和最快的选择》，整理中"><span class="cover"><img src="/dream-assets/covers/air/10.webp" alt="小椰子和最快的选择" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>10</span><span aria-hidden="true"> · </span><span>协和式</span></span></div><div class="book pending-book" id="air-11" aria-label="《小椰子追逐太阳》，整理中"><span class="cover"><img src="/dream-assets/covers/air/11.webp" alt="小椰子追逐太阳" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>11</span><span aria-hidden="true"> · </span><span>阳光动力 2 号</span></span></div><div class="book pending-book" id="air-12" aria-label="《小椰子和第一次飞翔》，整理中"><span class="cover"><img src="/dream-assets/covers/air/12.webp" alt="小椰子和第一次飞翔" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>12</span><span aria-hidden="true"> · </span><span>莱特飞行者一号</span></span></div></div>
+    <button class="strip-arrow next" type="button" aria-label="飞机绘本向右" aria-controls="air-strip" data-move="1">›</button>
+  </div>
+</section><section class="strip-section" aria-labelledby="rail-heading">
+  <h2 id="rail-heading"><a href="/books/rail/">火车绘本 <span>· 知识号</span></a></h2>
+  <div class="strip-shell">
+    <button class="strip-arrow prev" type="button" aria-label="火车绘本向左" aria-controls="rail-strip" data-move="-1">‹</button>
+    <div class="strip" id="rail-strip" tabindex="0" role="region" aria-label="火车绘本封面"><a class="book" id="rail-01" href="/books/rail/01/?from=home" aria-label="阅读《绿巨人》"><span class="cover"><img src="/dream-assets/covers/rail/01.webp" alt="绿巨人" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>01</span><span aria-hidden="true"> · </span><span>CR200J</span></span></a><a class="book" id="rail-02" href="/books/rail/02/?from=home" aria-label="阅读《润泽江南》"><span class="cover"><img src="/dream-assets/covers/rail/02.webp" alt="润泽江南" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>02</span><span aria-hidden="true"> · </span><span>CR400BF-Z</span></span></a><a class="book" id="rail-03" href="/books/rail/03/?from=home" aria-label="阅读《蓝妹妹》"><span class="cover"><img src="/dream-assets/covers/rail/03.webp" alt="蓝妹妹" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>03</span><span aria-hidden="true"> · </span><span>CR300AF</span></span></a><a class="book" id="rail-04" href="/books/rail/04/?from=home" aria-label="阅读《蓝暖男》"><span class="cover"><img src="/dream-assets/covers/rail/04.webp" alt="蓝暖男" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>04</span><span aria-hidden="true"> · </span><span>CR300BF</span></span></a><a class="book" id="rail-05" href="/books/rail/05/?from=home" aria-label="阅读《小椰子的小火车，等一等》"><span class="cover"><img src="/dream-assets/covers/rail/05.webp" alt="小椰子的小火车，等一等" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>05</span><span aria-hidden="true"> · </span><span>东风4C</span></span></a><a class="book" id="rail-06" href="/books/rail/06/?from=home" aria-label="阅读《小西瓜，车库要关门啦！》"><span class="cover"><img src="/dream-assets/covers/rail/06.webp" alt="小西瓜，车库要关门啦！" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>06</span><span aria-hidden="true"> · </span><span>东风4B</span></span></a><a class="book" id="rail-07" href="/books/rail/07/?from=home" aria-label="阅读《花老虎，泡泡站到啦》"><span class="cover"><img src="/dream-assets/covers/rail/07.webp" alt="花老虎，泡泡站到啦" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>07</span><span aria-hidden="true"> · </span><span>东风4D</span></span></a><a class="book" id="rail-08" href="/books/rail/08/?from=home" aria-label="阅读《红神龙，请你帮个忙》"><span class="cover"><img src="/dream-assets/covers/rail/08.webp" alt="红神龙，请你帮个忙" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>08</span><span aria-hidden="true"> · </span><span>CR400AF</span></span></a><a class="book" id="rail-09" href="/books/rail/09/?from=home" aria-label="阅读《金凤凰，我来说清楚》"><span class="cover"><img src="/dream-assets/covers/rail/09.webp" alt="金凤凰，我来说清楚" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>09</span><span aria-hidden="true"> · </span><span>CR400BF</span></span></a><a class="book" id="rail-10" href="/books/rail/10/?from=home" aria-label="阅读《烧酒，晚安列车出发了》"><span class="cover"><img src="/dream-assets/covers/rail/10.webp" alt="烧酒，晚安列车出发了" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>10</span><span aria-hidden="true"> · </span><span>韶山9改</span></span></a><a class="book" id="rail-11" href="/books/rail/11/?from=home" aria-label="阅读《扫把，现在轮到我！》"><span class="cover"><img src="/dream-assets/covers/rail/11.webp" alt="扫把，现在轮到我！" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>11</span><span aria-hidden="true"> · </span><span>韶山8</span></span></a><a class="book" id="rail-12" href="/books/rail/12/?from=home" aria-label="阅读《美女号，这个我不借！》"><span class="cover"><img src="/dream-assets/covers/rail/12.webp" alt="美女号，这个我不借！" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>12</span><span aria-hidden="true"> · </span><span>韶山7E</span></span></a><a class="book" id="rail-13" href="/books/rail/13/?from=home" aria-label="阅读《韶山7B，第一次也没关系》"><span class="cover"><img src="/dream-assets/covers/rail/13.webp" alt="韶山7B，第一次也没关系" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>13</span><span aria-hidden="true"> · </span><span>韶山7B</span></span></a><a class="book" id="rail-14" href="/books/rail/14/?from=home" aria-label="阅读《香蕉和大脸猫，一起出发》"><span class="cover"><img src="/dream-assets/covers/rail/14.webp" alt="香蕉和大脸猫，一起出发" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>14</span><span aria-hidden="true"> · </span><span>韶山7C</span></span></a><a class="book" id="rail-15" href="/books/rail/15/?from=home" aria-label="阅读《烧鸡，今天我带队！》"><span class="cover"><img src="/dream-assets/covers/rail/15.webp" alt="烧鸡，今天我带队！" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>15</span><span aria-hidden="true"> · </span><span>韶山7</span></span></a><a class="book" id="rail-16" href="/books/rail/16/?from=home" aria-label="阅读《韶山6，再试一小步》"><span class="cover"><img src="/dream-assets/covers/rail/16.webp" alt="韶山6，再试一小步" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>16</span><span aria-hidden="true"> · </span><span>韶山6</span></span></a><a class="book" id="rail-17" href="/books/rail/17/?from=home" aria-label="阅读《韶山6B，今天我来帮忙》"><span class="cover"><img src="/dream-assets/covers/rail/17.webp" alt="韶山6B，今天我来帮忙" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>17</span><span aria-hidden="true"> · </span><span>韶山6B</span></span></a><a class="book" id="rail-18" href="/books/rail/18/?from=home" aria-label="阅读《害怕也可以说出来》"><span class="cover"><img src="/dream-assets/covers/rail/18.webp" alt="害怕也可以说出来" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>18</span><span aria-hidden="true"> · </span><span>韶山4改</span></span></a><a class="book" id="rail-19" href="/books/rail/19/?from=home" aria-label="阅读《和谐D3B，这次我想讲给大家听》"><span class="cover"><img src="/dream-assets/covers/rail/19.webp" alt="和谐D3B，这次我想讲给大家听" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>19</span><span aria-hidden="true"> · </span><span>和谐D3B</span></span></a><a class="book" id="rail-20" href="/books/rail/20/?from=home" aria-label="阅读《CR450，我还没玩完》"><span class="cover"><img src="/dream-assets/covers/rail/20.webp" alt="CR450，我还没玩完" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>20</span><span aria-hidden="true"> · </span><span>CR450</span></span></a><a class="book" id="rail-21" href="/books/rail/21/?from=home" aria-label="阅读《韶山4改，你想运什么？》"><span class="cover"><img src="/dream-assets/covers/rail/21.webp" alt="韶山4改，你想运什么？" width="420" height="594" loading="lazy" decoding="async"></span><span class="book-label"><span>21</span><span aria-hidden="true"> · </span><span>韶山4改</span></span></a></div>
+    <button class="strip-arrow next" type="button" aria-label="火车绘本向右" aria-controls="rail-strip" data-move="1">›</button>
+  </div>
+</section></div>
+</main>
 </body>
-
 </html>
