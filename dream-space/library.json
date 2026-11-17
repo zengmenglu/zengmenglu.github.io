@@ -6,7 +6,7 @@
       "title": "小椰子和天空中的巨无霸",
       "model": "空客 A380",
       "cover": "assets/covers/air/01.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -14,7 +14,7 @@
       "title": "小椰子和轻轻的梦想",
       "model": "波音 787",
       "cover": "assets/covers/air/02.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -22,7 +22,7 @@
       "title": "小椰子和机翼的秘密",
       "model": "塞斯纳 172",
       "cover": "assets/covers/air/03.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -30,7 +30,7 @@
       "title": "小椰子和大白鲸的大肚子",
       "model": "空客 BelugaXL",
       "cover": "assets/covers/air/04.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -38,7 +38,7 @@
       "title": "小椰子和短短的跑道",
       "model": "DHC-6",
       "cover": "assets/covers/air/05.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -46,7 +46,7 @@
       "title": "小椰子和忙碌的空中货船",
       "model": "波音 747-8F",
       "cover": "assets/covers/air/06.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -54,7 +54,7 @@
       "title": "小椰子和森林的求救信",
       "model": "CL-415",
       "cover": "assets/covers/air/07.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -62,7 +62,7 @@
       "title": "小椰子和一百万个小零件",
       "model": "C919",
       "cover": "assets/covers/air/08.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -70,7 +70,7 @@
       "title": "小椰子和会飞的实验室",
       "model": "A310 Zero G",
       "cover": "assets/covers/air/09.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -78,7 +78,7 @@
       "title": "小椰子和最快的选择",
       "model": "协和式",
       "cover": "assets/covers/air/10.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -86,7 +86,7 @@
       "title": "小椰子追逐太阳",
       "model": "阳光动力 2 号",
       "cover": "assets/covers/air/11.webp",
-      "readable": false
+      "readable": true
     },
     {
       "series": "air",
@@ -94,7 +94,7 @@
       "title": "小椰子和第一次飞翔",
       "model": "莱特飞行者一号",
       "cover": "assets/covers/air/12.webp",
-      "readable": false
+      "readable": true
     }
   ],
   "rail": [

@@ -148,8 +148,9 @@ def reader(book, pages):
   <button type="button" id="fullscreen-toggle" aria-pressed="false">全屏</button></div>
  </header>
  <div class="reader-stage" id="reader-stage">
-   <div class="reader-spread" id="reader-spread">
-     <img src="{first}" alt="第 1 页" width="840" height="1188">
+   <div class="reader-spread" id="reader-spread" data-position="cover">
+     <button type="button" id="reader-left" class="reader-page empty" disabled><img alt="" draggable="false"></button>
+     <button type="button" id="reader-right" class="reader-page" aria-label="第 1 页，翻到下一页"><img src="{first}" alt="" draggable="false"></button>
    </div>
  </div>
  <nav class="reader-controls" aria-label="绘本翻页">

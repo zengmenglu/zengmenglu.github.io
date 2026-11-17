@@ -3,71 +3,141 @@
 const data = JSON.parse(document.getElementById('reader-data').textContent);
 const room = document.getElementById('reading-room');
 const stage = document.getElementById('reader-stage');
-const spread = document.getElementById('reader-spread');
-const back = document.getElementById('previous-page');
+const book = document.getElementById('reader-spread');
+const left = document.getElementById('reader-left');
+const right = document.getElementById('reader-right');
+const previous = document.getElementById('previous-page');
 const next = document.getElementById('next-page');
-const pageCounter = document.getElementById('page-counter');
+const counter = document.getElementById('page-counter');
 const fitSpread = document.getElementById('spread-toggle');
 const fullScreen = document.getElementById('fullscreen-toggle');
 const returnLink = document.getElementById('reader-return');
 const phone = matchMedia('(max-width: 700px) and (orientation: portrait)');
-const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const origin = new URLSearchParams(location.search).get('from');
 const requestedPage = /^#page-(\d+)$/.exec(location.hash);
-let currentPage = Math.min(data.pages.length - 1, Math.max(0, Number(requestedPage?.[1]) - 1 || 0));
-let showSpread = false;
+let current = Math.min(data.pages.length - 1, Math.max(0, Number(requestedPage?.[1]) - 1 || 0));
 let views = [];
-let position = 0;
-let pointer = null;
+let index = 0;
+let showSpread = false;
+let turning = false;
+let touchStart = null;
+let lastSwipe = -Infinity;
 let preferScreen = false;
-let frame = 0;
 
 if (origin === 'home') returnLink.href = `/#${data.series}-${data.number}`;
 
-function buildViews() {
-  views = [[0]];
-  const step = phone.matches && !showSpread ? 1 : 2;
-  for (let page = 1; page < data.pages.length; page += step) {
-    const view = [page];
-    if (step === 2 && page + 1 < data.pages.length) view.push(page + 1);
-    views.push(view);
+function singlePage() {
+  return phone.matches && !showSpread;
+}
+
+function selectPage(page) {
+  const last = data.pages.length - 1;
+  if (singlePage()) {
+    views = data.pages.map((_, number) => [null, number]);
+  } else {
+    views = [[null, 0]];
+    for (let number = 1; number < last; number += 2) {
+      views.push([number, number + 1 < last ? number + 1 : null]);
+    }
+    if (last) views.push([last, null]);
   }
-  position = views.findIndex(view => view.includes(currentPage));
+  book.classList.toggle('single-page', singlePage());
+  index = views.findIndex(view => view.includes(page));
+  current = page;
+  draw();
+}
+
+function drawPage(button, page, action) {
+  const image = button.firstElementChild;
+  button.classList.toggle('empty', page === null);
+  if (page === null) {
+    image.removeAttribute('src');
+    button.removeAttribute('aria-label');
+    return;
+  }
+  if (image.getAttribute('src') !== data.pages[page]) image.src = data.pages[page];
+  button.setAttribute('aria-label', `第 ${page + 1} 页，${action}`);
+}
+
+function draw() {
+  const [first, second] = views[index];
+  book.dataset.position = first === null ? 'cover' : second === null ? 'back' : 'spread';
+  drawPage(left, first, '翻到上一页');
+  drawPage(right, second, '翻到下一页');
+  previous.disabled = index === 0;
+  next.disabled = index === views.length - 1;
+  left.disabled = first === null || previous.disabled;
+  right.disabled = second === null || next.disabled;
   fitSpread.hidden = !phone.matches;
+  counter.textContent = `${views[index].filter(page => page !== null).map(page => page + 1).join('–')} / ${data.pages.length}`;
 }
 
-async function draw(direction = 0) {
-  const id = ++frame;
-  const shown = views[position];
-  const images = shown.map(index => {
-    const img = document.createElement('img');
-    img.width = 840;
-    img.height = 1188;
-    img.alt = `第 ${index + 1} 页`;
-    img.draggable = false;
-    img.src = data.pages[index];
-    return img;
-  });
-  back.disabled = position === 0;
-  next.disabled = position === views.length - 1;
-  pageCounter.textContent = `${shown.map(index => index + 1).join('–')} / ${data.pages.length}`;
-  await Promise.allSettled(images.map(image => image.decode()));
-  if (id !== frame) return;
-  spread.style.setProperty('--visible-pages', shown.length);
-  spread.replaceChildren(...images);
-  spread.classList.remove('turn-forward', 'turn-back');
-  if (direction && !reduceMotion.matches) {
-    requestAnimationFrame(() => spread.classList.add(direction > 0 ? 'turn-forward' : 'turn-back'));
+async function decodedPage(page) {
+  const image = new Image();
+  image.alt = '';
+  image.draggable = false;
+  image.src = data.pages[page];
+  await image.decode();
+  return image;
+}
+
+// The visible paper leaf has the current page on the front and the next page
+// on the reverse, as in the original airplane reader.
+async function turnSpread(from, to, step) {
+  const forward = step > 0;
+  const front = from[forward ? 1 : 0];
+  const reverse = to[forward ? 0 : 1];
+  if (front === null || reverse === null) return;
+
+  const [frontImage, backImage] = await Promise.all([decodedPage(front), decodedPage(reverse)]);
+  const leaf = document.createElement('div');
+  leaf.className = 'paper-leaf ' + (forward ? 'forward' : 'backward');
+  leaf.setAttribute('aria-hidden', 'true');
+  for (const [image, name] of [[frontImage, 'paper-face'], [backImage, 'paper-face reverse']]) {
+    const face = document.createElement('div');
+    face.className = name;
+    face.append(image);
+    leaf.append(face);
+  }
+  book.dataset.position = 'spread';
+  drawPage(left, forward ? from[0] : to[0], '翻到上一页');
+  drawPage(right, forward ? to[1] : from[1], '翻到下一页');
+  book.append(leaf);
+  try {
+    await leaf.animate([
+      { transform: 'rotateY(0deg)' },
+      { transform: `rotateY(${forward ? -180 : 180}deg)` },
+    ], { duration: 450, easing: 'ease-in-out', fill: 'forwards' }).finished;
+  } finally {
+    leaf.remove();
   }
 }
 
-function move(direction) {
-  const target = position + direction;
-  if (target < 0 || target >= views.length) return;
-  position = target;
-  currentPage = views[position][0];
-  history.replaceState(null, '', `#page-${currentPage + 1}`);
-  draw(direction);
+async function turn(step) {
+  const target = views[index + step];
+  if (turning || !target) return;
+  turning = true;
+  try {
+    if (!reduced.matches && book.animate) {
+      if (singlePage()) {
+        await decodedPage(target[1]);
+        await right.animate([
+          { transform: 'rotateY(0deg)', opacity: 1 },
+          { transform: `rotateY(${step * -72}deg)`, opacity: .12 },
+        ], { duration: 190, easing: 'ease-in' }).finished;
+      } else {
+        await turnSpread(views[index], target, step);
+      }
+    }
+  } catch {
+    // A page can still be requested by the static reader on a slow connection.
+  } finally {
+    const page = target[0] ?? target[1];
+    selectPage(page);
+    history.replaceState(null, '', `#page-${page + 1}`);
+    turning = false;
+  }
 }
 
 function syncImmersive(active) {
@@ -95,37 +165,44 @@ async function toggleScreen() {
   preferScreen = true;
   syncImmersive(true);
 }
+
 document.addEventListener('fullscreenchange', () => syncImmersive(document.fullscreenElement === room || preferScreen));
 fullScreen.addEventListener('click', toggleScreen);
-back.addEventListener('click', () => move(-1));
-next.addEventListener('click', () => move(1));
-phone.addEventListener('change', () => { buildViews(); draw(); });
+previous.addEventListener('click', () => turn(-1));
+next.addEventListener('click', () => turn(1));
+for (const [page, direction] of [[left, -1], [right, 1]]) {
+  page.addEventListener('click', event => {
+    if (event.detail === 0 || performance.now() - lastSwipe > 350) turn(direction);
+  });
+}
+phone.addEventListener('change', () => { if (!turning) selectPage(current); });
 fitSpread.addEventListener('click', () => {
+  if (turning) return;
   showSpread = !showSpread;
   fitSpread.textContent = showSpread ? '单页' : '整幅跨页';
   fitSpread.setAttribute('aria-pressed', String(showSpread));
-  buildViews();
-  draw();
+  selectPage(current);
 });
 document.addEventListener('keydown', event => {
-  if (event.altKey || event.ctrlKey || event.metaKey || event.defaultPrevented) return;
+  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.defaultPrevented) return;
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
     event.preventDefault();
-    move(event.key === 'ArrowLeft' ? -1 : 1);
+    turn(event.key === 'ArrowLeft' ? -1 : 1);
   }
   if (event.key === 'Escape' && preferScreen) toggleScreen();
 });
 stage.addEventListener('pointerdown', event => {
-  if (event.pointerType !== 'touch') return;
-  pointer = event.isPrimary ? { x: event.clientX, y: event.clientY, id: event.pointerId } : null;
+  if (event.isPrimary && event.pointerType === 'touch') touchStart = event;
 });
-stage.addEventListener('pointercancel', () => { pointer = null; });
+stage.addEventListener('pointercancel', () => { touchStart = null; });
 stage.addEventListener('pointerup', event => {
-  if (!pointer || event.pointerId !== pointer.id) return;
-  const x = event.clientX - pointer.x, y = event.clientY - pointer.y;
-  pointer = null;
-  if (Math.abs(x) > 45 && Math.abs(x) > Math.abs(y) * 1.25) move(x < 0 ? 1 : -1);
+  if (!touchStart || event.pointerId !== touchStart.pointerId) return;
+  const distance = event.clientX - touchStart.clientX;
+  const rise = event.clientY - touchStart.clientY;
+  touchStart = null;
+  if (Math.abs(distance) > 45 && Math.abs(distance) > Math.abs(rise)) {
+    lastSwipe = performance.now();
+    turn(distance < 0 ? 1 : -1);
+  }
 });
-buildViews();
-if (requestedPage || views[position].length > 1) draw();
-else fitSpread.hidden = !phone.matches;
+selectPage(current);
