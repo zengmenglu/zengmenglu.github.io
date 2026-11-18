@@ -11,16 +11,12 @@ import tempfile
 SOURCE = Path(__file__).resolve().parent
 SERIES = {
     'air': {'name': '飞机绘本', 'subtitle': '小椰子的飞行创造家',
-            'tiers': [(1, 2, 1, 0), (0, 2, 2), (2, 1, 0, 1)],
-            'decor': ['model-air', 'ornament-telescope', 'ornament-star-lamp']},
+            'shared_bays': {'01', '06', '07', '11'},
+            'model_names': {'01': '空客 A380-800', '02': '波音 787-9',
+                            '03': '塞斯纳 172S', '05': 'DHC-6-300', '09': 'A310-304 Zero G'}},
     'rail': {'name': '火车绘本', 'subtitle': '知识号',
-             'tiers': [(1, 2, 1, 0), (2, 0, 2), (1, 1, 2, 0), (0, 2, 2), (2, 1, 2)],
-             'decor': ['model-rail', 'ornament-globe', 'ornament-watch', 'ornament-signal']},
-}
-ORNAMENT_LABELS = {
-    'model-air': '空客 A380-800', 'model-rail': 'CR400BF-Z-0524',
-    'ornament-telescope': '望远镜', 'ornament-star-lamp': '星图灯', 'ornament-globe': '天体仪和球形灯',
-    'ornament-watch': '铁路怀表', 'ornament-signal': '铁路信号灯',
+             'shared_bays': {'02', '04', '09', '11', '13', '18', '20'},
+             'model_names': {'02': 'CR400BF-Z-0524', '19': 'HXD3B', '20': 'CR450AF'}},
 }
 ASSETS = '/dream-assets/'
 
@@ -69,7 +65,12 @@ def card(book, origin):
     title = escape(book['title'])
     model = escape(book['model'])
     cover = escape(asset(book['cover']), quote=True)
-    label = f'<span class="book-label"><span>{no}</span><span aria-hidden="true"> · </span><span>{model}</span></span>'
+    if origin == 'home':
+        label = f'<span class="book-label"><span>{no}</span><span aria-hidden="true"> · </span><span>{model}</span></span>'
+        classes = 'book'
+    else:
+        label = f'<span class="book-label">第 {no} 册</span>'
+        classes = 'book shelf-cell'
     image = f'<img src="{cover}" alt="{title}" width="420" height="594" loading="lazy" decoding="async">'
     body = f'<span class="cover">{image}</span>{label}'
     key = f'{series}-{no}'
@@ -77,8 +78,8 @@ def card(book, origin):
         to = f'/books/{series}/{no}/'
         if origin == 'home':
             to += '?from=home'
-        return f'<a class="book" id="{key}" href="{to}" aria-label="阅读《{title}》">{body}</a>'
-    return f'<div class="book pending-book" id="{key}" aria-label="《{title}》，整理中">{body}</div>'
+        return f'<a class="{classes}" id="{key}" href="{to}" aria-label="阅读《{title}》">{body}</a>'
+    return f'<div class="{classes} pending-book" id="{key}" aria-label="《{title}》，整理中">{body}</div>'
 
 
 def shelves_home(library):
@@ -106,28 +107,31 @@ def shelves_home(library):
 </main>''', 'site.js')
 
 
+def cabinet_pair(code, book):
+    series = SERIES[code]
+    number = book['number']
+    model_file = f'models/{code}/{number}.webp'
+    if not (SOURCE / 'assets' / model_file).is_file():
+        raise ValueError(f'Missing cabinet model for {code} volume {number}: {model_file}')
+    model = escape(series['model_names'].get(number, book['model']))
+    layout = 'pair-shared' if number in series['shared_bays'] else 'pair-split'
+    return f'''<div class="cabinet-pair {layout}">
+  {card(book, 'shelf')}
+  <figure class="shelf-cell model-cell">
+    <img src="{asset(model_file)}" alt="" loading="lazy" decoding="async">
+    <figcaption class="model-label">{model}</figcaption>
+  </figure>
+</div>'''
+
+
 def cabinet(code, books):
     series = SERIES[code]
-    collection = iter(books)
-    decor = iter(series['decor'])
-    tiers = []
-    if sum(map(sum, series['tiers'])) != len(books):
-        raise ValueError(f'{code} cabinet counts do not match its catalog')
-    for compartments in series['tiers']:
-        cells = []
-        for count in compartments:
-            if count:
-                contents = ''.join(card(next(collection), 'shelf') for _ in range(count))
-                cells.append(f'<div class="compartment compartment-{count}">{contents}</div>')
-                continue
-            key = next(decor)
-            title = ORNAMENT_LABELS[key]
-            plate = f'<span class="book-label">{title}</span>' if key.startswith('model-') else ''
-            cells.append(f'<div class="compartment ornament"><img src="{ASSETS}{key}.webp" alt="{title}" loading="lazy">{plate}</div>')
-        tiers.append(f'<div class="cabinet-tier">{"".join(cells)}</div>')
+    pairs = [cabinet_pair(code, book) for book in books]
+    tiers = [f'<div class="cabinet-tier">{"".join(pairs[start:start+3])}</div>'
+             for start in range(0, len(pairs), 3)]
     name, subtitle = series['name'], series['subtitle']
     status = ' · 阅读版整理中' if all(not book['readable'] for book in books) else ''
-    return document(name + ' · 梦空间', 'collection', f'''{nav(code)}
+    return document(name + ' · 梦空间', f'collection collection-{code}', f'''{nav(code)}
 <main class="collection-main"><h1>{name}</h1><p class="series-subtitle">{subtitle}{status}</p>
  <div class="cabinet" aria-label="{name}书柜，共 {len(books)} 册">{''.join(tiers)}</div>
 </main>''', 'site.js')
